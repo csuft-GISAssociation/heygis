@@ -30,8 +30,7 @@ public class DBConfig {
 	public DBConfig() {
        this.init();
 	}
-
-	// ¶ÁÅäÖÃÎÄ¼ş
+	
 	private void init() {
 		try {
 			Properties props = new Properties();
