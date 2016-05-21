@@ -1,0 +1,19 @@
+.marTop{
+	padding-top: 100px;
+	height: 100%;
+}
+.wrapper-inner{
+	background-position: center;
+	vertical-align: middle;
+}
+.title{
+	padding-bottom: 20px;
+}
+.textRight{
+	text-align: right;
+}
+html,body{
+	background: url(../img/old_wall.jpg);
+}
+
+
