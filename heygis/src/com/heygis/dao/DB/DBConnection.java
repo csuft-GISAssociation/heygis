@@ -41,7 +41,7 @@ public class DBConnection {
 			if (stmt != null)
 				stmt.close();
 			if (conn != null)
-				conn.close();// 回收连接
+				conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
