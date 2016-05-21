@@ -25,12 +25,9 @@ public class LoginServlet extends HttpServlet {
 		LoginService loginService = new LoginService();
 		if(loginService.login(account,password)){
 			request.getSession().setAttribute("user",loginService.getUser(account) );
-			response.getWriter().println("success");
+			response.getWriter().println(1);
 		}else{
-			response.getWriter().println("wrong");
+			response.getWriter().println(0);
 		}
 	}
-
-    
-
 }

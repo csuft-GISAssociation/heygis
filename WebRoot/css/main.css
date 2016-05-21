@@ -516,3 +516,14 @@ select option {
 html,body{
 	background: url(../img/seamless_paper_texture.png);
 }
+.bbscontainer{
+	margin-top: -100px;
+	z-index: -2; 
+	position: relative;
+}
+.bbscontainerin{
+	padding: 0px;
+}
+#one{
+	padding-top: 50px;
+}
