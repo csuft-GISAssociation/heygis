@@ -1,9 +1,9 @@
-package com.heygis.dao.interfaces;
+package com.heygis.dao;
 
 import java.sql.ResultSet;
 
 import com.heygis.beans.User;
-import com.heygis.dao.DAOSupport;
+import com.heygis.dao.interfaces.UserDAO;
 
 public class UserDAOImpl extends DAOSupport implements UserDAO{
 

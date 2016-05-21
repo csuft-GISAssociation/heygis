@@ -1,11 +1,11 @@
-package com.heygis.dao.interfaces;
+package com.heygis.dao;
 
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.heygis.dao.DAOSupport;
+import com.heygis.dao.interfaces.SourceDAO;
 
 public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 	@Override

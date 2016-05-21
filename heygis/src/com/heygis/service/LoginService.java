@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.heygis.beans.User;
-import com.heygis.dao.interfaces.UserDAOImpl;
+import com.heygis.dao.UserDAOImpl;
 
 public class LoginService {
 	UserDAOImpl udi = null;

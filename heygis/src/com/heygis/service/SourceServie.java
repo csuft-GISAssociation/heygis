@@ -9,7 +9,7 @@ import com.heygis.beans.SourceFour;
 import com.heygis.beans.SourceOne;
 import com.heygis.beans.SourceThree;
 import com.heygis.beans.SourceTwo;
-import com.heygis.dao.interfaces.SourceDAOImpl;
+import com.heygis.dao.SourceDAOImpl;
 
 public class SourceServie {
 	SourceDAOImpl sdi = null;

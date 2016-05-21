@@ -1,11 +1,11 @@
-package com.heygis.dao.interfaces;
+package com.heygis.dao;
 
 import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
 
 import com.heygis.beans.FeedbackMsg;
-import com.heygis.dao.DAOSupport;
+import com.heygis.dao.interfaces.FeedbackDAO;
 
 public class FeedbackDAOImpl extends DAOSupport implements FeedbackDAO{
 
