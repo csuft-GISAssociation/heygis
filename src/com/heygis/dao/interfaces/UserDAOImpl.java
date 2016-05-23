@@ -9,15 +9,26 @@ import com.heygis.dao.UserDAO;
 public class UserDAOImpl extends DAOSupport implements UserDAO{
 
 	@Override
-	public ResultSet validateUser(String account,String password){
+	public boolean validateUser(String account,String password){
 		try {
 			String sql = "select password from users where account=?";
 			ResultSet rs = this.execQuery(sql, account);
-			return rs;
+			if(rs.next()){
+				if(password.equals(rs.getString("password"))){
+					System.out.println("login ok");
+					return true;
+				}else{
+					System.out.println("password wrong");
+					return false;
+				}
+			}else{
+				System.out.println("account not exist");
+				return false;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return false;
 	}
 
 	@Override

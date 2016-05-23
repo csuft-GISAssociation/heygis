@@ -28,8 +28,12 @@ public class AddFeedbackServlet extends HttpServlet {
 		String accountImg = "123";
 		FeedbackMsg feedbackMsg = new FeedbackMsg(account, nickname, time, feedbackContent, accountImg);
 		FeedbackService feedbackService = new FeedbackService();
-		feedbackService.addMsg(feedbackMsg);
-		request.getRequestDispatcher("/feedbackServlet").forward(request, response);
+		if(feedbackService.addMsg(feedbackMsg)){
+			request.getRequestDispatcher("/feedbackServlet").forward(request, response);
+		}else{
+			//返回错误页面；
+		}
+		
 	}
 
 }

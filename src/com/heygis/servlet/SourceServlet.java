@@ -25,15 +25,10 @@ public class SourceServlet extends HttpServlet {
 		List<SourceTwo> sourceTwoList = sourceService.getSourceTwoList();
 		List<SourceThree> sourceThreeList = sourceService.getSourceThreeList();
 		List<SourceFour> sourceFourList = sourceService.getSourceFourList();;
-		sourceService.close();
 		request.setAttribute("sourceOneList",sourceOneList);
-		System.out.println("1 ok");
 		request.setAttribute("sourceTwoList",sourceTwoList);
-		System.out.println("2 ok");
 		request.setAttribute("sourceThreeList",sourceThreeList);
-		System.out.println("3 ok");
 		request.setAttribute("sourceFourList",sourceFourList);
-		System.out.println("4 ok");
 		request.getRequestDispatcher("/source1.jsp").forward(request, response);
 	}
 	
