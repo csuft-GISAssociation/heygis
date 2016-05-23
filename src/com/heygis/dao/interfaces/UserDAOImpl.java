@@ -27,6 +27,9 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			if(this.conn.equals(null))
+				this.close();
 		}
 		return false;
 	}
@@ -36,19 +39,25 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		try {
 			String account = user.getAccount();
 			String password = user.getPassWord();
+			String nickName = user.getNickName();
 			String grade = user.getGrade();
 			String sql1 = "insert into users (account,password) values (?,?)";
-			String sql2 = "insert into users_info (account,grade) values (?,?)";
+			String sql2 = "insert into users_info (account,nickname,grade) values (?,?,?)";
 			int result1 = this.execUpdate(sql1,account,password);
-			this.execUpdate(sql2,account,grade);
+			this.close();
+			this.execUpdate(sql2,account,nickName,grade);
+			this.close();
 			if(result1 == 1){
-				System.out.println("register OK");
+				System.out.println("register scuessfully");
 			}else{
-				System.out.println();
+				System.out.println("register failed");
 			}
 			return result1;
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			if(this.conn.equals(null))
+				this.close();
 		}
 		return 0;
 		
@@ -68,6 +77,9 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 			return user;
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally{
+			if(this.conn.equals(null))
+				this.close();
 		}
 		return null;
 	}

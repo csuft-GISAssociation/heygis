@@ -24,7 +24,10 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		LoginService loginService = new LoginService();
 		if(loginService.login(account,password)){
+			request.getSession().setAttribute("loged",true);
 			request.getSession().setAttribute("user",loginService.getUser(account) );
+//			System.out.println(request.getHeader("referer"));
+//			response.sendRedirect(request.getHeader("referer"));
 			response.getWriter().println(1);
 		}else{
 			response.getWriter().println(0);

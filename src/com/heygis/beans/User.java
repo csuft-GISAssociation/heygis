@@ -14,6 +14,12 @@ public class User {
 	private int identityId = 3;
 	private String iconImg;
 	
+	public User(String account,String passWord,String nickName,String grade){
+		this.account = account;
+		this.passWord = passWord;
+		this.nickName = nickName;
+		this.grade = grade;
+	}
 	public User(String account,String passWord,String nickName,String grade,String gender,String QQ,String tel,String selfIntroduction,String iconImg){
 		this.account = account;
 		this.passWord = passWord;
