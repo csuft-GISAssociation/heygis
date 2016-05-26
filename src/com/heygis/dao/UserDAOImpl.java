@@ -1,10 +1,9 @@
-package com.heygis.dao.interfaces;
+package com.heygis.dao;
 
 import java.sql.ResultSet;
 
 import com.heygis.beans.User;
-import com.heygis.dao.DAOSupport;
-import com.heygis.dao.UserDAO;
+import com.heygis.dao.interfaces.UserDAO;
 
 public class UserDAOImpl extends DAOSupport implements UserDAO{
 
@@ -67,10 +66,10 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 	public User getUser(String account){
 		try {
 			User user = null;
-			String sql = "select account,nickname,gender,grade,QQ,tel,selfintroduction,identity_id,icon_img from users_info where account=?";
+			String sql = "select uid,account,nickname,gender,grade,QQ,tel,selfintroduction,identity_id,icon_img from users_info where account=?";
 			ResultSet rs = this.execQuery(sql,account);
 			if(rs.next()){
-				user = new User(rs.getString("account"),rs.getString("nickname"), rs.getString("grade"),
+				user = new User(rs.getString("uid"),rs.getString("account"),rs.getString("nickname"), rs.getString("grade"),
 						rs.getString("gender"), rs.getString("QQ"), rs.getString("tel"),
 						rs.getString("selfIntroduction"), rs.getString("icon_Img"));
 			}

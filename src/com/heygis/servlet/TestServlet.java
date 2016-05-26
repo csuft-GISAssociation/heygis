@@ -14,7 +14,8 @@ public class TestServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().print("123");
-		System.out.println("123");
+//		System.out.println("123
+		request.getSession().setAttribute("da", "asd");
 	}
 
 }

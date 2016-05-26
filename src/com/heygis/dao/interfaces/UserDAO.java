@@ -1,4 +1,4 @@
-package com.heygis.dao;
+package com.heygis.dao.interfaces;
 
 import java.sql.ResultSet;
 

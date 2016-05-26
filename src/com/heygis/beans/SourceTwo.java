@@ -1,6 +1,6 @@
 package com.heygis.beans;
 
-public class SourceTwo {
+public class SourceTwo extends Source{
 	private String name;
 	private String introduction;
 	private String file_size;

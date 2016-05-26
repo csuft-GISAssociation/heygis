@@ -1,15 +1,24 @@
 package com.heygis.service;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.heygis.beans.SourceFour;
 import com.heygis.beans.SourceOne;
 import com.heygis.beans.SourceThree;
 import com.heygis.beans.SourceTwo;
-import com.heygis.dao.interfaces.SourceDAOImpl;
+import com.heygis.dao.ComparatorByAlphaImpl;
+import com.heygis.dao.ComparatorByDownImpl;
+import com.heygis.dao.ComparatorImpl;
+import com.heygis.dao.CompatatorByTimeImpl;
+import com.heygis.dao.SourceDAOImpl;
 
 public class SourceServie {
 	SourceDAOImpl sdi = null;
+	ComparatorImpl comp = null;
+	ComparatorByAlphaImpl compAlpha = null;
+	ComparatorByDownImpl comDown = null;
+	CompatatorByTimeImpl comTime = null;
 	public SourceServie(){
 		sdi = new SourceDAOImpl();
 	}
@@ -25,4 +34,117 @@ public class SourceServie {
 	public List<SourceFour> getSourceFourList(){
 		return sdi.getSourceFour();
 	}
+	//按上传时间进行排序
+	public List sortByTime(String sourceType){
+		if(sourceType.equals("1")){
+			List<SourceOne> sourceOneList = sdi.getSourceOne();
+			comTime = new CompatatorByTimeImpl();
+			Collections.sort(sourceOneList, comTime);
+			return sourceOneList;
+		}
+		if(sourceType.equals("2")){
+			List<SourceTwo> sourceTwoList = sdi.getSourceTwo();
+			comTime = new CompatatorByTimeImpl();
+			Collections.sort(sourceTwoList, comTime);
+			return sourceTwoList;	
+		}
+		if(sourceType.equals("3")){
+			List<SourceThree> sourceThreeList = sdi.getSourceThree();
+			comTime = new CompatatorByTimeImpl();
+			Collections.sort(sourceThreeList, comTime);
+			return sourceThreeList;
+		}
+		if(sourceType.equals("4")){
+			List<SourceFour> sourceFourList = sdi.getSourceFour();
+			comTime = new CompatatorByTimeImpl();
+			Collections.sort(sourceFourList, comTime);
+			return sourceFourList;
+		}
+		return null;	 	
+	}
+	//按文件下载次数进行排序
+	public List sortByDown(String sourceType){
+		if(sourceType.equals("1")){
+			List<SourceOne> sourceOneList = sdi.getSourceOne();
+			comDown = new ComparatorByDownImpl();
+			Collections.sort(sourceOneList, comDown);
+			return sourceOneList;
+		}
+		if(sourceType.equals("2")){
+			List<SourceTwo> sourceTwoList = sdi.getSourceTwo();
+			comDown = new ComparatorByDownImpl();
+			Collections.sort(sourceTwoList, comDown);
+			return sourceTwoList;	
+		}
+		if(sourceType.equals("3")){
+			List<SourceThree> sourceThreeList = sdi.getSourceThree();
+			comDown = new ComparatorByDownImpl();
+			Collections.sort(sourceThreeList, comDown);
+			return sourceThreeList;
+		}
+		if(sourceType.equals("4")){
+			List<SourceFour> sourceFourList = sdi.getSourceFour();
+			comDown = new ComparatorByDownImpl();
+			Collections.sort(sourceFourList, comDown);
+			return sourceFourList;
+		}
+		return null;	 	
+	}
+	//按文件大小进行排序
+	public List sortByFileSize(String sourceType){
+		if(sourceType.equals("1")){
+			List<SourceOne> sourceOneList = sdi.getSourceOne();
+			comp = new ComparatorImpl();
+			Collections.sort(sourceOneList, comp);
+			return sourceOneList;
+		}
+		if(sourceType.equals("2")){
+			List<SourceTwo> sourceTwoList = sdi.getSourceTwo();
+			comp = new ComparatorImpl();
+			Collections.sort(sourceTwoList, comp);
+			return sourceTwoList;	
+		}
+		if(sourceType.equals("3")){
+			List<SourceThree> sourceThreeList = sdi.getSourceThree();
+			comp = new ComparatorImpl();
+			Collections.sort(sourceThreeList, comp);
+			return sourceThreeList;
+		}
+		if(sourceType.equals("4")){
+			List<SourceFour> sourceFourList = sdi.getSourceFour();
+			comp = new ComparatorImpl();
+			Collections.sort(sourceFourList, comp);
+			return sourceFourList;
+		}
+		return null;	 	
+	}
+	//按文件名称进行排序
+	public List sortByAlpha(String sourceType){
+		if(sourceType.equals("1")){
+			List<SourceOne> sourceOneList = sdi.getSourceOne();
+			compAlpha = new ComparatorByAlphaImpl();
+			Collections.sort(sourceOneList, compAlpha);
+			return sourceOneList;
+		}
+		if(sourceType.equals("2")){
+			List<SourceTwo> sourceTwoList = sdi.getSourceTwo();
+			compAlpha = new ComparatorByAlphaImpl();
+			Collections.sort(sourceTwoList, compAlpha);
+			return sourceTwoList;	
+		}
+		if(sourceType.equals("3")){
+			List<SourceThree> sourceThreeList = sdi.getSourceThree();
+			compAlpha = new ComparatorByAlphaImpl();
+			Collections.sort(sourceThreeList, compAlpha);
+			return sourceThreeList;
+		}
+		if(sourceType.equals("4")){
+			List<SourceFour> sourceFourList = sdi.getSourceFour();
+			compAlpha = new ComparatorByAlphaImpl();
+			Collections.sort(sourceFourList, compAlpha);
+			return sourceFourList;
+		}
+		return null;
+	}
+	
 }

@@ -1,4 +1,4 @@
-package com.heygis.dao.interfaces;
+package com.heygis.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.heygis.beans.FeedbackMsg;
-import com.heygis.dao.DAOSupport;
-import com.heygis.dao.FeedbackDAO;
+import com.heygis.dao.interfaces.FeedbackDAO;
 
 public class FeedbackDAOImpl extends DAOSupport implements FeedbackDAO{
 
@@ -26,10 +25,10 @@ public class FeedbackDAOImpl extends DAOSupport implements FeedbackDAO{
 //				accountImg+"')";
 		int result = this.execUpdate(sql, account,nickname,time,feedbackContent,accountImg);
 		if(result == 1){
-			System.out.println("·´À¡³É¹¦");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½");
 			return true;
 		}else{
-			System.out.println("·´À¡Ê§°Ü");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
 			return false;
 		}
 	}

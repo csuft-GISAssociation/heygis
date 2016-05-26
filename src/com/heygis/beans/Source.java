@@ -1,6 +1,6 @@
 package com.heygis.beans;
 
-public class SourceOne extends Source{
+public class Source {
 	private String name;
 	private String introduction;
 	private String file_size;
@@ -8,8 +8,6 @@ public class SourceOne extends Source{
 	private String icon;
 	private String upload_time;
 	private long download_times;
-	private String level;
-	private String uploader;
 	public String getName() {
 		return name;
 	}
@@ -51,18 +49,6 @@ public class SourceOne extends Source{
 	}
 	public void setDownload_times(long download_times) {
 		this.download_times = download_times;
-	}
-	public String getLevel() {
-		return level;
-	}
-	public void setLevel(String level) {
-		this.level = level;
-	}
-	public String getUploader() {
-		return uploader;
-	}
-	public void setUploader(String uploader) {
-		this.uploader = uploader;
 	}
 	
 }

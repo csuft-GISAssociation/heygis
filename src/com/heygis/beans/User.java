@@ -3,6 +3,7 @@ package com.heygis.beans;
 import java.util.Date;
 
 public class User {
+	private int uid;
 	private String account;
 	private String passWord;
 	private String nickName;
@@ -31,7 +32,8 @@ public class User {
 		this.selfIntroduction = selfIntroduction;
 		this.iconImg = iconImg;
 	}
-	public User(String account,String nickName,String grade,String gender,String QQ,String tel,String selfIntroduction,String iconImg){
+	public User(int uid,String account,String nickName,String grade,String gender,String QQ,String tel,String selfIntroduction,String iconImg){
+		this.uid = uid;
 		this.account = account;
 		this.nickName = nickName;
 		this.grade = grade;
@@ -41,7 +43,13 @@ public class User {
 		this.selfIntroduction = selfIntroduction;
 		this.iconImg = iconImg;
 	}
-	
+
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
 	public String getAccount() {
 		return account;
 	}

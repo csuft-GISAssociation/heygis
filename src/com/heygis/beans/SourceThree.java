@@ -1,8 +1,7 @@
 package com.heygis.beans;
 
-import java.util.Date;
 
-public class SourceThree {
+public class SourceThree extends Source{
 	private String name;
 	private String introduction;
 	private String file_size;
