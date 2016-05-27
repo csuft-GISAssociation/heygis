@@ -11,14 +11,14 @@ public class ForumPost {
 	private int authorUid;
 	private String authorAccount;
 	private String subject;
-	private Date fateline;
+	private Date dateline;
 	private String message;
 	private String userip;
 	private int attchment;
 	private int position;
 	
 	public ForumPost(int pid, int fid, int tid, int first, String author,
-			int authorUid, String authorAccount, String subject, Date fateline,
+			int authorUid, String authorAccount, String subject, Date dateline,
 			String message, String userip, int attchment, int position) {
 		super();
 		this.pid = pid;
@@ -29,7 +29,7 @@ public class ForumPost {
 		this.authorUid = authorUid;
 		this.authorAccount = authorAccount;
 		this.subject = subject;
-		this.fateline = fateline;
+		this.dateline = dateline;
 		this.message = message;
 		this.userip = userip;
 		this.attchment = attchment;
@@ -85,11 +85,11 @@ public class ForumPost {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public Date getFateline() {
-		return fateline;
+	public Date getDateline() {
+		return dateline;
 	}
-	public void setFateline(Date fateline) {
-		this.fateline = fateline;
+	public void setDateline(Date dateline) {
+		this.dateline = dateline;
 	}
 	public String getMessage() {
 		return message;

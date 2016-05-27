@@ -1,6 +1,7 @@
 package com.heygis.dao;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.heygis.beans.User;
 import com.heygis.dao.interfaces.UserDAO;
@@ -27,8 +28,12 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			if(this.conn.equals(null))
-				this.close();
+			try {
+				if(!this.conn.isClosed())
+					this.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
@@ -55,8 +60,12 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			if(this.conn.equals(null))
-				this.close();
+			try {
+				if(!this.conn.isClosed())
+					this.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return 0;
 		
@@ -77,8 +86,12 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			if(this.conn.equals(null))
-				this.close();
+			try {
+				if(!this.conn.isClosed())
+					this.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
