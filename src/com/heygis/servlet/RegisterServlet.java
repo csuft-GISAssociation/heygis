@@ -32,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
 		if(rsult == 1){
 			response.sendRedirect("index.jsp");
 		}else{
-			request.setAttribute("message", "register unsuccessfully");
+			request.setAttribute("message", "注册失败");
 			RequestDispatcher dis =  request.getRequestDispatcher("/result.jsp");
 			dis.forward(request, response);
 		}

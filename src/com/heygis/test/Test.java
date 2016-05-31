@@ -5,11 +5,14 @@ import java.util.List;
 
 import com.heygis.beans.ForumPost;
 import com.heygis.beans.ForumPostPage;
+import com.heygis.beans.ForumThread;
+import com.heygis.beans.ForumsThreadPage;
 import com.heygis.beans.SourceFour;
 import com.heygis.beans.SourceOne;
 import com.heygis.beans.SourceThree;
 import com.heygis.beans.SourceTwo;
 import com.heygis.dao.ForumPostDAOImpl;
+import com.heygis.dao.ForumThreadDAOImpl;
 import com.heygis.service.AddPostService;
 import com.heygis.service.SourceServie;
 import com.heygis.servlet.SourceServlet;
@@ -21,19 +24,53 @@ import com.heygis.servlet.SourceServlet;
 public class Test {
 
 	public static void main(String[] args) {
-////		ForumPost post = new ForumPost(0, 1, 3, 0, "sm", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0);
-////		addPost(post);
-//		Thread mt = new myThread(new ForumPost(0, 1, 3, 0, "sm1", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-//		Thread mt2 = new myThread(new ForumPost(0, 1, 3, 0, "sz2", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-//		Thread mt3 = new myThread(new ForumPost(0, 1, 3, 0, "sm3", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-//		Thread mt4 = new myThread(new ForumPost(0, 1, 3, 0, "sz4", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-//		mt.start();
-//		mt2.start();
-//		mt3.start();
-//		mt4.start();
-//		for(int i=0;i<10;i++){
-//			new myThread(new ForumPost(0, 1, 3, 0, "sz-"+i, 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0)).start();
-//		}
+		int i = 0;
+		while(i<10){
+			i++;
+			addThread();
+		}
+		addThread();
+}
+	/**
+	 * getThreasPage测试
+	 */
+	public static void threadPageTest(){
+		ForumsThreadPage ftp = new ForumThreadDAOImpl().getThreadPage(1, 1);
+		for(int i=0;i<5;i++){
+			if(ftp.getThread(i) == null){
+				System.out.println("break");
+				break;
+				}
+			System.out.println(ftp.getThread(i).getAuthor());
+			System.out.println(ftp.getThread(i).getAuthorAuthor());
+		}
+//		System.out.println(fpp.getPost(5).getMessage());
+	}
+	/**
+	 * addThread测试
+	 */
+	public static void addThread(){
+//		addthread测试
+//		new ForumThreadDAOImpl().addThread(new ForumThread(0, 1, 1, 1, "sa", 1, "@qq.com", "diyiceshitie", new Date(),new Date(),"", 0, 0, 0, 0, 0, 0));
+	}
+	/**
+	 * addPost测试
+	 */
+	public static void addpost2(){
+//		addpost测试
+//		ForumPost post = new ForumPost(0, 1, 3, 0, "sm", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0);
+//		addPost(post);
+		Thread mt = new myThread(new ForumPost(0, 1, 3, 0, "sm1", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+		Thread mt2 = new myThread(new ForumPost(0, 1, 3, 0, "sz2", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+		Thread mt3 = new myThread(new ForumPost(0, 1, 3, 0, "sm3", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+		Thread mt4 = new myThread(new ForumPost(0, 1, 3, 0, "sz4", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+		mt.start();
+		mt2.start();
+		mt3.start();
+		mt4.start();
+		for(int i=0;i<10;i++){
+			new myThread(new ForumPost(0, 1, 3, 0, "sz-"+i, 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0)).start();
+		}
 	}
 	/**
 	 * addPost测试

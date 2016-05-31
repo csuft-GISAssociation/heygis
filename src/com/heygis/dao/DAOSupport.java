@@ -50,4 +50,16 @@ public class DAOSupport {
 	public void close() {
 		dbconn.close(conn, stmt, rs);
 	}
+	protected int LAST_INSERT_ID() {
+		try {
+			stmt = conn.prepareStatement("SELECT LAST_INSERT_ID();");
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);//取得ID
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

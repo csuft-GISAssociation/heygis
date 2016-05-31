@@ -74,4 +74,34 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/registerServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ForumsServlet</display-name>
+    <servlet-name>ForumsServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.ForumsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForumsServlet</servlet-name>
+    <url-pattern>/forumsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddThreadServlet</display-name>
+    <servlet-name>AddThreadServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.AddThreadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddThreadServlet</servlet-name>
+    <url-pattern>/addThreadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TopicServlet</display-name>
+    <servlet-name>TopicServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.TopicServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TopicServlet</servlet-name>
+    <url-pattern>/TopicServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

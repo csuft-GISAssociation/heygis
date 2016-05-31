@@ -1,27 +1,32 @@
 package com.heygis.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class LogoutServlet
- * date:2016/5/23/17:25
- */
-public class LogoutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import com.heygis.service.ForumsService;
 
-    public LogoutServlet() {
+/**
+ * Servlet implementation class ForumsServlet
+ */
+public class ForumsServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public ForumsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().invalidate();
-//		System.out.println(request.getHeader("referer"));
-		response.sendRedirect(request.getHeader("referer"));
+		int page = Integer.parseInt(request.getParameter("page"));
+		int fid = Integer.parseInt(request.getParameter("fid"));
+		ForumsService fs = new ForumsService();
+		request.setAttribute("threadPage", fs.getThreadPage(fid, page));
+		RequestDispatcher dis = request.getRequestDispatcher("/forums/forums.jsp");
+		dis.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
