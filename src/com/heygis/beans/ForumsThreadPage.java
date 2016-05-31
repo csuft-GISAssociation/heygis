@@ -30,6 +30,12 @@ public class ForumsThreadPage {
 		this.threadArray[i]= thread;
 		thread_number = i;
 	}
+	public int getThread_number() {
+		return thread_number;
+	}
+	public void setThread_number(int thread_number) {
+		this.thread_number = thread_number;
+	}
 	public ForumThread getThread(int i) {
 		return threadArray[i];
 	}

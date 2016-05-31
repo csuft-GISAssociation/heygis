@@ -18,6 +18,7 @@ public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 		SourceOne sourceOne = null;
 		List<SourceOne> sourceOneList = new ArrayList<SourceOne>();
 		String sql = "select * from sourceone";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql);
 		try {
 			while(rs.next()){
@@ -44,6 +45,7 @@ public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 		SourceTwo sourceTwo = null;
 		List<SourceTwo> sourceTwoList = new ArrayList<SourceTwo>();
 		String sql = "select * from sourcetwo";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql);
 		try {
 			while(rs.next()){
@@ -70,6 +72,7 @@ public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 		SourceThree sourceThree = null;
 		List<SourceThree> sourceThreeList = new ArrayList<SourceThree>();
 		String sql = "select * from sourcethree";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql);
 		try {
 			while(rs.next()){
@@ -97,6 +100,7 @@ public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 		SourceFour sourceFour = null;
 		List<SourceFour> sourceFourList = new ArrayList<SourceFour>();
 		String sql = "select * from sourcefour";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql);
 		try {
 			while(rs.next()){

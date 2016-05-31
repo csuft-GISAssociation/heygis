@@ -96,12 +96,31 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>TopicServlet</display-name>
-    <servlet-name>TopicServlet</servlet-name>
-    <servlet-class>com.heygis.servlet.TopicServlet</servlet-class>
+    <display-name>TopicsServlet</display-name>
+    <servlet-name>TopicsServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.TopicsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>TopicServlet</servlet-name>
-    <url-pattern>/TopicServlet</url-pattern>
+    <servlet-name>TopicsServlet</servlet-name>
+    <url-pattern>/topicsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddPostServlet</display-name>
+    <servlet-name>AddPostServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.AddPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPostServlet</servlet-name>
+    <url-pattern>/addPostServlet</url-pattern>
+  </servlet-mapping>  <servlet>
+    <description></description>
+    <display-name>SortServlet</display-name>
+    <servlet-name>SortServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.SortServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SortServlet</servlet-name>
+    <url-pattern>/sortServlet</url-pattern>
   </servlet-mapping>
 </web-app>

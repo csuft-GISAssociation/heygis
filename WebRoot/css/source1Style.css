@@ -10,6 +10,12 @@ span,
 	font: inherit;
 	vertical-align: baseline;
 }
+.sourceTitle{
+	display: inline;
+}
+.btn-choose{
+	margin-bottom: 15px;
+}
 
 article,
 section {
@@ -492,4 +498,10 @@ body.is-touch .tiles article .content {
 }
 .idid{
 	position: fixed;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    color: #C0C0C0 !important;
+    text-decoration: none;
+    background-color:white !important;
+    outline: 0;
 }

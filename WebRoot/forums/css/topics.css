@@ -1,0 +1,129 @@
+.post_wraper{
+	margin-top: 70px;
+	padding: 0px;
+	/*padding-left: 120px;*/
+}
+.thread_title{
+	height: auto;
+	background-color: #DDDDDD;
+	text-align: left;
+	border: 2px solid #888888;
+	border-bottom: 1px solid #888888;
+}
+.postlist{
+	height: auto;
+	padding: 0px;
+	border-bottom: 1px solid #888888;
+	border-left: 1px solid #888888;
+	border-right: 1px solid #888888;
+}
+.post{
+	border-top: 1px solid #888888;
+	background-color: #F5F5F5;
+	height: auto;
+	overflow:auto;
+}
+.p_author{
+	height: 200px;
+	padding-top: 15px;
+	padding-left: 12px;
+	padding-right: 2px;
+}
+.p_author_icon{
+	text-align:center;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.icon_img{
+}
+.p_content{
+	border-left: 1px solid #888888;
+}
+.p_detail{
+	min-height: 200px;
+	padding-bottom: 25px;
+	padding-top: 15px;
+	text-align: left;
+	font-size: 16px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.replay_tail{
+	border-top: 1px dotted #888888;
+	/*border-left: 1px solid #888888;*/
+	text-align: right;
+	width: 100%;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+.replay_tail ul{
+	list-style: none;
+}
+.replay_tail li{
+	float: right;
+	padding-right: 12px;
+}
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post_reply_wraper{
+	padding: 0px;
+}
+.post_reply_content{
+	margin-top: 20px;
+	padding: 0px;
+	background-color: #F5F5F5;
+	height: auto;
+}
+.post_reoly_head{
+	padding: 0px;
+	margin-left: 20px;
+	margin-top: 10px;
+	float: left;
+	font-size: 17px;
+}
+.post_reply_textarea{
+	padding: 0px;
+	height: auto;
+}
+.post_reply_textarea p{
+	margin-left: 20px;
+	margin-top: 10px;
+	float: left;
+}
+.post_reply_textarea a{
+	margin-left: 20px;
+	margin-top: 10px;
+	float: left;
+}
+.post_reply_textarea textarea{
+	float: left;
+	margin: 20px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	width: 90%;
+	height: 170px;
+}
+.post_reply_submit{
+	margin-left: 20px;
+	float: left;
+	margin-bottom: 15px;
+}
+legend{
+	font-size: 15px;
+	font-weight: bolder;
+	margin-bottom: 6px;
+}
+blockquote{
+	border-left: 1px dotted #888888;
+	border-bottom: 1px dotted #888888;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+.clear{
+	clear: both;
+}

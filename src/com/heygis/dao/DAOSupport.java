@@ -15,7 +15,7 @@ public class DAOSupport {
 
 	protected ResultSet execQuery(String sql, Object... args) {
 		try {
-			openConn();
+//			openConn();
 			stmt = conn.prepareStatement(sql);
 			for(int i = 0; i < args.length; i++){
 				stmt.setObject(i+1, args[i]);
@@ -28,7 +28,7 @@ public class DAOSupport {
 	}
 	protected int execUpdate(String sql, Object... args) {
 		try {
-			openConn();
+//			openConn();
 			stmt = conn.prepareStatement(sql);
 			for(int i = 0; i < args.length; i++){
 				stmt.setObject(i+1, args[i]);
@@ -39,7 +39,7 @@ public class DAOSupport {
 		}
 		return 0;
 	}
-	private void openConn(){
+	protected void openConn(){
 		try {
 			dbconn = DBConnection.getInstance();
 			conn = dbconn.getConnection();

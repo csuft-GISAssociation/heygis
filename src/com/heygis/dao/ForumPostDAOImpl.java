@@ -14,19 +14,18 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 	@Override
 	public synchronized boolean addPost(ForumPost post) {
 		String sql = "select count(pid) from forum_post;";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql);
 		int pid = 0;
 		try {
 			if(rs.next())
 				pid = rs.getInt(1)+1;
-			this.close();
-			System.out.println("pid="+pid);
+//			System.out.println("pid="+pid);
 			sql = "insert into forum_post (pid,fid,tid,first,author,author_uid,author_account"
 					+ ",subject,dateline,message,userip,attachment) values (?,?,?,?,?,?,?,?,?,?,?,?);";
 			this.execUpdate(sql, pid ,post.getFid(),post.getTid(),post.getFirst(),post.getAuthor(),
 					post.getAuthorUid(),post.getAuthorAccount(),post.getSubject(),new Date().getTime(),post.getMessage(),
 					post.getUserip(),post.getAttchment());
-			this.close();
 			sql = "update forum_thread SET lastpost=? ,lastposter=? ,views=views+1 where tid=?;";
 			this.execUpdate(sql, new Date().getTime(),post.getAuthor(),post.getTid());
 			this.close();
@@ -47,6 +46,7 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 	@Override
 	public boolean delPost(int pid) {
 		String sql = "update forum_post set message=? where pid=?;";
+		this.openConn();
 		if(this.execUpdate(sql, "此楼被删除", pid) == 1){
 			this.close();
 			return true;
@@ -62,8 +62,10 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 		int begin = page * 30 + -30;
 		int end = page * 30;
 		String sql = "select * from forum_post where tid=? limit ?,?;";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql, tid, begin, end);
 		ForumPostPage postPage = new ForumPostPage(tid,page);
+		postPage.setTid(tid);
 		int i = 0;
 		try {
 			while(rs.next()){

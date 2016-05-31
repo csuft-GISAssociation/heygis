@@ -1,11 +1,19 @@
 package com.heygis.beans;
 
 public class ForumPostPage {
+	private int fid;
 	private int tid;
 	private int page;
 	private int beginPosi;
 	private int endPosi;
 	private int totalPage;
+	private int post_number;
+	public int getPost_number() {
+		return post_number;
+	}
+	public void setPost_number(int post_number) {
+		this.post_number = post_number;
+	}
 	private ForumPost[] postArray;
 	
 	public ForumPostPage(int tid,int page) {
@@ -41,5 +49,18 @@ public class ForumPostPage {
 	}
 	public void setPost(int i,ForumPost post) {
 		this.postArray[i] = post;
+		post_number++;
+	}
+	public int getFid() {
+		return fid;
+	}
+	public void setFid(int fid) {
+		this.fid = fid;
+	}
+	public int getTid() {
+		return tid;
+	}
+	public void setTid(int tid) {
+		this.tid = tid;
 	}
 }

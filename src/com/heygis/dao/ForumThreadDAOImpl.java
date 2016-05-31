@@ -17,6 +17,7 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
 	public boolean addThread(ForumThread thread, ForumPost post) {
 		String sql = "insert into forum_thread (fid,typeid,sortid,author,author_uid,"
 				+ "author_account,subject,dateline,lastpost,attachment)values(?,?,?,?,?,?,?,?,?,?);";
+		this.openConn();
 		if(this.execUpdate(sql, thread.getFid(),thread.getTypeid(),thread.getSortid(),thread.getAuthor(),
 				thread.getAuthorUid(),thread.getAuthorAuthor(),thread.getSubject(),new Date().getTime(),
 				new Date().getTime(),thread.getAttachment())==1){
@@ -35,6 +36,7 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
 	@Override
 	public boolean delThread(int tid) {
 		String sql = "update forum_thread display=0 where tid=?;";
+		this.openConn();
 		if(this.execUpdate(sql,tid) == 1){
 			this.close();
 			return true;
@@ -49,6 +51,7 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
 		int begin = page * 30 + -30;
 		int end = page * 30 ;
 		String sql = "select * from forum_thread where fid=? and display=1 order by lastpost limit ?,?;";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql, fid, begin, end);
 		ForumsThreadPage threadPage = new ForumsThreadPage(fid,page);
 		int i = 0;

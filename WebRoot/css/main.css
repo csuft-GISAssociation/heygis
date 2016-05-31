@@ -7,9 +7,7 @@ section {
 	vertical-align: baseline;
 	display: block;
 }
-#bbs{
-	color: white;
-}
+
 
 @-ms-viewport {
 	width: device-width;
@@ -513,17 +511,39 @@ select option {
 .style22{
 	text-align: left;
 }
-html,body{
-	background: url(../img/seamless_paper_texture.png);
-}
-.bbscontainer{
-	margin-top: -100px;
-	z-index: -2; 
+
+.bbscontainer {
+	margin-top: -140px;
+	z-index: -2;
 	position: relative;
 }
-.bbscontainerin{
+
+.bbscontainerin {
 	padding: 0px;
+	text-align: center;
 }
-#one{
+
+
+#one {
 	padding-top: 50px;
+}
+.major {
+	color: white
+}
+p{
+	color: white
+}
+.style1,.style3{
+	text-align: left;
+}
+#allmap{
+	height: 80%;
+	padding: 0px;
+	box-shadow: 5px 5px 20px white;
+}
+#tableLBS{
+	background-color: white; 
+	padding: 0px; height: 80%;
+	overflow-y: auto;
+	box-shadow: 5px 5px 20px white;
 }

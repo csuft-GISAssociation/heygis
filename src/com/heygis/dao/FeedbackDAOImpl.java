@@ -18,17 +18,19 @@ public class FeedbackDAOImpl extends DAOSupport implements FeedbackDAO{
 		String feedbackContent = feedbackMsg.getFeedbackContent();
 		String accountImg = feedbackMsg.getAccountImg();
 		String sql = "insert into feedback (account,nickname,time,feedbackcontent,accountimg) values (?,?,?,?,?) ";
+		this.openConn();
 //		String s1 = "insert into feedback (account,nickname,time,feedbackcontent,accountimg) values ('"+account+"','" +
 //				nickname+"','"+
 //				time+"','"+
 //				feedbackContent+"','"+
 //				accountImg+"')";
 		int result = this.execUpdate(sql, account,nickname,time,feedbackContent,accountImg);
+		this.close();
 		if(result == 1){
-			System.out.println("�����ɹ�");
+//			System.out.println("�����ɹ�");
 			return true;
 		}else{
-			System.out.println("����ʧ��");
+//			System.out.println("����ʧ��");
 			return false;
 		}
 	}
@@ -36,6 +38,7 @@ public class FeedbackDAOImpl extends DAOSupport implements FeedbackDAO{
 	@Override
 	public List<FeedbackMsg> getMsg() {
 		String sql ="select * from feedback order by id desc";
+		this.openConn();
 		ResultSet rs = this.execQuery(sql);
 		List<FeedbackMsg> feedbackMsgList = new ArrayList<FeedbackMsg>();
 		try {
@@ -48,6 +51,7 @@ public class FeedbackDAOImpl extends DAOSupport implements FeedbackDAO{
 				feedbackMsg.setAccountImg(rs.getString("accountimg"));
 				feedbackMsgList.add(feedbackMsg);
 			}
+			this.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

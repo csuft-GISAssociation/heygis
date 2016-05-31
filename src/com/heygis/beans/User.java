@@ -21,17 +21,6 @@ public class User {
 		this.nickName = nickName;
 		this.grade = grade;
 	}
-	public User(String account,String passWord,String nickName,String grade,String gender,String QQ,String tel,String selfIntroduction,String iconImg){
-		this.account = account;
-		this.passWord = passWord;
-		this.nickName = nickName;
-		this.grade = grade;
-		this.gender = gender;
-		this.QQ = QQ;
-		this.tel = tel;
-		this.selfIntroduction = selfIntroduction;
-		this.iconImg = iconImg;
-	}
 	public User(int uid,String account,String nickName,String grade,String gender,String QQ,String tel,String selfIntroduction,String iconImg){
 		this.uid = uid;
 		this.account = account;

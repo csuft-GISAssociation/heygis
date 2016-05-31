@@ -7,11 +7,11 @@ import com.heygis.beans.SourceFour;
 import com.heygis.beans.SourceOne;
 import com.heygis.beans.SourceThree;
 import com.heygis.beans.SourceTwo;
-import com.heygis.dao.ComparatorByAlphaImpl;
-import com.heygis.dao.ComparatorByDownImpl;
-import com.heygis.dao.ComparatorImpl;
-import com.heygis.dao.CompatatorByTimeImpl;
 import com.heygis.dao.SourceDAOImpl;
+import com.heygis.util.ComparatorByAlphaImpl;
+import com.heygis.util.ComparatorByDownImpl;
+import com.heygis.util.ComparatorImpl;
+import com.heygis.util.CompatatorByTimeImpl;
 
 public class SourceServie {
 	SourceDAOImpl sdi = null;

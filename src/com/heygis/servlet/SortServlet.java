@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.beans.SourceFour;
+import com.heygis.beans.SourceOne;
 import com.heygis.beans.SourceThree;
+import com.heygis.beans.SourceTwo;
 import com.heygis.dao.SourceDAOImpl;
 import com.heygis.service.CreateHTMLService;
 import com.heygis.service.SourceServie;
@@ -30,11 +32,59 @@ public class SortServlet extends HttpServlet {
 		response.setContentType("text/html;chatset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if(sourceType.equals("1")){
-			
+			if(sortWay.equals("0")){
+				List<SourceOne> sourceOneList = new SourceDAOImpl().getSourceOne();
+				String html = new CreateHTMLService().createHTML(sourceOneList,sourceType);
+				out.print(html);
+			}
+			if(sortWay.equals("1")){
+				List<SourceOne> sourceOneList = sourceService.sortByTime(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceOneList,sourceType);
+				out.print(html);	
+			}
+			if(sortWay.equals("2")){
+				List<SourceOne> sourceOneList = sourceService.sortByDown(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceOneList,sourceType);
+				out.print(html);
+			}
+			if(sortWay.equals("3")){
+				List<SourceOne> sourceOneList = sourceService.sortByAlpha(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceOneList,sourceType);
+				out.print(html);
+			}
+			if(sortWay.equals("4")){
+				List<SourceOne> sourceOneList = sourceService.sortByFileSize(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceOneList,sourceType);
+				out.print(html);
+			}
 		}
 		if(sourceType.equals("2")){
-					
-				}
+			if(sortWay.equals("0")){
+				List<SourceTwo> sourceTwoList = new SourceDAOImpl().getSourceTwo();
+				String html = new CreateHTMLService().createHTML(sourceTwoList,sourceType);
+				out.print(html);
+			}
+			if(sortWay.equals("1")){
+				List<SourceTwo> sourceTwoList = sourceService.sortByTime(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceTwoList,sourceType);
+				out.print(html);	
+			}
+			if(sortWay.equals("2")){
+				List<SourceTwo> sourceTwoList = sourceService.sortByDown(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceTwoList,sourceType);
+				out.print(html);
+			}
+			if(sortWay.equals("3")){
+				List<SourceTwo> sourceTwoList = sourceService.sortByAlpha(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceTwoList,sourceType);
+				out.print(html);
+			}
+			if(sortWay.equals("4")){
+				List<SourceTwo> sourceTwoList = sourceService.sortByFileSize(sourceType);
+				String html = new CreateHTMLService().createHTML(sourceTwoList,sourceType);
+				out.print(html);
+			}		
+		}
 		if(sourceType.equals("3")){
 			if(sortWay.equals("0")){
 				List<SourceThree> sourceThreeList = new SourceDAOImpl().getSourceThree();
@@ -54,11 +104,13 @@ public class SortServlet extends HttpServlet {
 			if(sortWay.equals("3")){
 				List<SourceThree> sourceThreeList = sourceService.sortByAlpha(sourceType);
 				String html = new CreateHTMLService().createHTML(sourceThreeList,sourceType);
+				
 				out.print(html);
 			}
 			if(sortWay.equals("4")){
 				List<SourceThree> sourceThreeList = sourceService.sortByFileSize(sourceType);
 				String html = new CreateHTMLService().createHTML(sourceThreeList,sourceType);
+				
 				out.print(html);
 			}
 		}
@@ -90,9 +142,6 @@ public class SortServlet extends HttpServlet {
 			}
 		}
 		
-		
-		//String html = new CreateHTMLService().createHTML(sourceThreeList);
-		//out.print(html);
 	}
 
 }

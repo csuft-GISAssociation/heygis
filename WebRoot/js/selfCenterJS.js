@@ -1,18 +1,11 @@
-$(document).ready(function(){
-	var selectedId = $('input:radio[name="radio-set"]:checked').attr("id");
-	var str = "content-"+selectedId.charAt(selectedId.length-1);
-	var high = $("."+str).height()+"px";
-	$(".footer").css("margin-top",high);
-});
-$(document).change(function(){
-	var selectedId = $('input:radio[name="radio-set"]:checked').attr("id");
-	var str = "content-"+selectedId.charAt(selectedId.length-1);
-	var high = $("."+str).height()+"px";
-	$(".footer").css("margin-top",high);
-});
-$(window).resize(function(){
-	var selectedId = $('input:radio[name="radio-set"]:checked').attr("id");
-	var str = "content-"+selectedId.charAt(selectedId.length-1);
-	var high = $("."+str).height()+"px";
-	$(".footer").css("margin-top",high);
-});
+jQuery(document).ready(function($) {
+	$('#modifyIcon').click(function() {
+		$('.theme-popover-mask').fadeIn(100);
+		$('#changeIcon').slideDown(200);
+	});
+	$('#theme #close').click(function() {
+		$('.theme-popover-mask').fadeOut(100);
+		$('#changeIcon').slideUp(200);
+	});
+	
+})

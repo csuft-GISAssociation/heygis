@@ -24,12 +24,7 @@ import com.heygis.servlet.SourceServlet;
 public class Test {
 
 	public static void main(String[] args) {
-		int i = 0;
-		while(i<10){
-			i++;
-			addThread();
-		}
-		addThread();
+		postPageTest();
 }
 	/**
 	 * getThreasPage测试
@@ -87,7 +82,7 @@ public class Test {
 	 * getPostPage测试
 	 */
 	public static void postPageTest(){
-		ForumPostPage fpp = new ForumPostDAOImpl().getPostPage(1, 1);
+		ForumPostPage fpp = new ForumPostDAOImpl().getPostPage(3, 1);
 		for(int i=0;i<5;i++){
 			if(fpp.getPost(i) == null){
 				System.out.println("break");

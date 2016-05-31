@@ -6,11 +6,12 @@
 		<meta name="description" content="">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+		
 		<script type="text/javascript" src="js/loginJS.js"></script>
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/registerJS.js"></script>
 		<link href="css/navCSS.css" rel="stylesheet" type="text/css">
 		<link href="css/footStyle.css" rel="stylesheet" type="text/css">
 		<link href="css/indexSourceStyle.css" rel="stylesheet" type="text/css">
@@ -69,8 +70,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container Top">
 			<div class="row">
+				<h1 class="text-primary">注册</h1>
+				<br />
 				<div class="col-sm-6">
 					<form class="form-horizontal" role="form">
 							<div class="form-group">
@@ -99,6 +102,14 @@
 							</div>
 							<div class="form-group">
 								<div class="col-xs-3 textRight">
+									<label class="control-label">nickName</label>
+								</div>
+								<div class="col-xs-9">
+									<input type="email" class="form-control" id="inputnickName" placeholder="nickName">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-3 textRight">
 									<label for="inputPassword3" class="control-label">Grade</label>
 								</div>
 								<div class="col-xs-9">
@@ -107,7 +118,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-3 col-sm-9">
-									<button type="submit" class="btn btn-default">Sign in</button>
+									<button type="submit" class="btn btn-default btn-block">Sign in</button>
 								</div>
 							</div>
 						</form>

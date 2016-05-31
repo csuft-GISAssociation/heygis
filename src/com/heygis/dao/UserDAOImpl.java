@@ -12,6 +12,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 	public boolean validateUser(String account,String password){
 		try {
 			String sql = "select password from users where account=?";
+			this.openConn();
 			ResultSet rs = this.execQuery(sql, account);
 			if(rs.next()){
 				if(password.equals(rs.getString("password"))){
@@ -47,8 +48,8 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 			String grade = user.getGrade();
 			String sql1 = "insert into users (account,password) values (?,?)";
 			String sql2 = "insert into users_info (account,nickname,grade) values (?,?,?)";
+			this.openConn();
 			int result1 = this.execUpdate(sql1,account,password);
-			this.close();
 			this.execUpdate(sql2,account,nickName,grade);
 			this.close();
 			if(result1 == 1){
@@ -76,12 +77,15 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		try {
 			User user = null;
 			String sql = "select uid,account,nickname,gender,grade,QQ,tel,selfintroduction,identity_id,icon_img from users_info where account=?";
+			this.openConn();
 			ResultSet rs = this.execQuery(sql,account);
 			if(rs.next()){
-				user = new User(rs.getString("uid"),rs.getString("account"),rs.getString("nickname"), rs.getString("grade"),
+//				System.out.println("user已经填充");
+				user = new User(rs.getInt("uid"),rs.getString("account"),rs.getString("nickname"), rs.getString("grade"),
 						rs.getString("gender"), rs.getString("QQ"), rs.getString("tel"),
 						rs.getString("selfIntroduction"), rs.getString("icon_Img"));
 			}
+			this.close();
 			return user;
 		} catch (Exception e) {
 			e.printStackTrace();

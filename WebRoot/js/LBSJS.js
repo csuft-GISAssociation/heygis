@@ -1,0 +1,66 @@
+	var map = new BMap.Map("allmap");
+	if($(window).width()<768){
+		map.centerAndZoom(new BMap.Point(113.001257,28.137300),16);
+	}else{
+		map.centerAndZoom(new BMap.Point(113.001257,28.137300),17);
+	}
+	map.enableScrollWheelZoom(true);
+	var polyline = new BMap.Polyline([
+		new BMap.Point(112.993882,28.136949),
+		new BMap.Point(112.993927,28.137913),
+		new BMap.Point(112.994354,28.138008),
+		new BMap.Point(112.994677,28.138215),
+		new BMap.Point(112.994897,28.138514),
+		new BMap.Point(112.996128,28.138478),
+		new BMap.Point(112.996909,28.137252),
+		new BMap.Point(112.997713,28.137323),
+		new BMap.Point(112.997924,28.137367),
+		new BMap.Point(112.998639,28.138032),
+		new BMap.Point(112.999088,28.138239),
+		new BMap.Point(112.999204,28.138418),
+		new BMap.Point(112.999339,28.138749),
+		new BMap.Point(112.999802,28.139115),
+		new BMap.Point(113.001154,28.13974),
+		new BMap.Point(113.001226,28.140079),
+		new BMap.Point(113.001324,28.140322),
+		new BMap.Point(113.00132,28.140632),
+		new BMap.Point(113.004105,28.141998),
+		new BMap.Point(113.005201,28.140827),
+		new BMap.Point(113.005767,28.14117),
+		new BMap.Point(113.006202,28.14078),
+		new BMap.Point(113.007294,28.141194),
+		new BMap.Point(113.007671,28.14117),
+		new BMap.Point(113.008349,28.139),
+		new BMap.Point(113.008439,28.138685),
+		new BMap.Point(113.008143,28.138681),
+		new BMap.Point(113.008264,28.138307),
+		new BMap.Point(113.007357,28.138315),
+		new BMap.Point(113.007298,28.138088),
+		new BMap.Point(113.007244,28.137431),
+		new BMap.Point(113.006602,28.137164),
+		new BMap.Point(113.006517,28.136937),
+		new BMap.Point(113.006256,28.136957),
+		new BMap.Point(113.006202,28.13724),
+		new BMap.Point(113.006014,28.137367),
+		new BMap.Point(113.00556,28.137375),
+		new BMap.Point(113.00516,28.137487),
+		new BMap.Point(113.00317,28.136623),
+		new BMap.Point(113.003575,28.135874),
+		new BMap.Point(113.001239,28.135619),
+		new BMap.Point(113.001545,28.134715),
+		new BMap.Point(112.999371,28.134465),
+		new BMap.Point(112.999303,28.133708),
+		new BMap.Point(112.99823,28.133589),
+		new BMap.Point(112.998234,28.1329),
+		new BMap.Point(112.997161,28.132812),
+		new BMap.Point(112.996451,28.13278),
+		new BMap.Point(112.996388,28.134847),
+		new BMap.Point(112.995566,28.134887),
+		new BMap.Point(112.99549,28.134791),
+		new BMap.Point(112.994699,28.134803),
+		new BMap.Point(112.994664,28.136105),
+		new BMap.Point(112.993846,28.136129),
+		new BMap.Point(112.993882,28.136949)
+
+	], {strokeColor:"red", strokeWeight:5, strokeOpacity:1}); 
+	map.addOverlay(polyline); 

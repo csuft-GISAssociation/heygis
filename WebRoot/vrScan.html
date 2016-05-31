@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/loginJS.js"></script>
+		<script type="text/javascript" src="js/vrScanJS.js"></script>
+		<link href="css/navCSS.css" rel="stylesheet" type="text/css">
+		<link href="css/footStyle.css" rel="stylesheet" type="text/css">
+		<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/vrScanStyle.css" type="text/css" />
+	</head>
+	<body>
+		
+		
+		
+		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand"><span class="heygis1">heygis</span></a>
+					<a class="navbar-brand"><span class="heygis">林科大全景</span></a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle suoyin" data-toggle="dropdown" role="button" aria-expanded="false">东园 </a>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="#">学校大门</a>
+								</li>
+								<li>
+									<a href="#">图书馆</a>
+								</li>
+								<li>
+									<a href="javascript:pqgc()">喷泉广场</a>
+								</li>
+								<li>
+									<a href="javascript:yst()">一食堂</a>
+								</li>
+								<li>
+									<a href="javascript:dxl()">电子信息楼</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#">Separated link</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle suoyin" data-toggle="dropdown" role="button" aria-expanded="false">林科大桥 </a>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="#">情人坡</a>
+								</li>
+								<li>
+									<a href="#">西园足球场</a>
+								</li>
+								<li>
+									<a href="#">Something else here</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#">Separated link</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle suoyin" data-toggle="dropdown" role="button" aria-expanded="false">西园 </a>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="javascript:qrp()">情人坡</a>
+								</li>
+								<li>
+									<a href="#">西园足球场</a>
+								</li>
+								<li>
+									<a href="#">Something else here</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="#">Separated link</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="index.html">退出全景</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="suoyidiv" class="navbar-fixed-bottom" >
+			<button id="showornot" onclick="f()" class="btn btn-primary">隐藏缩略图</button>
+			<div id="test" >
+				<a href="javascript:pqgc()"><img class="img-thumbnail" src="img/bbs-1.JPG" /><span>喷泉中心</span></a>
+				<a href="javascript:qrp()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>情人坡</span> </a>
+				<a href="javascript:yst()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>一食堂</span> </a>
+				<a href="javascript:dxl()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>电子信息楼</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>
+				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>喷泉中心</span> </a>	
+			</div>
+	   </div>  
+	   <iframe id="myFrame" src="vtour/tour.html" frameborder="0" width="100%" height="100%" scrolling="no">
+			
+		</iframe>
+	</body>
+</html>
