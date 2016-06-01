@@ -126,9 +126,11 @@
 					</h1>
 				</div>
 				<div  class="col-md-10 col-sm-12 col-center-block thread_path">
-						<a href="../index.html">主页 > </a>
-						<a href="javascript:void(0);">论坛区  > </a>
-						<a href="javascript:alert(0);">课堂区 </a>
+						<p>前往 ： </p>
+						<a href="index.html;"> 主页  >  </a>
+						<a href="forumsServlet?fid=1&page=1">课堂区 </a>
+						<a href="forumsServlet?fid=2&page=1">讨论区 </a>
+						<a href="forumsServlet?fid=3&page=1">灌水区 </a>
 						<div class="clear"></div>
 				</div>
 				<div class="thread_list col-md-10 col-sm-12 col-center-block">
@@ -152,7 +154,7 @@
 								%>
 								<tr>
 									<td style="padding-left: 20px;" class="thread_title">
-										<a href='topicsServlet?tid=<%=thread.getTid() %>&page=1'>
+										<a href='topicsServlet?fPage=<%=threadPage.getPage() %>&tid=<%=thread.getTid() %>&page=1'>
 								    		<%=thread.getSubject() %>
 								    	</a>
 								    	<hr class="visible-xs phon-visible-hr"/>
@@ -194,7 +196,7 @@
 		<div id="pos"></div>
 		<div id="thread_public" class="thread_public_wraper container hidden-xs">
 				<div class="row">
-				<form action='addThreadServlet?fid=<%=thread.getFid() %>' method="post" id="threadpublic"> 
+				<form action='addThreadServlet?fid=<%=threadPage.getFid() %>' method="post" id="threadpublic"> 
 					<div class="thread_public_content col-center-block col-md-10 col-sm-12">
 						<div style="height: auto;">
 							<div class="thread_subject col-md-9 col-sm-12">
@@ -214,7 +216,7 @@
 							<div class="clear"></div>
 						</div>
 						<div id="submit">
-							<input type="button" class="post_reply_submit btn btn-primary" value="发表" onclick="javascript:document:threadpublic.submit()"/>
+							<input type="button" class="post_reply_submit btn btn-primary" value="发表" onclick="threadpublic()"/>
 						</div>
 						<div class="clear"></div>
 					</div>

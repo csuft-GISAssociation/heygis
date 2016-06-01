@@ -19,11 +19,13 @@ public class TopicsServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int fPage = Integer.parseInt(request.getParameter("fPage"));
 		int page = Integer.parseInt(request.getParameter("page"));
 		int tid = Integer.parseInt(request.getParameter("tid"));
 //		System.out.println(tid);
 		TopicsService ts = new TopicsService();
 		ForumPostPage postPage = ts.getPostPage(tid, page);
+		postPage.setfPage(fPage);
 //		System.out.println(postPage.getPost_number());
 		if(postPage.getPost_number() != 0){
 			request.setAttribute("postPage", postPage);

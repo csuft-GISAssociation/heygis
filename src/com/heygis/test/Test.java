@@ -24,7 +24,11 @@ import com.heygis.servlet.SourceServlet;
 public class Test {
 
 	public static void main(String[] args) {
-		postPageTest();
+		ForumsThreadPage tp = new ForumsThreadPage(1, 1);
+		System.out.println(tp.getThread(1));
+		if(tp.getThread(1) == null)
+			System.out.println("here");
+		
 }
 	/**
 	 * getThreasPage测试

@@ -20,6 +20,7 @@
 		<link href="css/indexSourceStyle.css" rel="stylesheet" type="text/css">
 		<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
 		<link href="css/main.css" rel="stylesheet" type="text/css" />
+		<title>heygis-首页</title>
 	</head>
 
 	<body>
@@ -39,20 +40,20 @@
 						<li class="active">
 							<a href="#">首页</a>
 						</li>
-						<li class="">
+						<li>
 							<a href="#bbs">论坛区</a>
 						</li>
 						<li>
 							<a href="#sourceDownLoad">资源区</a>
 						</li>
 						<li>
-							<a href="#">林科大全景</a>
+							<a href="#lkdVR">林科大全景</a>
 						</li>
 						<li>
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心<span class="badge">42</span> </a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心<span class="badge">2</span> </a>
 							<ul class="dropdown-menu" role="menu">
 								<li>
 									<a href="#">一</a>
@@ -79,7 +80,7 @@
 					<div class="innered">
 						<h1 class="cover-heading">欢迎来到GIS协会</h1>
 						<p class="lead">LET US TAKE YOU DOWN!</p>
-						<br /><br /><br />
+						<br /><br />
 						<p class="lead">你以为我们应该有学术社团的严肃?不，我们只是严谨。<br />
 							你以为我们应该有艺体社团的多样？不，我们只是专一。那GIS协会有什么好骄傲？<br />
 							我们的确没什么了不起，只是我们一直坚持授新生以渔，学会一门编程语言是为了培养新生的编程思维；<br />
@@ -92,8 +93,7 @@
 			</div>
 		</div>
 		<div class="section bbscontainer"  id="bbs">
-			<div class="container-fluid" style="padding: 0px;">
-				
+			<div class="container-fluid" id="bbscontainerin">
 				<section id="one" class="wrapper spotlight style1">
 					<div class="col-md-12">
 						<h1 class="text-center text-primary" >论坛区</h1>
@@ -101,9 +101,9 @@
 					<div class="inner">
 						<a href="forumsServlet?fid=1&page=1" class="image"><img src="img/bbs-1.JPG" alt="" /></a>
 						<div class="content">
-							<h2 class="major">课程区</h2>
-							<p>你要追求足够好，而不是学了就放，放了就忘。
-							</p>
+							<h2 class="major">课程区</h2><hr />
+							<h4>你要追求足够好，而不是学了就放，放了就忘。	</h4>
+							<h4>这里可以找到每周上课的内容，可供预习复习，再也不用担心上课听不懂。</h4>
 							<a href="#" class="special">Learn more</a>
 						</div>
 					</div>
@@ -114,22 +114,21 @@
 					<div class="inner style22">
 						<a href="#" class="image"><img src="img/bbs-3.JPG" /></a>
 						<div class="content">
-							<h2 class="major">讨论区</h2>
-							<p>不要害怕未知，在这里问到你想要的答案。
-							</p>
+							<h2 class="major">讨论区</h2><hr />
+							<h4>不要害怕未知，在这里问到你想要的答案。</h4>
+							<h4>考研、工作、生活，有任何疑问都可以在这里问，同时也欢迎知道的同学来解答疑问。</h4>
 							<a href="#" class="special">Learn more</a>
 						</div>
 					</div>
 				</section>
-
 				<!-- Three -->
 				<section id="three" class="wrapper spotlight style3">
 					<div class="inner">
 						<a href="#" class="image"><img src="img/mainbodybgimg.jpg" alt="" /></a>
 						<div class="content">
-							<h2 class="major">灌水区</h2>
-							<p>玩法，吐槽，生活我都有。
-							</p>
+							<h2 class="major">灌水区</h2><hr />
+							<h4>玩法，吐槽，生活我都有。</h4>
+							<h4>在这里什么都可以说，单其他区域请保持严肃。</h4>
 							<a href="#" class="special">Learn more</a>
 						</div>
 					</div>
@@ -144,13 +143,13 @@
 					<div class="col-md-12">
 						<h1 class="text-center text-primary" >资源下载区</h1>
 					</div>
-				</div>
+				</div><br />
 				<div class="row">
 					<div class="col-md-3 col-sm-6 box">
 						<a href="sourceServlet" id="f-diw" class="footer-box">
 							<h5>总结大会</h5>
 							<p>
-								大神离去后，他们的源码都留在了这里。
+								学长学姐离去后，他们的源码都留在了这里。
 							</p>
 						</a>
 					</div>
@@ -187,14 +186,14 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12" >
-						<h1 class="text-center text-primary" id="aboutUS">林科大全景</h1>
+						<h1 class="text-center text-primary" id="lkdVR">林科大全景</h1><br />
 						<div class="col-md-9" id="allmap">
 						</div>
-						<div class="col-md-3 hidden-sm" id="tableLBS">
+						<div class="col-md-3 hidden-sm hidden-xs" id="tableLBS">
 							<table class="table table-striped">
 								<th><h3 class="text-center">索引</h3></th>
 							 	 <tr class="">
-							 	 	<td>ceshi</td>
+							 	 	<td><a href="vrScan.html">ceshi</a></td>
 							 	 </tr>
 							 	 <tr class="">
 							 	 	<td>ceshi</td>
@@ -249,7 +248,6 @@
 							 	 </tr>
 							</table>
 						</div>
-						
 					</div>
 				</div>
 			</div>
@@ -268,7 +266,7 @@
 					<h1 class="footh1">相关链接</h1> 
 					<a href="feedbackServlet">意见反馈</a>
 					<br /> <a href="aboutWeb.html">关于本网站</a>
-					<br /> 关于制作者
+					<br /> <a href="aboutMaker.html">关于制作者</a>
 					<br />
 				</div>
 				<div class="col-md-4  col-sm-12 shenming">
@@ -290,10 +288,10 @@
 						<li>
 							<h4>你必须先登录！</h4></li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="log" value="caibaojian" size="20" />
+							<input class="ipt" type="text" name="log" value="account" size="20" />
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="pwd" value="***" size="20" />
+							<input class="ipt" type="password" name="pwd" value="password" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />

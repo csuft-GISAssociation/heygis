@@ -127,3 +127,17 @@ blockquote{
 .clear{
 	clear: both;
 }
+.thread_path{
+	color :#C0C0C0;
+	height: auto;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border-left: 1px solid #888888;
+	/*border-right: 1px solid #888888;*/
+	padding-left: 20px;
+}
+.thread_path a{
+	color :white;
+	padding-right: 10px;
+	float: left;
+}

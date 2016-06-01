@@ -23,22 +23,18 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 //			System.out.println("pid="+pid);
 			sql = "insert into forum_post (pid,fid,tid,first,author,author_uid,author_account"
 					+ ",subject,dateline,message,userip,attachment) values (?,?,?,?,?,?,?,?,?,?,?,?);";
-			this.execUpdate(sql, pid ,post.getFid(),post.getTid(),post.getFirst(),post.getAuthor(),
+			if(this.execUpdate(sql, pid ,post.getFid(),post.getTid(),post.getFirst(),post.getAuthor(),
 					post.getAuthorUid(),post.getAuthorAccount(),post.getSubject(),new Date().getTime(),post.getMessage(),
-					post.getUserip(),post.getAttchment());
-			sql = "update forum_thread SET lastpost=? ,lastposter=? ,views=views+1 where tid=?;";
-			this.execUpdate(sql, new Date().getTime(),post.getAuthor(),post.getTid());
-			this.close();
-			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally{
-			try {
-				if(!this.conn.isClosed())
-					this.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+					post.getUserip(),post.getAttchment()) == 1){
+				sql = "update forum_thread SET lastpost=? ,lastposter=? ,replies=replies+1 where tid=?;";
+				this.execUpdate(sql, new Date().getTime(),post.getAuthor(),post.getTid());
+				this.close();
+				return true;
+			}else{
+				this.close();
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
@@ -86,6 +82,8 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 				i++;
 //				System.out.println(i+","+begin+","+end);
 			}
+			sql = "update forum_thread SET views=views+1 where tid=?;";
+			this.execUpdate(sql, tid);
 			this.close();
 			return postPage;
 		} catch (SQLException e) {
@@ -99,6 +97,5 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 			}
 		}
 		return null;
-		
 	}
 }

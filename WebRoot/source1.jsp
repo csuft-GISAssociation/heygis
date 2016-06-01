@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'source1.jsp' starting page</title>
+    <title>heygis-资源下载</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -44,21 +44,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand"><span class="heygis">HeyGIS</span></a>
+					<a class="navbar-brand" href="index.html"><span class="heygis">HeyGIS</span></a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active">
+						<li>
 							<a href="index.html">首页</a>
 						</li>
 						<li>
-							<a href="index.html#bbs">论坛区</a>
+							<a href="forums/forums.jsp">论坛区</a>
+						</li>
+						<li class="active" >
+							<a href="#">资源区</a>
 						</li>
 						<li>
-							<a href="index.html#sourceDownLoad">资源区</a>
-						</li>
-						<li>
-							<a href="#">关于我们</a>
+							<a href="index.html#lkdVR">林科大全景</a>
 						</li>
 						<li>
 							<a class="btn theme-login" href="javascript:;">登录</a>
@@ -114,6 +114,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    默认排序 <span class="caret"></span>
 											  </button>
 											  <ul class="dropdown-menu">
+											  	<li>
+												    	<div class="input-group input-group-sm">
+													      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
+													      <span class="input-group-btn">
+													        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+													      </span>
+													    </div>
+													</li>
 											    <li><a href="javascript:timecho(1,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(1,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(1,3)" id="alphacho">按字母</a></li>
@@ -122,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    <li><a href="javascript:defaultcho(1,0)" id="defaultcho">默认排序</a></li>
 											  </ul>
 											</div>
-											<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+											<p>每一年的总结大会的作品都整理在了这里，欢迎大家互相借鉴，互相学习。</p>
 										</header>
 										<section class="tiles" id="section_1">
 											<%
@@ -161,6 +169,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    默认排序 <span class="caret"></span>
 											  </button>
 											  <ul class="dropdown-menu">
+											  	<li>
+												    	<div class="input-group input-group-sm">
+													      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
+													      <span class="input-group-btn">
+													        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+													      </span>
+													    </div>
+													</li>
 											    <li><a href="javascript:timecho(2,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(2,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(2,3)" id="alphacho">按字母</a></li>
@@ -169,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    <li><a href="javascript:defaultcho(2,0)" id="defaultcho">默认排序</a></li>
 											  </ul>
 											</div>
-											<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+											<p>不仅要看懂课堂上的代码，还要多敲多练。锻炼手指的记忆，增强代码熟练度。</p>
 										</header>
 										<section class="tiles" id="section_2">
 											<%
@@ -208,6 +224,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    默认排序 <span class="caret"></span>
 											  </button>
 											  <ul class="dropdown-menu">
+											  	<li>
+											    	<div class="input-group input-group-sm">
+												      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
+												      <span class="input-group-btn">
+												        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+												      </span>
+												    </div>
+													</li>
 											    <li><a href="javascript:timecho(3,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(3,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(3,3)" id="alphacho">按字母</a></li>
@@ -216,7 +240,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    <li><a href="javascript:defaultcho(3,0)" id="defaultcho">默认排序</a></li>
 											  </ul>
 											</div>
-											<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+											<p>如果只是在面临老师布置的各种课程设计时才想到我的话，那就太可惜了。</p>
 										</header>
 										<section class="tiles" id="section_3">
 											<%
@@ -255,6 +279,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    默认排序 <span class="caret"></span>
 											  </button>
 											  <ul class="dropdown-menu">
+											  	<li>
+												    	<div class="input-group input-group-sm">
+													      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
+													      <span class="input-group-btn">
+													        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+													      </span>
+													    </div>
+													</li>
 											    <li><a href="javascript:timecho(4,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(4,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(4,3)" id="alphacho">按字母</a></li>
@@ -263,7 +295,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											    <li><a href="javascript:defaultcho(4,0)" id="defaultcho">默认排序</a></li>
 											  </ul>
 											</div>
-											<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+											<p>青春不是用来虚度的，而是用来投资自己的。</p>
 										</header>
 										<section class="tiles" id="section_4">
 											<%
@@ -309,7 +341,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h1 class="footh1">相关链接</h1>
 					<a href="feedback.html">意见反馈</a>
 					<br /> <a href="aboutWeb.html">关于本网站</a>
-					<br /> 关于制作者
+					<br /><a href="aboutMaker.html"> 关于制作者</a>
 					<br />
 				</div>
 				<div class="col-md-4  col-sm-12 shenming">
@@ -331,10 +363,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li>
 							<h4>你必须先登录！</h4></li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="log" value="caibaojian" size="20" />
+							<input class="ipt" type="text" name="log" value="account" size="20" />
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="pwd" value="***" size="20" />
+							<input class="ipt" type="password" name="pwd" value="password" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />

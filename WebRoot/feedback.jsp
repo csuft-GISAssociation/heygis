@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>意见反馈</title>
+    <title>heygis-意见反馈</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -41,21 +41,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand"><span class="heygis">HeyGIS</span></a>
+					<a class="navbar-brand" href="index.html"><span class="heygis">HeyGIS</span></a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active">
+						<li>
 							<a href="index.html">首页</a>
 						</li>
 						<li>
 							<a href="index.html#bbs">论坛区</a>
 						</li>
 						<li>
-							<a href="index.html#sourceDownLoad">资源区</a>
+							<a href="source1.jsp">资源区</a>
 						</li>
 						<li>
-							<a href="#">关于我们</a>
+							<a href="index.html#lkdVR">林科大全景</a>
 						</li>
 						<li>
 							<a class="btn theme-login" href="javascript:;">登录</a>
@@ -87,6 +87,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<br />
 		<br />
 		<h1 class="text-primary">意见反馈</h1>
+		<p>您有任何关于本网站的建议或意见都可以在这里提出来，包括您找到的bug，我们会仔细阅读每一条反馈，并及时回复您的反馈。</p>
+		<hr />
 		<%
 		List<FeedbackMsg> feedbackMsgList = (List<FeedbackMsg>)request.getAttribute("feedbackMsgList");
 		if(feedbackMsgList != null){
@@ -113,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<textarea form="publish" name="content" class="form-control" rows="4" placeholder="请填写您的留言" required></textarea>					
 					</div>
 					<div class="form-group" style="text-align: right;">
-						<input type="submit" name="Submit" value="发布 " class="submitButton"/>
+						<input type="submit" name="Submit" value="发布 " class="submitButton btn btn-primary"/>
 					</div>
 				</form>
 			</div>
@@ -134,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h1 class="footh1">相关链接</h1>  
 					<a href="feedback.html">意见反馈</a>
 					<br /> <a href="aboutWeb.html">关于本网站</a>
-					<br /> 关于制作者
+					<br /> <a href="aboutMaker.html">关于制作者</a>
 					<br />
 				</div>
 				<div class="col-md-4  col-sm-12 shenming">
@@ -156,10 +158,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li>
 							<h4>你必须先登录！</h4></li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="log" value="caibaojian" size="20" />
+							<input class="ipt" type="text" name="log" value="account" size="20" />
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="pwd" value="***" size="20" />
+							<input class="ipt" type="password" name="pwd" value="" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />

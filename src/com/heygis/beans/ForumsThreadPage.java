@@ -39,4 +39,10 @@ public class ForumsThreadPage {
 	public ForumThread getThread(int i) {
 		return threadArray[i];
 	}
+	public int getFid() {
+		return fid;
+	}
+	public void setFid(int fid) {
+		this.fid = fid;
+	}
 }

@@ -99,9 +99,11 @@
 					</h1>
 				</div>
 				<div  class="col-md-10 col-sm-12 col-center-block thread_path">
-						<a href="../index.html">主页 > </a>
-						<a href="">论坛区 > </a>
-						<a href="">课堂区 </a>
+						<p>前往 ： </p>
+						<a href="index.html;"> 主页  >  </a>
+						<a href="forums.html">课堂区 </a>
+						<a href="forums.html">讨论区 </a>
+						<a href="forums.html">灌水区 </a>
 						<div class="clear"></div>
 				</div>
 				<div class="thread_list col-md-10 col-sm-12 col-center-block">
@@ -250,7 +252,7 @@
 		<div id="pos"></div>
 		<div id="thread_public" class="thread_public_wraper container hidden-xs">
 				<div class="row">
-				<form>
+				<form id="threadpublic">
 					<div class="thread_public_content col-center-block col-md-10 col-sm-12">
 						<div style="height: auto;">
 							<div class="thread_subject col-md-9 col-sm-12">
@@ -268,7 +270,7 @@
 							<div class="clear"></div>
 						</div>
 						<div id="submit">
-							<input type="submit" class="post_reply_submit" value="发表"/>
+							<input type="button" class="post_reply_submit btn btn-primary" value="发表" onclick="threadpublic()"/>
 						</div>
 						<div class="clear"></div>
 					</div>

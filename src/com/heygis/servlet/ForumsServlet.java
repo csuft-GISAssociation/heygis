@@ -26,7 +26,7 @@ public class ForumsServlet extends HttpServlet {
 		int fid = Integer.parseInt(request.getParameter("fid"));
 		ForumsService fs = new ForumsService();
 		ForumsThreadPage threadPage = fs.getThreadPage(fid, page);
-		if(threadPage.getThread_number() != 0){
+		if(threadPage.getFid() < 4){
 			request.setAttribute("threadPage", threadPage);
 			RequestDispatcher dis = request.getRequestDispatcher("/forums/forums.jsp");
 			dis.forward(request, response);

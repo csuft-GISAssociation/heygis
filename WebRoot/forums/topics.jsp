@@ -127,6 +127,10 @@
 						<span>第一测试帖</span>
 					</h1>
 				</div>
+				<div  class="col-md-10 col-sm-12 col-center-block thread_path">
+						<a href="forumsServlet?fid=<%=postPage.getPost(0).getFid() %>&page=<%=postPage.getfPage() %>">> 返回帖子列表 </a>
+						<div class="clear"></div>
+				</div>
 				<div class="postlist col-md-10 col-sm-12 col-center-block">
 				<%
 					ForumPost post = null;
@@ -187,7 +191,7 @@
 							<div class="clear"></div>
 						</div>
 						<div id="submit">
-							<input type="button" class="post_reply_submit" id="post_submit" onclick="javascript:document:postpubllic.submit()"/>
+							<input type="button" class="post_reply_submit  btn btn-primary" value="发表" id="post_submit" onclick="javascript:document:postpubllic.submit()"/>
 						</div>
 						<div class="clear"></div>
 					</div>
