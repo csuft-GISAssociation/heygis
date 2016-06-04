@@ -10,7 +10,6 @@ jQuery(document).ready(function($) {
 			
 			})
 function login(){
-	alert("sad");
 	$('#loginForm').ajaxSubmit({
         type: 'post', 
         url: 'loginServlet', 

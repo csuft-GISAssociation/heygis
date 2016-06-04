@@ -1,6 +1,7 @@
 package com.heygis.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.heygis.service.LoginService;
 import com.heygis.service.RegisterService;
 
 /**
@@ -19,7 +21,6 @@ public class RegisterServlet extends HttpServlet {
 
     public RegisterServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,14 +29,21 @@ public class RegisterServlet extends HttpServlet {
 		String nickName = request.getParameter("nickName");
 		String grade = request.getParameter("grade");
 		RegisterService registerServer = new RegisterService();
-		int rsult = registerServer.addUser(account, passWord, nickName, grade);
-		if(rsult == 1){
-			response.sendRedirect("index.jsp");
+		int result = registerServer.addUser(account, passWord, nickName, grade);
+		if(result == 1){
+			System.out.println("suce");
+			LoginService loginService = new LoginService();
+			request.getSession().setAttribute("loged",true);
+			request.getSession().setAttribute("user",loginService.getUser(account));//将信息提交到个人中心页面。
+			response.sendRedirect("selfCenter.jsp");
+//			RequestDispatcher dis =  request.getRequestDispatcher("/selfCenter.html");
+//			dis.forward(request, response);
 		}else{
 			request.setAttribute("message", "注册失败");
 			RequestDispatcher dis =  request.getRequestDispatcher("/result.jsp");
 			dis.forward(request, response);
 		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

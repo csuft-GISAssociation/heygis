@@ -25,7 +25,6 @@ public class AddThreadServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		if(request.getSession().getAttribute("loged") == null){
 			request.setAttribute("message", "请先登录");
 			RequestDispatcher dis =  request.getRequestDispatcher("/result.jsp");

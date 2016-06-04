@@ -64,3 +64,65 @@
 
 	], {strokeColor:"red", strokeWeight:5, strokeOpacity:1}); 
 	map.addOverlay(polyline); 
+
+jQuery(document).ready(function($) {
+	var url = "http://api.map.baidu.com/geosearch/v3/local?callback=?";
+	$.getJSON(url, {
+		'geotable_id': 142312,
+		'ak'         : 'Ltlvpt9eVXEOR6H984nynKZA',  //用户ak
+		page_index   : 0
+		},function(data) {
+	        	renderMapAndList(data);   //将获取到的json对map和list进行填充
+	        }
+	);
+	$.getJSON(url, {
+		'geotable_id': 142312,
+		'ak'         : 'Ltlvpt9eVXEOR6H984nynKZA',  //用户ak
+		'page_index' : 1
+		},function(data) {
+	        	renderMapAndList(data);   //将获取到的json对map和list进行填充
+	        }
+	);
+})
+	/*渲染map和list
+  	 * 传入res为接收到的json
+  	 */
+	function renderMapAndList(res) {
+//		$("#vtour").html("");		   //清除list中所有行	
+//		map.clearOverlays();             //清除map上上一次的maker
+        var content = res.contents;
+
+        if (content.length == 0) {
+            //$('#mapList').append($('<p style="border-top:1px solid #DDDDDD;padding-top:10px;text-align:center;text-align:center;font-size:18px;" class="text-warning">抱歉，没有找到您想要的短租信息，请重新查询</p>'));
+            addRow("该区域未查询到景点");
+            return;
+        }
+
+        $.each(content, function(i, item){
+	      	var tr = $("<tr class='vtourtr'><td>"+item.title+"</td></tr>").click(showInfo);
+	        $('#vtour').append(tr);   //生成tr，tr.onclick绑定showInfo,并向list中添加tr
+	        	
+	        var marker = new BMap.Marker(new BMap.Point(item.location[0], item.location[1]));
+			marker.addEventListener('click', showInfo);
+            function showInfo() {
+//          	map.centerAndZoom(new BMap.Point(item.location[0], item.location[1]),18);
+                var content = "<p style='color:black'>名称：" + item.title + "</p>" +
+                              "<p style='color:black'>地址：" + item.address + "</p>" +
+                              "<p style='color:black'>简介：" + item.intro + "</p>";
+                //创建检索信息窗口对象
+                var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+                    title  : item.title,      //标题
+                    width  : 290,             //宽度
+                    panel  : "panel",         //检索结果面板
+                    enableAutoPan : true,     //自动平移
+                    searchTypes   :[
+//                      BMAPLIB_TAB_SEARCH,   //周边检索
+//                      BMAPLIB_TAB_TO_HERE,  //到这里去
+//                      BMAPLIB_TAB_FROM_HERE //从这里出发
+                    ]
+                });
+                searchInfoWindow.open(marker);
+            };
+ 			map.addOverlay(marker);
+        });
+  	}

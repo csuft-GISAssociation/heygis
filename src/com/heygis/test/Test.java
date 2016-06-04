@@ -76,7 +76,7 @@ public class Test {
 	 */
 	public static void addPost(ForumPost post){
 		ForumPostDAOImpl fpdi = new ForumPostDAOImpl();
-		if(fpdi.addPost(post)){
+		if(fpdi.addPost(post) != 0){
 			System.out.println("ok");
 		}else{
 			System.out.println("no");

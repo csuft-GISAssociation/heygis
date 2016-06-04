@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name></display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -113,7 +113,8 @@
   <servlet-mapping>
     <servlet-name>AddPostServlet</servlet-name>
     <url-pattern>/addPostServlet</url-pattern>
-  </servlet-mapping>  <servlet>
+  </servlet-mapping>
+  <servlet>
     <description></description>
     <display-name>SortServlet</display-name>
     <servlet-name>SortServlet</servlet-name>
@@ -123,4 +124,53 @@
     <servlet-name>SortServlet</servlet-name>
     <url-pattern>/sortServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReplyPostServlet</display-name>
+    <servlet-name>ReplyPostServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.ReplyPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReplyPostServlet</servlet-name>
+    <url-pattern>/replyPostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterJudgeServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.RegisterJudgeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterJudgeServlet</servlet-name>
+    <url-pattern>/registerJudgeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelfCenterServlet</display-name>
+    <servlet-name>SelfCenterServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.SelfCenterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelfCenterServlet</servlet-name>
+    <url-pattern>/selfCenterServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>FillInfoServlet</display-name>
+    <servlet-name>FillInfoServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.FillInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FillInfoServlet</servlet-name>
+    <url-pattern>/fillInfoServlet</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>CommonFilter</display-name>
+    <filter-name>CommonFilter</filter-name>
+    <filter-class>com.heygis.filter.CommonFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CommonFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

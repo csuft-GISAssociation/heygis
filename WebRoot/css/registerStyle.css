@@ -16,5 +16,8 @@
 html,body{
 	background: url(../img/old_wall.jpg);
 }
+.judge{
+	padding-left:0px;
+}
 
 

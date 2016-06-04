@@ -7,8 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/loginJS.js"></script>
-		<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>
+		<!--<script type="text/javascript" src="js/loginJS.js"></script>
+		<!--<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>-->
 		<script type="text/javascript" src="js/topics.js"></script>
 		<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
 		<link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
@@ -125,7 +125,7 @@
 										<a class="replay" href="#">管理</a>
 									</li>
 									<li>
-										<a class="replay" href="#">回复</a>
+										<a class="replay" href="#" onclick="reply(1,4,'667','334','321')">回复</a>
 									</li>
 									<li>2016/5/13 15:47</li>
 								</ul>
@@ -269,7 +269,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				<form id="postpubllic">
 					<div class="post_reply_content col-center-block col-md-10 col-sm-12">
 						<!--<div style="height: auto;">
-							<div class="post_reoly_head col-md-8 col-sm-12">
+							<div class="post_reply_head col-md-8 col-sm-12">
 								发表回复
 							</div>
 							<div class="clear"></div>
@@ -281,7 +281,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 								<a herf="#">添加代码</a>
 								<p>|</p>
 								<a herf="#">添加图片</a>
-								<textarea id="textarea_post"></textarea>
+								<textarea id="textarea_post" name="message"></textarea>
 							</div>	
 							<div class="clear"></div>
 						</div>
@@ -293,6 +293,36 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				</form>
 			</div>
 		</div>	
+		<div class="reply col-md-12">
+			<div class="reply-poptit">
+				<a href="javascript:;" title="关闭" class="close">×</a>
+				<p>回复:1楼小姨妈:</p>
+				<div class="clear"></div>
+			</div>
+				<form id="posi_reply_form" action="../replyPostServlet?fid=1&tid=1" method="post">
+					<div class="posi_reply_content col-center-block col-md-12 col-sm-12">
+						<div id="textarea" style="height: auto;">
+							<div class="posi_reply_textarea col-md-9 col-sm-12">
+								<a herf="#">添加表情</a>
+								<p>|</p>
+								<a herf="#">添加代码</a>
+								<p>|</p>
+								<a herf="#">添加图片</a>
+								<textarea id="posi_reply_textarea" name="message"></textarea>
+							</div>	
+							<div class="clear"></div>
+						</div>
+						<input type="text" name="postauthor_uid" id="postauthor_uid" style="display: none; " value="0"/>
+						<input type="text" name="postauthor_account" id="postauthor_account" style="display: none; " value="0"/>
+						<input type="text" name="posi" id="posi" style="display: none; " value="0"/>
+						<input type="text" name="replyhead" id="replyhead" style="display: none; " value="0" />
+						<div id="submit">
+							<input type="button" class="posi_subButton btn btn-primary" value="发表" id="posi_subButton" onclick="posiReplyPublic()"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</form>
+		</div>
 	</body>
 
 </html>

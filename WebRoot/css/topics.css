@@ -79,7 +79,7 @@
 	background-color: #F5F5F5;
 	height: auto;
 }
-.post_reoly_head{
+.post_reply_head{
 	padding: 0px;
 	margin-left: 20px;
 	margin-top: 10px;
@@ -139,5 +139,126 @@ blockquote{
 .thread_path a{
 	color :white;
 	padding-right: 10px;
+	float: left;
+}
+
+.reply{
+	z-index: 9999;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 660px;
+	height: 330px;
+	margin: -180px 0 0 -330px;
+	border-radius: 5px;
+	border: solid 2px #666;
+	background-color: #fff;
+	display: none;
+	box-shadow: 0 0 10px #666;
+}
+.reply-poptit {
+	margin-top: 10px;
+	border-bottom: 1px solid #ddd;
+	position: relative;
+}
+.reply-poptit p{
+	float: left;
+}
+.reply .close {
+	float: right;
+	color: red;
+	padding: 5px;
+	margin: -2px -5px -5px;
+	/*font: bold 14px/14px simsun;*/
+	/*text-shadow: 0 1px 0 #ddd*/
+}
+@media only screen and (min-width: 400px) and (max-width: 660px) {
+	.reply {
+		z-index: 9999;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		height: 360px;
+		margin: -180px 0 0 -200px;
+		border-radius: 5px;
+		border: solid 2px #666;
+		background-color: #fff;
+		display: none;
+		box-shadow: 0 0 10px #666;
+		}
+		.dform {
+			padding: 0px;
+			margin: 0px;
+		}
+		.theme-popbod {
+			padding: 0px;
+			margin: 0px;
+		}
+		.theme-signin{
+			padding: 0px;
+			margin: 0px;
+		}
+	}
+	
+	
+	@media only screen and (min-width: 40px) and (max-width: 400px) {
+	.reply {
+		z-index: 9999;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 250px;
+		height: 300px;
+		margin: -150px 0 0 -125px;
+		border-radius: 5px;
+		border: solid 2px #666;
+		background-color: #fff;
+		display: none;
+		box-shadow: 0 0 10px #666;
+		}
+		.dform {
+			text-align: center;
+			padding: 0px;
+			margin: 0px;
+		}
+		.theme-popbod {
+			padding: 0px;
+			margin: 0px;
+		}
+		.theme-signin{
+			padding: 0px;
+			margin: 0px;
+		}
+		.theme-signin li {
+			padding-left: 20px;
+			margin-bottom: 15px;
+		}
+	}
+	@media screen and(max-width:768px) {}
+	
+.posi_reply_content{
+	padding: 0px;
+	height: auto;
+}
+.posi_reply_textarea{
+	padding: 0px;
+	height: auto;
+}
+.posi_reply_textarea p{
+	margin-left: 20px;
+	float: left;
+}
+.posi_reply_textarea a{
+	float: left;
+}
+.posi_reply_textarea textarea{
+	float: left;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	width: 100%;
+	height: 170px;
+}
+.posi_subButton{
 	float: left;
 }

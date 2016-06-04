@@ -12,7 +12,7 @@ import com.heygis.dao.interfaces.ForumPostDAO;
 public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 
 	@Override
-	public synchronized boolean addPost(ForumPost post) {
+	public synchronized int addPost(ForumPost post) {
 		String sql = "select count(pid) from forum_post;";
 		this.openConn();
 		ResultSet rs = this.execQuery(sql);
@@ -28,15 +28,16 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 					post.getUserip(),post.getAttchment()) == 1){
 				sql = "update forum_thread SET lastpost=? ,lastposter=? ,replies=replies+1 where tid=?;";
 				this.execUpdate(sql, new Date().getTime(),post.getAuthor(),post.getTid());
+				int posi = this.LAST_INSERT_ID();
 				this.close();
-				return true;
+				return posi;
 			}else{
 				this.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false;
+		return 0;
 	}
 
 	@Override
@@ -57,7 +58,8 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 	public ForumPostPage getPostPage(int tid, int page) {
 		int begin = page * 30 + -30;
 		int end = page * 30;
-		String sql = "select * from forum_post where tid=? limit ?,?;";
+		String sql = "select forum_post.*,users_info.nickname from forum_post,users_info "
+				+ "where forum_post.author_uid=users_info.uid and tid =? limit ?,?;";
 		this.openConn();
 		ResultSet rs = this.execQuery(sql, tid, begin, end);
 		ForumPostPage postPage = new ForumPostPage(tid,page);
@@ -70,7 +72,7 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 						rs.getInt(2), 
 						rs.getInt(3), 
 						rs.getInt(4), 
-						rs.getString(5),
+						rs.getString(14),
 						rs.getInt(6), 
 						rs.getString(7),
 						rs.getString(8),
@@ -98,4 +100,21 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 		}
 		return null;
 	}
+	
+	public String getPostMessage(int pid) {
+		String sql = "select message from forum_post where pid = ?";
+		this.openConn();
+		ResultSet rs = this.execQuery(sql, pid);
+		String message = null;
+		try {
+			while(rs.next()){
+				message = rs.getString("message");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.close();
+		return message;
+	}
+	
 }

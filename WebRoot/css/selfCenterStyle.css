@@ -2,6 +2,10 @@
 }
 .table{
 	text-align: left;
+	color: white;
+}
+.userInfo{
+	padding-left:0px;
 }
 
 

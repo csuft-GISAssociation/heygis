@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("user",loginService.getUser(account) );
 //			System.out.println(request.getHeader("referer"));
 //			response.sendRedirect(request.getHeader("referer"));
-			response.getWriter().println(1);
+			response.getWriter().println(1);//这儿是干什么？
 		}else{
 			response.getWriter().println(0);
 		}

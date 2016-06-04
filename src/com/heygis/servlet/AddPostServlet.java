@@ -22,7 +22,6 @@ public class AddPostServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		if(request.getSession().getAttribute("loged") == null){
 			request.setAttribute("message", "请先登录");
 			RequestDispatcher dis =  request.getRequestDispatcher("/result.jsp");
@@ -41,7 +40,7 @@ public class AddPostServlet extends HttpServlet {
 		ForumPost post = new ForumPost(-1, fid, tid, 0, author, authorUid, authorAccount, "",
 				new Date(), message, request.getRemoteAddr(), attchment, -1);
 		AddPostService aps = AddPostService.getInstance();
-		if(aps.getFpdi().addPost(post)){
+		if(aps.getFpdi().addPost(post) != 0){
 			response.sendRedirect(request.getHeader("referer"));
 		}else{
 			request.setAttribute("message", "发帖失败");

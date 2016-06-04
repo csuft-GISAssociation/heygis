@@ -47,26 +47,21 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 			String nickName = user.getNickName();
 			String grade = user.getGrade();
 			String sql1 = "insert into users (account,password) values (?,?)";
-			String sql2 = "insert into users_info (account,nickname,grade) values (?,?,?)";
+			String sql2 = "insert into users_info (uid,account,nickname,grade) values (?,?,?,?)";
 			this.openConn();
 			int result1 = this.execUpdate(sql1,account,password);
-			this.execUpdate(sql2,account,nickName,grade);
-			this.close();
 			if(result1 == 1){
 				System.out.println("register scuessfully");
+				int uid = this.LAST_INSERT_ID();
+				this.execUpdate(sql2,uid,account,nickName,grade);
+				this.close();
+				return result1;
 			}else{
+				this.close();
 				System.out.println("register failed");
 			}
-			return result1;
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{
-			try {
-				if(!this.conn.isClosed())
-					this.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
 		return 0;
 		
@@ -98,6 +93,51 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public boolean judgeEmail(String account) {
+		boolean bool = false;
+		String sql = "select * from users where account=?";
+		this.openConn();
+		ResultSet rs = this.execQuery(sql, account);
+		try {
+			bool = !rs.next();
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bool;
+	}
+
+	@Override
+	public boolean judgeNickName(String nickName) {
+		boolean bool = false;
+		String sql = "select * from users_info where nickname=?";
+		this.openConn();
+		ResultSet rs = this.execQuery(sql, nickName);
+		try {
+			bool = !rs.next();
+			this.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bool;
+	}
+
+	@Override
+	public boolean fillInfo(User user) {
+		boolean bool = false;
+		String sql = "update users_info set nickname=?,grade=?,selfintroduction=?,gender=?,QQ=?,tel=? where account=?";
+		this.openConn();
+		int result = this.execUpdate(sql, user.getNickName(),user.getGrade(),user.getSelfIntroduction(),user.getGender(),user.getQQ(),user.getTel(),user.getAccount());
+		this.close();
+		System.out.println(user.getAccount());
+		System.out.println(result);
+		if(result == 1){
+			return true;
+		}
+		return false;
 	}
 
 }

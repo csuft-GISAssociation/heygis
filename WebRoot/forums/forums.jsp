@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/forums.js"></script>
-		<script type="text/javascript" src="js/loginJS.js"></script>
+		<!--script type="text/javascript" src="js/loginJS.js"></script-->
 		<script src="http://malsup.github.io/jquery.form.js"></script>
 		<script type="text/javascript" src="forums/google-code-prettify/prettify.js"></script>
 		<link href="forums/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
@@ -53,8 +53,7 @@
 						<li>
 							<a href="#">关于我们</a>
 						</li>
-					<%if(session.getAttribute("loged") != null){ %>
-						<%if(session.getAttribute("loged").equals(true)){ %>
+					<%if((Boolean)request.getAttribute("loged")){ %>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 </a>
 							<ul class="dropdown-menu" role="menu">
@@ -76,7 +75,6 @@
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
 						</li>
-						<%} %>
 				<%}else{ %>
 						<li>
 							<a class="btn theme-login" href="javascript:;">登录</a>
@@ -122,7 +120,13 @@
 			<div class="row">
 				<div class="forums_title col-md-10 col-sm-12 col-center-block">
 					<h1 style="font-size: 30px;">
+					<%if(threadPage.getFid()==1){ %>>
 						<span>论坛-课堂区</span>
+					<%}else if(threadPage.getFid()==2){ %>>
+						<span>论坛-讨论区</span>
+					<%}else if(threadPage.getFid()==3){ %>>
+						<span>论坛-灌水区</span>
+					<%}%>>
 					</h1>
 				</div>
 				<div  class="col-md-10 col-sm-12 col-center-block thread_path">
@@ -234,5 +238,7 @@
 			</nav>
 		</div>
 	</body>
-
+	<script>
+		var loged = <%=request.getAttribute("loged") %>;
+	</script>
 </html>

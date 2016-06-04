@@ -17,11 +17,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta name="keywords" content="heygis,中南林业科技大学全景地理信息科学,林业科技大学gis协会官方网站">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/loginJS.js"></script>
 	<script type="text/javascript" src="js/source1JS.js"></script>
@@ -35,56 +36,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html"><span class="heygis">HeyGIS</span></a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="index.html">首页</a>
-						</li>
-						<li>
-							<a href="forums/forums.jsp">论坛区</a>
-						</li>
-						<li class="active" >
-							<a href="#">资源区</a>
-						</li>
-						<li>
-							<a href="index.html#lkdVR">林科大全景</a>
-						</li>
-						<li>
-							<a class="btn theme-login" href="javascript:;">登录</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 </a>
-							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="#">一</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+     <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="index.jsp">首页</a>
+					</li>
+					<li>
+						<a href="index.jsp#bbs">论坛区</a>
+					</li>
+					<li class="active">
+						<a href="###">资源区</a>
+					</li>
+					<li>
+						<a href="index.jsp#lkdVR">林科大全景</a>
+					</li>
+				<%if(session.getAttribute("loged") != null){ %>
+					<%if(session.getAttribute("loged").equals(true)){ %>
+					<li>
+						<a href="selfCenterServlet">个人中心</a>
+					</li>
+					<li>
+						<a class="btn" href="javascript:document:logout.submit()" >退出</a>
+					</li>
+					<%} %>
+			<%}else{ %>
+					<li>
+						<a class="btn theme-login" href="javascript:;">登录</a>
+					</li>
+					<li>
+						<a class="btn " href="register.jsp">注册</a>
+					</li>
+				<%} %>
+				</ul>
 			</div>
 		</div>
+	  </div>
 		<div class="container tabs">
 			<div class="row">
 				<div class="col-lg-12">
@@ -358,20 +355,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<h3>登录 是一种态度</h3>
 			</div>
 			<div class="theme-popbod dform">
-				<form class="theme-signin" name="loginform" action="" method="post">
+				<form id="loginForm" class="theme-signin" name="loginform"  method="post" onsubmit="return login()">
 					<ol>
 						<li>
-							<h4>你必须先登录！</h4></li>
+							<h4 id="loginMessage">你必须先登录！</h4>
+						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="log" value="account" size="20" />
+							<input class="ipt" type="text" name="account" value="1234" size="20" />
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="pwd" value="password" size="20" />
+							<input class="ipt" type="password" name="password" value="1234" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />
 						</li>
 					</ol>
+				</form>
+				<form id="logout" method="post" action="logoutServlet">
+					<INPUT TYPE="submit" name="test" value = "go" style="display:none"> 
 				</form>
 			</div>
 		</div>

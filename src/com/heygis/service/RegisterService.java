@@ -11,4 +11,12 @@ public class RegisterService {
 		User user = new User(account, passWord, nickName, grade);
 		return udi.addUser(user);
 	}
+	public boolean judgeEmail(String account){
+		udi = new UserDAOImpl();
+		return udi.judgeEmail(account);
+	}
+	public boolean judgeNickName(String nickName){
+		udi = new UserDAOImpl();
+		return udi.judgeNickName(nickName);
+	}
 }

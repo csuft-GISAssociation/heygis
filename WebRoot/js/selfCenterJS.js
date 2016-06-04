@@ -8,4 +8,11 @@ jQuery(document).ready(function($) {
 		$('#changeIcon').slideUp(200);
 	});
 	
-})
+});
+$(document).ready(function(){ 
+    var trueHeight = $(".Top").height(); 
+    var needHeight = window.screen.height;
+    if(trueHeight<needHeight){
+    	$(".Top").height(needHeight-200);
+    }
+} );

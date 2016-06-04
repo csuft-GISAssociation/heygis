@@ -542,8 +542,16 @@ p{
 	box-shadow: 5px 5px 20px white;
 }
 #tableLBS{
+	cursor:hand;
 	background-color: white; 
-	padding: 0px; height: 80%;
+	padding: 0px; 
+	height: 80%;
 	overflow-y: auto;
 	box-shadow: 5px 5px 20px white;
+}
+#tableLBS tr:hover{
+	background-color: pink;
+}
+#tableLBS td{
+	padding-left:10%;
 }

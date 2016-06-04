@@ -5,10 +5,11 @@
 		<meta name="description" content="">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
 		
+		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery.form.js"></script>
 		<script type="text/javascript" src="js/loginJS.js"></script>
 		<script type="text/javascript" src="js/registerJS.js"></script>
 		<link href="css/navCSS.css" rel="stylesheet" type="text/css">
@@ -74,58 +75,73 @@
 			<div class="row">
 				<h1 class="text-primary">注册</h1>
 				<br />
-				<div class="col-sm-6">
-					<form class="form-horizontal" role="form">
+				<div class="col-sm-offset-3 col-sm-6">
+					<form class="form-horizontal" role="form" id="registerForm" action="registerServlet" method="post">
 							<div class="form-group">
 								<div class="col-xs-3 textRight">
 									<label class="control-label">Email</label>
 								</div>
-								<div class="col-xs-9">
-									<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+								<div class="col-xs-8">
+									<input type="email" name="account" class="form-control" id="inputEmail3" placeholder="Email" onblur="testEmail()">
+								</div>
+								<div class="col-xs-1 judge">
+									<label class="control-label" id="mark1"></label>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-3 textRight">
 									<label class="control-label">Password</label>
 								</div>
-								<div class="col-xs-9">
-									<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+								<div class="col-xs-8">
+									<input type="password" name="passWord" class="form-control" id="inputPassword1" placeholder="Password 6~22位数字字符或者特殊符号" onblur="testPwd()">
+								</div>
+								<div class="col-xs-1 judge">
+									<label class="control-label" id="mark2"></label>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-3 textRight">
 									<label class="control-label">Reenter password</label>
 								</div>
-								<div class="col-xs-9">
-									<input type="password" class="form-control" id="inputPassword3" placeholder="Reenter password">
+								<div class="col-xs-8">
+									<input type="password" class="form-control" id="inputPassword2" placeholder="Reenter password" onblur="testRePwd()">
+								</div>
+								<div class="col-xs-1 judge">
+									<label class="control-label" id="mark3"></label>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-3 textRight">
 									<label class="control-label">nickName</label>
 								</div>
-								<div class="col-xs-9">
-									<input type="email" class="form-control" id="inputnickName" placeholder="nickName">
+								<div class="col-xs-8">
+									<input type="text" name="nickName" class="form-control" id="inputnickName" placeholder="nickName" onblur="testNickName()">
+								</div>
+								<div class="col-xs-1 judge">
+									<label class="control-label" id="mark4"></label>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-xs-3 textRight">
 									<label for="inputPassword3" class="control-label">Grade</label>
 								</div>
-								<div class="col-xs-9">
-									<input type="password" class="form-control" id="inputPassword3" placeholder="Grade">
+								<div class="col-xs-8">
+									<input type="text" name="grade" class="form-control" id="inputGrade" placeholder="入学年份 例如：2013" onblur="testGrade()">
+								</div>
+								<div class="col-xs-1 judge">
+									<label class="control-label" id="mark5"></label>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-9">
-									<button type="submit" class="btn btn-default btn-block">Sign in</button>
+								<div class="col-sm-offset-3 col-sm-8" id="submitt">
+									<button class="btn btn-default btn-block" type="button"  onclick="register()">Sign in</button>
 								</div>
 							</div>
 						</form>
 				</div>
-				<div class="col-sm-6">
+				<!--  div class="col-sm-6">
 					<img src="img/bbs-1.JPG" class="img-responsive" />
-				</div>
+				</div>-->
 			</div>
 		</div>
 		
