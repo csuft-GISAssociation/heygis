@@ -555,3 +555,6 @@ p{
 #tableLBS td{
 	padding-left:10%;
 }
+.BMapLib_sendToPhone {
+	display:none;
+}

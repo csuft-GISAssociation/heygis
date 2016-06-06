@@ -29,6 +29,8 @@ function postPublic(){
 function finalpostPublic(){
 	if(document.getElementById("textarea_post").value == ''){
 		alert("帖子内容不能为空！");
+ 		if(whichsubmit == 1){
+ 			location.reload();}
 	}else{
 		document.getElementById('postpubllic').submit();
 	}
@@ -42,7 +44,6 @@ function reply(_posi,_uid,_account,_nickname,_redpid){
 	account = _account;
 	nickname = _nickname;
 	redpid = _redpid;
-	redmes = document.getElementById('message'+posi).innerHTML;
 	$('.reply').slideDown(200);
 }
 function posiReplyPublic(){
@@ -63,6 +64,8 @@ function posiReplyPublic(){
 function replyfinalsubmit(){
 	if(document.getElementById("posi_reply_textarea").value == ''){
 		alert("帖子内容不能为空！");
+ 		if(whichsubmit == 2){
+ 			location.reload();}
 	}else{
 		document.getElementById('posi_reply_form').submit();
 	}
@@ -72,6 +75,7 @@ function replyfinalsubmit(){
  */
 jQuery(document).ready(function($) {
 	  $('.theme-login').click(function(){
+		whichsubmit == 0;
 	    $('.theme-popover-mask').fadeIn(100);
 	    $('.theme-popover').slideDown(200);
 	  })
@@ -86,20 +90,19 @@ $('#loginForm').ajaxSubmit({
 type: 'post', 
 url: 'loginServlet', 
 data: $('#loginForm').serialize(),
-success: function(data) { 
-//		alert(data);
+success: function(data) {
 	if(data == 0){
 //		alert(data);
 		$('#loginMessage').html("账号或密码错误！");
 		$('#loginMessage').css("color",'red');
 		$('#loginMessage').css("font-size",'16px');
 	 	}else if(data == 1){
-//	   		alert(data);
+//	   		alert(whichsubmit);
 	 		if(whichsubmit == 0){
 	 			location.reload();
 	 		}else if(whichsubmit == 1){
 	 			finalpostPublic();
-	 		}else if(whichsubmit == 1){
+	 		}else if(whichsubmit == 2){
 				replyfinalsubmit();
 	 		}
 	}

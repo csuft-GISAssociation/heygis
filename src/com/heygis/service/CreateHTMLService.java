@@ -9,6 +9,10 @@ import com.heygis.beans.SourceThree;
 import com.heygis.beans.SourceTwo;
 
 public class CreateHTMLService {
+	private boolean loged;
+	public CreateHTMLService(boolean loged){
+		this.loged = loged;
+	}
 	public String createHTML(List list,String sourceType){
 		if(sourceType.equals("1")){
 			List<SourceOne> li = list;
@@ -28,7 +32,7 @@ public class CreateHTMLService {
 				html += "<h5>上传时间:"+sourceOne.getUpload_time() +"</h5>";
 				html += "<div class='content'>";
 				html += "<p>"+sourceOne.getIntroduction() +"</p>";
-				html += "<a class='btn btn-primary btn-lg' href='"+sourceOne.getDownload_link()+"'>本站下载地址</a>";
+				html += "<a class='btn btn-primary btn-lg change' href='"+sourceOne.getDownload_link()+"' onclick='return checkLog("+loged+")'>本站下载地址</a>";
 				html += "</div></div></article>";
 			}
 			return html;
@@ -51,7 +55,7 @@ public class CreateHTMLService {
 				html += "<h5>上传时间:"+sourceTwo.getUpload_time() +"</h5>";
 				html += "<div class='content'>";
 				html += "<p>"+sourceTwo.getIntroduction() +"</p>";
-				html += "<a class='btn btn-primary btn-lg' href='"+sourceTwo.getDownload_link()+"'>本站下载地址</a>";
+				html += "<a class='btn btn-primary btn-lg change' href='"+sourceTwo.getDownload_link()+"' onclick='return checkLog("+loged+")'>本站下载地址</a>";
 				html += "</div></div></article>";
 			}
 			return html;
@@ -73,8 +77,8 @@ public class CreateHTMLService {
 				html += "<h5>上传时间:"+sourceThree.getUpload_time() +"</h5>";
 				html += "<div class='content'>";
 				html += "<p>"+sourceThree.getIntroduction() +"</p>";
-				html += "<a class='btn btn-primary btn-md' href='"+sourceThree.getDownload_link_offical()+"'>官方下载地址</a> | ";
-				html += "<a class='btn btn-primary btn-md' href='"+sourceThree.getDownload_link()+"'>本站下载地址</a>";
+				html += "<a class='btn btn-primary btn-md' href='"+sourceThree.getDownload_link_offical()+"' target='_blank'>官方下载地址</a> | ";
+				html += "<a class='btn btn-primary btn-md change' href='"+sourceThree.getDownload_link()+"' onclick='return checkLog("+loged+")'>本站下载地址</a>";
 				html += "</div></div></article>";
 			}
 			return html;
@@ -96,7 +100,7 @@ public class CreateHTMLService {
 				html += "<h5>上传时间:"+sourceFour.getUpload_time() +"</h5>";
 				html += "<div class='content'>";
 				html += "<p>"+sourceFour.getIntroduction() +"</p>";
-				html += "<a class='btn btn-primary btn-lg' href='"+sourceFour.getDownload_link()+"'>本站下载地址</a>";
+				html += "<a class='btn btn-primary btn-lg change' href='"+sourceFour.getDownload_link()+"' onclick='return checkLog("+loged+")'>本站下载地址</a>";
 				html += "</div></div></article>";
 			}
 			return html;

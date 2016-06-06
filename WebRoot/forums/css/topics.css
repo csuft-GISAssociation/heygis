@@ -1,6 +1,7 @@
 .post_wraper{
 	margin-top: 70px;
-	padding: 0px;
+	padding-left: 0px;
+	/*padding: 0px;*/
 	/*padding-left: 120px;*/
 }
 .thread_title{
@@ -71,7 +72,8 @@
     margin-right: auto;
 }
 .post_reply_wraper{
-	padding: 0px;
+	padding-left: 0px;
+	/*padding: 0px;*/
 }
 .post_reply_content{
 	margin-top: 20px;

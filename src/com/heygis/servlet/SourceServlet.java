@@ -20,6 +20,7 @@ public class SourceServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String index = request.getParameter("index");
 		SourceServie sourceService = new SourceServie();
 		List<SourceOne> sourceOneList = sourceService.getSourceOneList();
 		List<SourceTwo> sourceTwoList = sourceService.getSourceTwoList();
@@ -29,6 +30,7 @@ public class SourceServlet extends HttpServlet {
 		request.setAttribute("sourceTwoList",sourceTwoList);
 		request.setAttribute("sourceThreeList",sourceThreeList);
 		request.setAttribute("sourceFourList",sourceFourList);
+		request.setAttribute("index",index);
 		request.getRequestDispatcher("/source1.jsp").forward(request, response);
 	}
 	

@@ -140,7 +140,7 @@
 										<a class="replay" href="#">管理</a>
 									</li>
 									<li>
-										<a class="replay" href="###" onclick="reply(<%=post.getPosition()%>,<%=post.getAuthorUid()%>,'<%=post.getAuthorAccount()%>','<%=post.getAuthor()%>','')">回复</a>
+										<a class="replay" href="###" onclick="reply(<%=post.getPosition()%>,<%=post.getAuthorUid()%>,'<%=post.getAuthorAccount()%>','<%=post.getAuthor()%>',<%=post.getPid()%>)">回复</a>
 									</li>
 									<li><%=formatter.format(post.getDateline()) %></li>
 								</ul>
@@ -173,7 +173,7 @@
 							<div class="clear"></div>
 						</div>
 						<div id="submit">
-							<input type="button" class="post_reply_submit  btn btn-primary" value="发表" id="post_submit" onclick="javascript:document:postpubllic.submit()"/>
+							<input type="button" class="post_reply_submit  btn btn-primary" value="发表" id="post_submit" onclick="postPublic()"/>
 						</div>
 						<div class="clear"></div>
 					</div>
@@ -183,7 +183,7 @@
 		<div class="reply col-md-12">
 			<div class="reply-poptit">
 				<a href="javascript:;" title="关闭" class="close">×</a>
-				<p>回复:1楼小姨妈:</p>
+				<p>回复:</p>
 				<div class="clear"></div>
 			</div>
 				<form id="posi_reply_form" action="replyPostServlet?fid=<%=post.getFid() %>&tid=<%=postPage.getTid() %>" method="post">

@@ -6,6 +6,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String loged = request.getAttribute("loged").toString();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -34,6 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
 
   </head>
+
   
   <body>
      <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
@@ -87,21 +89,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-lg-12">
 					<div class="tabbable" id="tabs">
 						<ul class="nav nav-tabs">
-							<li class="active col-lg-3 col-md-3 col-xs-6">
+							<li class="active col-lg-3 col-md-3 col-xs-6" id="ppanel-1">
 								<a href="#panel-1" data-toggle="tab">总结大会</a>
 							</li>
-							<li class="col-lg-3 col-md-3 col-xs-6">
+							<li class=" col-lg-3 col-md-3 col-xs-6" id="ppanel-2">
 								<a href="#panel-2" data-toggle="tab">课堂源码</a>
 							</li>
-							<li class="col-lg-3 col-md-3 col-xs-6">
+							<li class="col-lg-3 col-md-3 col-xs-6" id="ppanel-3">
 								<a href="#panel-3" data-toggle="tab">开发工具</a>
 							</li>
-							<li class="col-lg-3 col-md-3 col-xs-6">
+							<li class="col-lg-3 col-md-3 col-xs-6" id="ppanel-4">
 								<a href="#panel-4" data-toggle="tab">拓展强化</a>
 							</li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane active" id="panel-1">
+							<div class="tab-pane" id="panel-1">
 								<div id="main">
 									<div class="inner">
 										<header class="page-header">
@@ -146,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<h5>上传时间:<%=sourceOne.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceOne.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg" href="<%=sourceOne.getDownload_link()%>">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceOne.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -201,7 +203,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<h5>上传时间:<%=sourceTwo.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceTwo.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg" href="<%=sourceTwo.getDownload_link()%>">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceTwo.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -255,8 +257,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<h5>上传时间:<%=sourceThree.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceThree.getIntroduction() %></p>
-														<a class="btn btn-primary btn-md" href="<%=sourceThree.getDownload_link_offical()%>">官方下载地址</a> 
-														<a class="btn btn-primary btn-md" href="<%=sourceThree.getDownload_link()%>">本站下载地址</a>
+														<a class="btn btn-primary btn-md" href="<%=sourceThree.getDownload_link_offical()%>" target="_blank">官方下载地址</a> 
+														<a class="btn btn-primary btn-md change" href="<%=sourceThree.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -311,7 +313,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 													<h5>上传时间:<%=sourceFour.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceFour.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg" href="<%=sourceFour.getDownload_link()%>">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceFour.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -336,9 +338,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 				<div class="col-md-4  col-sm-6 foot-right">
 					<h1 class="footh1">相关链接</h1>
-					<a href="feedback.html">意见反馈</a>
-					<br /> <a href="aboutWeb.html">关于本网站</a>
-					<br /><a href="aboutMaker.html"> 关于制作者</a>
+					<a href="feedbackServlet">意见反馈</a>
+					<br /> <a href="aboutWeb.jsp">关于本网站</a>
+					<br /> <a href="aboutMaker.jsp"> 关于制作者</a>
 					<br />
 				</div>
 				<div class="col-md-4  col-sm-12 shenming">
@@ -361,13 +363,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h4 id="loginMessage">你必须先登录！</h4>
 						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="1234" size="20" />
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="Your Email"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="1234" size="20" />
+							<input class="ipt" type="password" name="password" value="" placeholder="password" size="20" />
 						</li>
 						<li>
-							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />
+							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录    " />
+							<a href="register.jsp">&nbsp;注册</a>
 						</li>
 					</ol>
 				</form>
@@ -379,3 +382,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="theme-popover-mask"></div>
   </body>
 </html>
+<script type="text/javascript">
+	var id = "#"+"<%=request.getAttribute("index")%>";
+	var idd = "#p"+"<%=request.getAttribute("index")%>";
+	$(id).addClass("active");
+	$(idd).addClass("active");
+	jQuery(document).ready(function($) {
+		if(id != "panel-1"){
+			$("#ppanel-1").removeClass("active");
+		}
+	});
+</script>

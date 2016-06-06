@@ -37,40 +37,25 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand"><span class="heygis">HeyGIS</span></a>
+					<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active">
-							<a href="#">首页</a>
+							<a href="index.jsp">首页</a>
 						</li>
 						<li>
-							<a href="#">论坛区</a>
+							<a href="index.jsp#bbs">论坛区</a>
 						</li>
 						<li>
-							<a href="#">资源区</a>
+							<a href="sourceServlet">资源区</a>
 						</li>
 						<li>
-							<a href="#">关于我们</a>
+							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
-					<%if((Boolean)request.getAttribute("loged")){ %>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 </a>
-							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="#">一</a>
-								</li>
-								<li>
-									<a href="#">Another action</a>
-								</li>
-								<li>
-									<a href="#">Something else here</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="#">Separated link</a>
-								</li>
-							</ul>
+				<%if((Boolean)request.getAttribute("loged")){ %>
+						<li>
+							<a href="selfCenterServlet">个人中心</a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -80,7 +65,7 @@
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
 						<li>
-							<a class="btn" href="javascript:;">注册</a>
+							<a class="btn " href="javascript:;">注册</a>
 						</li>
 					<%} %>
 					</ul>
@@ -126,12 +111,12 @@
 						<span>论坛-讨论区</span>
 					<%}else if(threadPage.getFid()==3){ %>>
 						<span>论坛-灌水区</span>
-					<%}%>>
+					<%}%>
 					</h1>
 				</div>
 				<div  class="col-md-10 col-sm-12 col-center-block thread_path">
 						<p>前往 ： </p>
-						<a href="index.html;"> 主页  >  </a>
+						<a href="index.jsp"> 主页  >  </a>
 						<a href="forumsServlet?fid=1&page=1">课堂区 </a>
 						<a href="forumsServlet?fid=2&page=1">讨论区 </a>
 						<a href="forumsServlet?fid=3&page=1">灌水区 </a>

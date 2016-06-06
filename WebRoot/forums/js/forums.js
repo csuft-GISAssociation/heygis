@@ -1,3 +1,5 @@
+var wherelog = 0;
+
 $(function(){
     $('#thread_subTextarea').focus(function(){
         if($(this).val() == '发表新帖：标题'){
@@ -35,6 +37,7 @@ function public(){
 
 function threadpublic(){
 	if(loged == false){
+		wherelog = 1;
 	    $('.theme-popover-mask').fadeIn(100);
 	    $('.theme-popover').slideDown(200);
 	}else{
@@ -57,6 +60,7 @@ function finalsubmit(){
  */
 jQuery(document).ready(function($) {
 	  $('.theme-login').click(function(){
+		wherelog = 0;
 	    $('.theme-popover-mask').fadeIn(100);
 	    $('.theme-popover').slideDown(200);
 	  })
@@ -80,9 +84,13 @@ success: function(data) {
 		$('#loginMessage').css("font-size",'16px');
 	 	}else if(data == 1){
 //	   		alert(data);
-		    $('.theme-popover-mask').fadeOut(100);
-		    $('.theme-popover').slideUp(200);
-			finalsubmit();
+	 		if(wherelog == 0){
+	 			location.reload();
+	 		}else if(where = 1){
+			    $('.theme-popover-mask').fadeOut(100);
+			    $('.theme-popover').slideUp(200);
+				finalsubmit();
+	 		}
 	}
 }
 });

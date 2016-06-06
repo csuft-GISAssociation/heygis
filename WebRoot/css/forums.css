@@ -1,7 +1,8 @@
 .forums_wraper{
 	margin-top: 70px;
-	padding: 0px;
-	/*padding-left: 120px;*/
+	/*padding: 0px;*/
+	padding-left: 0px;
+	/*margin-right: 15px;*/
 }
 .forums_title{
 	background-color: #DDDDDD;
@@ -25,7 +26,8 @@
 	margin-bottom: 0px;
 }
 .thread_public_wraper{
-	padding: 0px;
+	padding-left: 0px;
+	/*padding: 0px;*/
 }
 .thread_public_content{
 	margin-top: 20px;
