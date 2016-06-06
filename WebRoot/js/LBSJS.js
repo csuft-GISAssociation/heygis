@@ -106,13 +106,14 @@ jQuery(document).ready(function($) {
 			marker.addEventListener('click', showInfo);
             function showInfo() {
 //          	map.centerAndZoom(new BMap.Point(item.location[0], item.location[1]),18);
-                var content = "<p style='color:black'>名称：" + item.title + "</p>" +
-                              "<p style='color:black'>地址：" + item.address + "</p>" +
-                              "<p style='color:black'>简介：" + item.intro + "</p>";
+                var content = "<img src="+item.image+" style='height:100px;width:237px'/>"+
+                              "<p style='color:black'>简介：" + item.intro + "</p>"+
+                              "<a class='btn btn-primary btn-block btn-sm' href='vtourServlet?mark=1&html="+item.url+"'>点击进入</a>";
                 //创建检索信息窗口对象
                 var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
                     title  : item.title,      //标题
-                    width  : 290,             //宽度
+                    width  : 220,             //宽度
+                    height : 170,
                     panel  : "panel",         //检索结果面板
                     enableAutoPan : true,     //自动平移
                     searchTypes   :[

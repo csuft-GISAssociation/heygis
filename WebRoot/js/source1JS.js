@@ -74,5 +74,15 @@ function defaultcho(e,s){
 		}
 	});
 }
+function checkLog(loged){
+	if(loged == true){
+		return true;
+	}else{
+		$('.change').removeClass("btn-primary");
+		$('.change').addClass("btn-danger");
+		$('.change').text("请先登录再下载");
+		return false;
+	}
+}
 
 
