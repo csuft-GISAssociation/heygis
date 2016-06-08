@@ -7,7 +7,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+		<!--
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fUcsLQ6HipBeGCQUMrpNKhqt"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+		  -->
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="js/jquery.form.js"></script>
@@ -17,7 +20,7 @@
 		<link href="css/indexSourceStyle.css" rel="stylesheet" type="text/css">
 		<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
 		<link href="css/main.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+		
 		<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 	
 		<title>heygis-首页</title>
@@ -76,7 +79,7 @@
 					<div class="innered">
 						<h1 class="cover-heading">欢迎来到GIS协会</h1>
 						<p class="lead">LET US TAKE YOU DOWN!</p>
-						<br /><br /><br />
+						<br />
 						<p class="lead">你以为我们应该有学术社团的严肃?不，我们只是严谨。<br />
 							你以为我们应该有艺体社团的多样？不，我们只是专一。那GIS协会有什么好骄傲？<br />
 							我们的确没什么了不起，只是我们一直坚持授新生以渔，学会一门编程语言是为了培养新生的编程思维；<br />
@@ -185,8 +188,10 @@
 				<div class="row">
 					<div class="col-md-12" >
 						<h1 class="text-center text-primary" id="lkdVR">林科大全景</h1>
-						<div class="col-md-9" id="allmap">
+						<div  class="col-md-12" style="padding-left:0px" >
+							<button id="controlMap" class="btn btn-primary col-md-3" onclick="controlMap()">点击打开鼠标移动与滚轮缩放</button> 
 						</div>
+						<div class="col-md-9" id="allmap" ></div>
 						<div class="col-md-3 hidden-sm hidden-xs" id="tableLBS">
 							<table class="table table-striped" id="vtour">
 								<th><h4 class="text-center">索引</h4></th>

@@ -1,4 +1,4 @@
-"use strict";
+
 (function(factory) {
 	if (typeof define === 'function' && define.amd) {
 		define(['jquery'], factory);
@@ -38,6 +38,7 @@
 				},
 				getBlob: function() {
 					var imageData = this.getDataURL();
+					//var b64 = imageData;
 					var b64 = imageData.replace('data:image/png;base64,', '');
 					var binary = atob(b64);
 					var array = [];
@@ -147,6 +148,8 @@ $(window).load(function() {
 	$('#btnCrop').on('click', function() {
 		var img = cropper.getDataURL();
 		$('.rrr').append(img);
+		$("#form1").submit();
+		//alert("123"+img);
 		/*$('.cropped').append('<img src="' + img + '">');*/
 	})
 	$('#btnZoomIn').on('click', function() {

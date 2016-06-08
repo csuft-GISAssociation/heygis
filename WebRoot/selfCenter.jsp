@@ -218,8 +218,8 @@ User user = (User)request.getSession().getAttribute("user");
 						</button>
 					</div>
 					<div class="col-xs-4 iconbtn">
-						<form id="form1" action="" method="post">
-							<input type="submit" id="btnCrop" value="确定" class="btn btn-primary btn-block">
+						<form id="form1" action="userIconServlet" method="post">
+							<input type="button" id="btnCrop" value="确定" class="btn btn-primary btn-block">
 							<textarea class="rrr" form="form1" name="imgURL"></textarea>
 						</form>	
 					</div>

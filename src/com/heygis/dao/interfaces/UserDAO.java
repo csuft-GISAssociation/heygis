@@ -11,4 +11,5 @@ public interface UserDAO {
 	public boolean judgeEmail(String account);
 	public boolean judgeNickName(String nickName);
 	public boolean fillInfo(User user);
+	public boolean updateIconImg(User user);
 }

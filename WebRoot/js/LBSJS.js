@@ -1,10 +1,38 @@
-	var map = new BMap.Map("allmap");
+var map;
+var bool = false;
+function loadJScript() {
+		var script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = "http://api.map.baidu.com/api?v=2.0&ak=fUcsLQ6HipBeGCQUMrpNKhqt&callback=init";
+		document.body.appendChild(script);
+}	
+function controlMap(){
+	if(bool){
+		map.disableScrollWheelZoom(true);
+		map.disableDragging(); 
+		$("#controlMap").text("点击打开鼠标移动与滚轮缩放");
+		bool = false;
+	}else{
+		map.enableScrollWheelZoom(true);
+		map.enableDragging(); 
+		$("#controlMap").text("点击关闭鼠标移动与滚轮缩放");
+		bool = true;
+	}
+}
+function init(){
+	var script1 = document.createElement("script");
+	script1.type = "text/javascript";
+	script1.src = "http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js";
+
+	document.body.appendChild(script1);
+	map = new BMap.Map("allmap");
 	if($(window).width()<768){
 		map.centerAndZoom(new BMap.Point(113.001257,28.137300),16);
 	}else{
 		map.centerAndZoom(new BMap.Point(113.001257,28.137300),17);
 	}
-	map.enableScrollWheelZoom(true);
+	map.disableScrollWheelZoom(true);
+	map.disableDragging(); 
 	var polyline = new BMap.Polyline([
 		new BMap.Point(112.993882,28.136949),
 		new BMap.Point(112.993927,28.137913),
@@ -127,3 +155,6 @@ jQuery(document).ready(function($) {
  			map.addOverlay(marker);
         });
   	}
+}
+window.onload = loadJScript;  //异步加载地图
+	

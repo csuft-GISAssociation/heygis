@@ -40,7 +40,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 	}
 
 	@Override
-	public int addUser(User user){
+	public int addUser(User user){//添加默认的性别，头像，个人介绍
 		try {
 			String account = user.getAccount();
 			String password = user.getPassWord();
@@ -63,8 +63,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return 0;
-		
+		return 0;		
 	}
 
 	@Override
@@ -134,6 +133,20 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 		this.close();
 		System.out.println(user.getAccount());
 		System.out.println(result);
+		if(result == 1){
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updateIconImg(User user) {
+		String icon_img = user.getAccount()+"_img.jpg";//这儿要改成图片地址路径
+		String sql = "UPDATE users_info SET icon_img = ? WHERE account = ?";
+		this.openConn();
+		int result = this.execUpdate(sql, icon_img,user.getAccount());
+		System.out.println(result);
+		this.close();
 		if(result == 1){
 			return true;
 		}

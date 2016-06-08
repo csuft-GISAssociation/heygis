@@ -92,7 +92,7 @@ h2.ss-subtitle:after{
     clear: both;
     float: left;
     position: relative;
-    padding: 30px 0;
+    padding: 10px 0;
 }
 .ss-left, .ss-right{
     float: left;
@@ -133,12 +133,12 @@ h2.ss-subtitle:after{
 	height: 100px;
 }
 .ss-medium .ss-circle{
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 }
 .ss-large .ss-circle{
-	width: 300px;
-	height: 300px;
+	width: 100px;
+	height: 100px;
 }
 .ss-circle-deco:before{
 	width: 29%;
@@ -178,25 +178,26 @@ h2.ss-subtitle:after{
 	border-left: 10px solid rgba(17,17,22,0.8);
 }
 .ss-left .ss-circle{
+	margin-top:20px;
     float: right;
-    margin-right: 30%;
+    margin-right: 5%;
 }
 .ss-right .ss-circle{
+	margin-top:20px;
     float: left;
-    margin-left: 30%;
+    margin-left: 5%;
 }
 .ss-container h3{
-    margin-top: 34px;
 	padding: 10px 15px;
 	background: rgba(26, 27, 33, 0.6);
 	text-shadow: 1px 1px 1px rgba(26, 27, 33, 0.8)
 }
-.ss-container .ss-medium h3{
+/*.ss-container .ss-medium h3{
 	margin-top: 82px;
 }
 .ss-container .ss-large h3{
 	margin-top: 133px;
-}
+}*/
 .ss-container .ss-left h3{
 	border-right: 5px solid rgba(164,166,181,0.8);
 }
