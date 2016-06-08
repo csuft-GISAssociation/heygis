@@ -307,7 +307,6 @@ String loged = request.getAttribute("loged").toString();
 													</span>
 													<div class="detail">
 													<h2><%=sourceFour.getName() %></h2>
-													<h4>作者:<%=sourceFour.getUploader() %></h4>
 													<h4>下载次数:<%=sourceFour.getDownload_times() %></h4>
 													<h5>文件大小:<%=sourceFour.getFile_size() %></h5>
 													<h5>上传时间:<%=sourceFour.getUpload_time() %></h5>

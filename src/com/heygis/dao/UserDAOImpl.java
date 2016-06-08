@@ -126,7 +126,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 
 	@Override
 	public boolean fillInfo(User user) {
-		boolean bool = false;
+		//boolean bool = false;
 		String sql = "update users_info set nickname=?,grade=?,selfintroduction=?,gender=?,QQ=?,tel=? where account=?";
 		this.openConn();
 		int result = this.execUpdate(sql, user.getNickName(),user.getGrade(),user.getSelfIntroduction(),user.getGender(),user.getQQ(),user.getTel(),user.getAccount());
@@ -141,7 +141,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO{
 
 	@Override
 	public boolean updateIconImg(User user) {
-		String icon_img = user.getAccount()+"_img.jpg";//这儿要改成图片地址路径
+		String icon_img = "/heygis_img/icon/"+user.getAccount()+"_img.jpg";//这儿要改成图片地址路径
 		String sql = "UPDATE users_info SET icon_img = ? WHERE account = ?";
 		this.openConn();
 		int result = this.execUpdate(sql, icon_img,user.getAccount());

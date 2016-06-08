@@ -73,7 +73,7 @@ User user = (User)request.getSession().getAttribute("user");
 	        <div class="row">
 	          	<div class="col-sm-12 col-md-5">
 		          	<div class="col-sm-5">
-	          			<img src="img/max.png" class="img-responsive iconImg" /><br />
+	          			<img src="<%=user.getIconImg() %>" class="img-responsive iconImg" /><br />
 		          		<a class="btn btn-primary btn-block" id="fillInfo" href="fillInfo.jsp">完善信息</a>
 		          		<button class="btn btn-primary btn-block" id="modifyIcon">修改头像</button>
 		          	</div>
