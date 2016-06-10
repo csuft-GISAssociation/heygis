@@ -117,18 +117,18 @@ String htmlURL = request.getAttribute("htmlURL").toString();
 				<a href="javascript:qrp()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>情人坡</span> </a>
 				<a href="javascript:yst()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>一食堂</span> </a>
 				<a href="javascript:dxl()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>电子信息楼</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>逸夫楼</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>林科大桥</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>东园运动场</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>五食堂</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>西园足球场</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>体育艺术馆</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>东门</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>西门</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>思源</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>主教学楼</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>土木楼</span> </a>
-				<a><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>图书馆</span> </a>
+				<a href="javascript:yfl()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>逸夫楼</span> </a>
+				<a href="javascript:lkdq()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>林科大桥</span> </a>
+				<a href="javascript:dyydc()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>东园运动场</span> </a>
+				<a href="javascript:wst()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>五食堂</span> </a>
+				<a href="javascript:xyzqc()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>西园足球场</span> </a>
+				<a href="javascript:tyysg()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>体育艺术馆</span> </a>
+				<a href="javascript:dm()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>东门</span> </a>
+				<a href="javascript:xm()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>西门</span> </a>
+				<a href="javascript:sy()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>思源</span> </a>
+				<a href="javascript:zjxl()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>主教学楼</span> </a>
+				<a href="javascript:tml()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>土木楼</span> </a>
+				<a href="javascript:tsg()"><img class="img-thumbnail" src="img/bbs-1.JPG " /><span>图书馆</span> </a>
 			</div>
 	    </div>  
 	    <iframe id="myFrame" src="<%=htmlURL %>" frameborder="0" width="100%" height="100%" scrolling="no">	

@@ -18,6 +18,8 @@
 		<link href="css/indexSourceStyle.css" rel="stylesheet" type="text/css">
 		<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
 		<link href="css/registerStyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" media="screen" href="css/BGstyle.css">
+		
 		<title>heygis-注册</title>
 	</head>
 
@@ -67,62 +69,54 @@
 					</ul>
 				</div>
 			</div>
+		</div>		
+		
+		<div style="position:absolute; width:100%;height:100%">
+			<div id="particles-js"></div>
+			<script src="js/particles.js"></script>
+			<script src="js/app.js"></script>
 		</div>
+				
 		<div class="container Top">
 			<div class="row">
 				<h1 class="text-primary">注册</h1>
-				<br />
+				<br /> 
 				<div class="col-sm-offset-3 col-sm-6">
 					<form class="form-horizontal" role="form" id="registerForm" action="registerServlet" method="post">
 							<div class="form-group">
-								<div class="col-xs-3 textRight">
-									<label class="control-label">Email</label>
-								</div>
-								<div class="col-xs-8">
-									<input type="email" name="account" class="form-control" id="inputEmail3" placeholder="Email" onblur="testEmail()" onclick="clear()">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="email" name="account" class="form-control" id="inputEmail3" placeholder="邮箱   将作为您登陆的账号" onblur="testEmail()" onclick="clear()">
 								</div>
 								<div class="col-xs-1 judge">
 									<label class="control-label" id="mark1"></label>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-xs-3 textRight">
-									<label class="control-label">Password</label>
-								</div>
-								<div class="col-xs-8">
-									<input type="password" name="passWord" class="form-control" id="inputPassword1" placeholder="Password 6~22位数字字符或者特殊符号" onblur="testPwd()">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="password" name="passWord" class="form-control" id="inputPassword1" placeholder="密码    6~22位数字字符或者特殊符号" onblur="testPwd()">
 								</div>
 								<div class="col-xs-1 judge">
 									<label class="control-label" id="mark2"></label>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-xs-3 textRight">
-									<label class="control-label">Reenter password</label>
-								</div>
-								<div class="col-xs-8">
-									<input type="password" class="form-control" id="inputPassword2" placeholder="Reenter password" onblur="testRePwd()">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="password" class="form-control" id="inputPassword2" placeholder="请再次输入密码" onblur="testRePwd()">
 								</div>
 								<div class="col-xs-1 judge">
 									<label class="control-label" id="mark3"></label>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-xs-3 textRight">
-									<label class="control-label">nickName</label>
-								</div>
-								<div class="col-xs-8">
-									<input type="text" name="nickName" class="form-control" id="inputnickName" placeholder="nickName" onblur="testNickName()">
+								<div class="col-xs-offset-1 col-xs-10">
+									<input type="text" name="nickName" class="form-control" id="inputnickName" placeholder="昵称" onblur="testNickName()">
 								</div>
 								<div class="col-xs-1 judge">
 									<label class="control-label" id="mark4"></label>
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-xs-3 textRight">
-									<label for="inputPassword3" class="control-label">Grade</label>
-								</div>
-								<div class="col-xs-8">
+								<div class="col-xs-offset-1 col-xs-10">
 									<input type="text" name="grade" class="form-control" id="inputGrade" placeholder="入学年份 例如：2013" onblur="testGrade()">
 								</div>
 								<div class="col-xs-1 judge">
@@ -130,8 +124,8 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-8" id="submitt">
-									<button class="btn btn-primary btn-block" type="button"  onclick="register()">Sign in</button>
+								<div class="col-xs-offset-1 col-xs-10" id="submitt">
+									<button class="btn btn-primary btn-block" type="button"  onclick="register()">注册</button>
 								</div>
 							</div>
 						</form>

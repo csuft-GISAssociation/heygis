@@ -48,8 +48,8 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
 
 	@Override
 	public ForumsThreadPage getThreadPage(int fid, int page) {
-		int begin = page * 30 + -30;
-		int end = page * 30 ;
+		int begin = (page-1) * 30;
+		int end = 30 ;
 		String sql = "select forum_thread.*,users_info.nickname from forum_thread,users_info "
 				+ "where forum_thread.author_uid=users_info.uid and fid=? and display=1 order by lastpost DESC limit ?,?;";
 		this.openConn();

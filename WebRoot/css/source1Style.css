@@ -98,7 +98,8 @@ article.special {
 }
 
 header p {
-	margin-top: -1em;
+	color:white;
+	margin-bottom:0px;
 }
 
 @media screen and (max-width: 736px) {
@@ -429,7 +430,7 @@ body:not(.is-touch) .tiles article:hover .content {
 }
 
 * + .tiles {
-	margin-top: 2em;
+	margin-top: 0em;
 }
 
 body.is-loading .tiles article {
@@ -504,4 +505,11 @@ body.is-touch .tiles article .content {
     text-decoration: none;
     background-color:white !important;
     outline: 0;
+}
+.page-header{
+	margin-bottom:4px !important;
+}
+.pager{
+	margin-top:10px !important;
+	margin-bottom:0px !important;
 }

@@ -30,6 +30,8 @@ public class AddPostServlet extends HttpServlet {
 		}
 		int fid = Integer.parseInt(request.getParameter("fid"));
 		int tid = Integer.parseInt(request.getParameter("tid"));
+		int t_uid = Integer.parseInt(request.getParameter("t_uid"));
+		String subject = request.getParameter("subject");
 		String message = request.getParameter("message");
 //		int attchment = Integer.parseInt(request.getParameter("attchment"));
 		int attchment = 0;
@@ -39,8 +41,8 @@ public class AddPostServlet extends HttpServlet {
 		String authorAccount = user.getAccount();
 		ForumPost post = new ForumPost(-1, fid, tid, 0, author, authorUid, authorAccount, "",
 				new Date(), message, request.getRemoteAddr(), attchment, -1);
-		AddPostService aps = AddPostService.getInstance();
-		if(aps.getFpdi().addPost(post) != 0){
+		AddPostService addPostService = AddPostService.getInstance();
+		if(addPostService.addPost(post,t_uid,subject) != 0){
 			response.sendRedirect(request.getHeader("referer"));
 		}else{
 			request.setAttribute("message", "发帖失败");

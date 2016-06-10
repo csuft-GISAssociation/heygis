@@ -26,11 +26,15 @@
 		<title>heygis-首页</title>
 	</head>
 
-	<body>
+	<body> 
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<button style="padding:8px;border:0px;margin-left:-18px;z-index:99" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						
+						<span class="badge">4</span>
+					</button>
+					<button style="margin-right:4px" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>

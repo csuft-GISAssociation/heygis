@@ -23,6 +23,8 @@ User user = (User)request.getSession().getAttribute("user");
 		<link href="css/footStyle.css" rel="stylesheet" type="text/css">
 		<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
 		<link href="css/fillInfoStyle.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" media="screen" href="css/BGstyle.css">
+		
 		<title>heygis-完善信息</title>
 	</head>
 	<body>
@@ -60,6 +62,11 @@ User user = (User)request.getSession().getAttribute("user");
 					</ul>
 				</div>
 			</div>
+		</div>
+		<div style="position:absolute; width:100%;height:100%">
+			<div id="particles-js"></div>
+			<script src="js/particles.js"></script>
+			<script src="js/app.js"></script>
 		</div>
 		<div class="section">
 			<div class="container">

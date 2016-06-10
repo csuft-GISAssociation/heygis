@@ -7,6 +7,10 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String loged = request.getAttribute("loged").toString();
+//String currPageNo1 = request.getAttribute("currPageNo1").toString();
+//String currPageNo2 = request.getAttribute("currPageNo2").toString();
+//String currPageNo3 = request.getAttribute("currPageNo3").toString();
+//String currPageNo4 = request.getAttribute("currPageNo4").toString();
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -114,13 +118,13 @@ String loged = request.getAttribute("loged").toString();
 											  </button>
 											  <ul class="dropdown-menu">
 											  	<li>
-												    	<div class="input-group input-group-sm">
-													      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
-													      <span class="input-group-btn">
-													        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-													      </span>
-													    </div>
-													</li>
+											    	<div class="input-group input-group-sm">
+												      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3" id="searchCtx1">
+												      <span class="input-group-btn">
+												        <a class="btn btn-default btn-sm" type="button" href="javascript:search(1)" onclick="clearPageNo(1)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+												      </span>
+												    </div>
+												</li>
 											    <li><a href="javascript:timecho(1,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(1,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(1,3)" id="alphacho">按字母</a></li>
@@ -131,9 +135,21 @@ String loged = request.getAttribute("loged").toString();
 											</div>
 											<p>每一年的总结大会的作品都整理在了这里，欢迎大家互相借鉴，互相学习。</p>
 										</header>
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(1,sortWay1);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(1,sortWay1);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 										<section class="tiles" id="section_1">
 											<%
-											for(SourceOne sourceOne : (List<SourceOne>)request.getAttribute("sourceOneList")){
+											int count1 =  ((List<SourceOne>)request.getAttribute("sourceOneList")).size();
+											if(count1 > 15){
+												count1 = 15;
+											}
+											for(int i = 0;i<count1;i++){
+											SourceOne sourceOne = ((List<SourceOne>)request.getAttribute("sourceOneList")).get(i);
+											//for(SourceOne sourceOne : (List<SourceOne>)request.getAttribute("sourceOneList")){
 											String st = "style"+(new Random().nextInt(5)+1);
 											String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 											%><article class="<%=st%>">
@@ -154,6 +170,12 @@ String loged = request.getAttribute("loged").toString();
 											</article>
 											 <%}%>
 										</section>
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(1,sortWay1);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(1,sortWay1);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 									</div>
 								</div>
 							</div>
@@ -169,13 +191,13 @@ String loged = request.getAttribute("loged").toString();
 											  </button>
 											  <ul class="dropdown-menu">
 											  	<li>
-												    	<div class="input-group input-group-sm">
-													      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
-													      <span class="input-group-btn">
-													        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-													      </span>
-													    </div>
-													</li>
+											    	<div class="input-group input-group-sm">
+												      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3" id="searchCtx2">
+												      <span class="input-group-btn">
+												        <a class="btn btn-default btn-sm" type="button" href="javascript:search(2)" onclick="clearPageNo(2)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+												      </span>
+												    </div>
+												</li>
 											    <li><a href="javascript:timecho(2,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(2,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(2,3)" id="alphacho">按字母</a></li>
@@ -186,9 +208,21 @@ String loged = request.getAttribute("loged").toString();
 											</div>
 											<p>不仅要看懂课堂上的代码，还要多敲多练。锻炼手指的记忆，增强代码熟练度。</p>
 										</header>
+										<nav>
+										  <ul class="pager page">
+										    <li class="previous"><a href="" onclick="toLast(2,sortWay2);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(2,sortWay2);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 										<section class="tiles" id="section_2">
 											<%
-											for(SourceTwo sourceTwo : (List<SourceTwo>)request.getAttribute("sourceTwoList")){
+											int count2 =  ((List<SourceTwo>)request.getAttribute("sourceTwoList")).size();
+											if(count2 > 15){
+												count2 = 15;
+											}
+											for(int i = 0;i<count2;i++){
+											SourceTwo sourceTwo = ((List<SourceTwo>)request.getAttribute("sourceTwoList")).get(i);
+											//for(SourceTwo sourceTwo : (List<SourceTwo>)request.getAttribute("sourceTwoList")){
 											String st = "style"+(new Random().nextInt(5)+1);
 											String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 											%><article class="<%=st%>">
@@ -209,7 +243,12 @@ String loged = request.getAttribute("loged").toString();
 											</article>
 											<%}%>
 										</section>
-										
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(2,sortWay2);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(2,sortWay2);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 									</div>
 								</div>
 							</div>
@@ -225,12 +264,12 @@ String loged = request.getAttribute("loged").toString();
 											  <ul class="dropdown-menu">
 											  	<li>
 											    	<div class="input-group input-group-sm">
-												      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
+												      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3" id="searchCtx3">
 												      <span class="input-group-btn">
-												        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+												        <a class="btn btn-default btn-sm" type="button" href="javascript:search(3)" onclick="clearPageNo(3)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 												      </span>
 												    </div>
-													</li>
+												</li>
 											    <li><a href="javascript:timecho(3,1)" id="timecho">按上传时间</a></li>
 											    <li><a href="javascript:timescho(3,2)" id="timescho">按下载数</a></li>
 											    <li><a href="javascript:alphacho(3,3)" id="alphacho">按字母</a></li>
@@ -239,11 +278,23 @@ String loged = request.getAttribute("loged").toString();
 											    <li><a href="javascript:defaultcho(3,0)" id="defaultcho">默认排序</a></li>
 											  </ul>
 											</div>
-											<p>如果只是在面临老师布置的各种课程设计时才想到我的话，那就太可惜了。</p>
+											<p class="futitle">如果只是在面临老师布置的各种课程设计时才想到我的话，那就太可惜了。</>
 										</header>
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(3,sortWay3);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(3,sortWay3);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 										<section class="tiles" id="section_3">
 											<%
-											for(SourceThree sourceThree : (List<SourceThree>)request.getAttribute("sourceThreeList")){
+											int count3 =  ((List<SourceThree>)request.getAttribute("sourceThreeList")).size();
+											if(count3 > 15){
+												count3 = 15;
+											}
+											for(int i = 0;i<count3;i++){
+											SourceThree sourceThree = ((List<SourceThree>)request.getAttribute("sourceThreeList")).get(i);
+											//for(SourceThree sourceThree : (List<SourceThree>)request.getAttribute("sourceThreeList")){
 											String st = "style"+(new Random().nextInt(5)+1);
 											String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 											%><article class="<%=st%>">
@@ -264,7 +315,12 @@ String loged = request.getAttribute("loged").toString();
 											</article>
 											 <%}%>
 										</section>
-										
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(3,sortWay3);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(3,sortWay3);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 									</div>
 								</div>
 							</div>
@@ -279,29 +335,36 @@ String loged = request.getAttribute("loged").toString();
 											  </button>
 											  <ul class="dropdown-menu">
 											  	<li>
-												    	<div class="input-group input-group-sm">
-													      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3">
-													      <span class="input-group-btn">
-													        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-													      </span>
-													    </div>
-													</li>
-											    <li><a href="javascript:timecho(4,1)" id="timecho">按上传时间</a></li>
-											    <li><a href="javascript:timescho(4,2)" id="timescho">按下载数</a></li>
-											    <li><a href="javascript:alphacho(4,3)" id="alphacho">按字母</a></li>
-											    <li><a href="javascript:sizecho(4,4)"  id="sizecho">按文件大小</a></li>
+											    	<div class="input-group input-group-sm">
+												      <input type="text" class="form-control" placeholder="search" aria-describedby="sizing-addon3" id="searchCtx4">
+												      <span class="input-group-btn">
+												        <a class="btn btn-default btn-sm" type="button" href="javascript:search(4)" onclick="clearPageNo(4)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+												      </span>
+												    </div>
+												</li>
+											    <li><a href="javascript:timecho(4,1)"  onclick="clearPageNo(4)" id="timecho">按上传时间</a></li>
+											    <li><a href="javascript:timescho(4,2)" onclick="clearPageNo(4)" id="timescho">按下载数</a></li>
+											    <li><a href="javascript:alphacho(4,3)" onclick="clearPageNo(4)" id="alphacho">按字母</a></li>
+											    <li><a href="javascript:sizecho(4,4)" onclick="clearPageNo(4)"  id="sizecho">按文件大小</a></li>
 											    <li role="separator" class="divider"></li>
-											    <li><a href="javascript:defaultcho(4,0)" id="defaultcho">默认排序</a></li>
+											    <li><a href="javascript:defaultcho(4,0)" onclick="clearPageNo(4)" id="defaultcho">默认排序</a></li>
 											  </ul>
 											</div>
 											<p>青春不是用来虚度的，而是用来投资自己的。</p>
 										</header>
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(4,sortWay4);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(4,sortWay4);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 										<section class="tiles" id="section_4">
 											<%
-											for(SourceFour sourceFour : (List<SourceFour>)request.getAttribute("sourceFourList")){
-											String st = "style"+(new Random().nextInt(5)+1);
-											String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
-											%><article class="<%=st%>">
+											for(int i=0;i<15;i++){
+												SourceFour sourceFour = ((List<SourceFour>)request.getAttribute("sourceFourList")).get(i);
+												String st = "style"+(new Random().nextInt(5)+1);
+												String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
+												%><article class="<%=st%>">
 											        <span class="image">
 														<img src="<%=bg%>" alt="" />
 													</span>
@@ -318,6 +381,12 @@ String loged = request.getAttribute("loged").toString();
 											</article>
 											<%}%>
 										</section>
+										<nav>
+										  <ul class="pager">
+										    <li class="previous"><a href="" onclick="toLast(4,sortWay4);return false"><span aria-hidden="true">&larr;</span>上一页</a></li>
+										    <li class="next"><a href="" onclick="toNext(4,sortWay4);return false">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+										  </ul>
+										</nav>
 									</div>
 								</div>
 							</div>
@@ -382,6 +451,19 @@ String loged = request.getAttribute("loged").toString();
   </body>
 </html>
 <script type="text/javascript">
+	var currPageNo1 = 1;
+	var currPageNo2 = 1;
+	var currPageNo3 = 1;
+	var currPageNo4 = 1;
+	var sortWay1 = 0;
+	var sortWay2 = 0;
+	var sortWay3 = 0;
+	var sortWay4 = 0;
+	var sortWay5 = 0;
+	var maxNo1 = parseInt(<%=((List<SourceOne>)request.getAttribute("sourceOneList")).size()%>/15)+1;
+	var maxNo2 = parseInt(<%=((List<SourceTwo>)request.getAttribute("sourceTwoList")).size()%>/15)+1;
+	var maxNo3 = parseInt(<%=((List<SourceThree>)request.getAttribute("sourceThreeList")).size()%>/15)+1;
+	var maxNo4 = parseInt(<%=((List<SourceFour>)request.getAttribute("sourceFourList")).size()%>/15)+1;
 	var id = "#"+"<%=request.getAttribute("index")%>";
 	var idd = "#p"+"<%=request.getAttribute("index")%>";
 	$(id).addClass("active");

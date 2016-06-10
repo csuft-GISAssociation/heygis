@@ -47,9 +47,9 @@ function reply(_posi,_uid,_account,_nickname,_redpid){
 	$('.reply').slideDown(200);
 }
 function posiReplyPublic(){
-	document.getElementById('posi').value = posi;
+//	document.getElementById('posi').value = posi;
 	document.getElementById('postauthor_uid').value = uid;
-	document.getElementById('postauthor_account').value = account;
+//	document.getElementById('postauthor_account').value = account;
 	document.getElementById('replypid').value = redpid;
 	document.getElementById('replyhead').value = "<fieldset id=''><legend>回复:"+posi+"楼"+nickname+"</legend><blockquote>";
 	if(loged == false){

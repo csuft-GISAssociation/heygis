@@ -39,8 +39,8 @@ function dyydc() {
 function wst() {
 	document.getElementById("myFrame").src = "vtour/wst.html";
 }//五食堂
-function zjl() {
-	document.getElementById("myFrame").src = "vtour/zjl.html";
+function zjxl() {
+	document.getElementById("myFrame").src = "vtour/zjxl.html";
 }//主教楼
 function xyzqc() {
 	document.getElementById("myFrame").src = "vtour/xyzqc.html";

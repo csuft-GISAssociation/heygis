@@ -1,5 +1,6 @@
 package com.heygis.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -143,6 +144,58 @@ public class SourceServie {
 			compAlpha = new ComparatorByAlphaImpl();
 			Collections.sort(sourceFourList, compAlpha);
 			return sourceFourList;
+		}
+		return null;
+	}
+	//按搜索条件进行排序
+	public List searchByCtx(String sourceType,String searchCtx){
+		if(sourceType.equals("1")){
+			List<SourceOne> newlist = new ArrayList<SourceOne>();
+			List<SourceOne> sourceOneList = sdi.getSourceOne();
+			for(SourceOne source : sourceOneList){
+				String name = source.getName().toLowerCase();
+				int result = name.indexOf(searchCtx.toLowerCase());
+				if(result != -1){
+					newlist.add(source);
+				}
+			}
+			return newlist;
+		}
+		if(sourceType.equals("2")){
+			List<SourceTwo> newlist = new ArrayList<SourceTwo>();
+			List<SourceTwo> sourceTwoList = sdi.getSourceTwo();
+			for(SourceTwo source : sourceTwoList){
+				String name = source.getName().toLowerCase();
+				int result = name.indexOf(searchCtx.toLowerCase());
+				if(result != -1){
+					newlist.add(source);
+				}
+			}
+			return newlist;
+		}
+		if(sourceType.equals("3")){
+			List<SourceThree> newlist = new ArrayList<SourceThree>();
+			List<SourceThree> sourceThreeList = sdi.getSourceThree();
+			for(SourceThree source : sourceThreeList){
+				String name = source.getName().toLowerCase();
+				int result = name.indexOf(searchCtx.toLowerCase());
+				if(result != -1){
+					newlist.add(source);
+				}
+			}
+			return newlist;
+		}
+		if(sourceType.equals("4")){
+			List<SourceFour> newlist = new ArrayList<SourceFour>();
+			List<SourceFour> sourceFourList = sdi.getSourceFour();
+			for(SourceFour source : sourceFourList){
+				String name = source.getName().toLowerCase();
+				int result = name.indexOf(searchCtx.toLowerCase());
+				if(result != -1){
+					newlist.add(source);
+				}
+			}
+			return newlist;
 		}
 		return null;
 	}

@@ -56,9 +56,10 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 	@SuppressWarnings("finally")
 	@Override
 	public ForumPostPage getPostPage(int tid, int page) {
-		int begin = page * 30 + -30;
-		int end = page * 30;
-		String sql = "select forum_post.*,users_info.nickname from forum_post,users_info "
+		int begin = (page-1) * 30;
+		int end = 30;
+		String sql = "select forum_post.*,users_info.nickname,users_info.icon_img "
+				+ "from forum_post,users_info "
 				+ "where forum_post.author_uid=users_info.uid and tid =? limit ?,?;";
 		this.openConn();
 		ResultSet rs = this.execQuery(sql, tid, begin, end);
@@ -80,7 +81,8 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 						rs.getString(10),
 						rs.getString(11),
 						rs.getInt(12),
-						rs.getInt(13)));
+						rs.getInt(13),
+						rs.getString(15)));
 				i++;
 //				System.out.println(i+","+begin+","+end);
 			}

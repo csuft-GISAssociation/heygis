@@ -13,11 +13,19 @@ public class CreateHTMLService {
 	public CreateHTMLService(boolean loged){
 		this.loged = loged;
 	}
-	public String createHTML(List list,String sourceType){
+	private int vaildLastIndex(List list,int currPageNo){
+		if(currPageNo*15>list.size()){
+			return list.size();
+		}
+		return currPageNo*15;
+	}
+	public String createHTML(List list,String sourceType,int currPageNo){
 		if(sourceType.equals("1")){
 			List<SourceOne> li = list;
+			int maxIndex = vaildLastIndex(list,currPageNo);
 			String html = "";	
-			for(SourceOne sourceOne : li){
+			for(int i = (currPageNo-1)*15;i < maxIndex;i++){
+				SourceOne sourceOne = li.get(i);
 				String st = "style"+(new Random().nextInt(5)+1);
 				String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 				html += "<article class="+st+">";
@@ -39,8 +47,10 @@ public class CreateHTMLService {
 		}
 		if(sourceType.equals("2")){
 			List<SourceTwo> li = list;
+			int maxIndex = vaildLastIndex(list,currPageNo);
 			String html = "";	
-			for(SourceTwo sourceTwo : li){
+			for(int i = (currPageNo-1)*15;i < maxIndex;i++){
+				SourceTwo sourceTwo = li.get(i);
 				String st = "style"+(new Random().nextInt(5)+1);
 				String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 				html += "<article class="+st+">";
@@ -62,8 +72,10 @@ public class CreateHTMLService {
 		}
 		if(sourceType.equals("3")){
 			List<SourceThree> li = list;
+			int maxIndex = vaildLastIndex(list,currPageNo);
 			String html = "";
-			for(SourceThree sourceThree : li){
+			for(int i = (currPageNo-1)*15;i < maxIndex;i++){
+				SourceThree sourceThree = li.get(i);
 				String st = "style"+(new Random().nextInt(5)+1);
 				String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 				html += "<article class="+st+">";
@@ -85,8 +97,10 @@ public class CreateHTMLService {
 		}
 		if(sourceType.equals("4")){
 			List<SourceFour> li = list;
+			int maxIndex = vaildLastIndex(list,currPageNo);
 			String html = "";	
-			for(SourceFour sourceFour : li){
+			for(int i = (currPageNo-1)*15;i < maxIndex;i++){
+				SourceFour sourceFour = li.get(i);
 				String st = "style"+(new Random().nextInt(5)+1);
 				String bg = "img/pic"+(new Random().nextInt(14)+1)+".jpg";
 				html += "<article class="+st+">";

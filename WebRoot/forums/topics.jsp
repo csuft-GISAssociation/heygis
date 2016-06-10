@@ -126,7 +126,7 @@
 					<div class="post">
 						<div class="p_author col-md-2 col-sm-2 col-xs-2 ">
 							<div class="p_author_icon  col-md-8 col-sm-9 col-xs-12 col-center-block">
-								<img class="img-responsive" src="img/max.png" />
+								<img class="img-responsive" src="<%=post.getIcon() %>" />
 							</div>
 							<a herf="">
 								<%=post.getAuthor() %>
@@ -172,6 +172,8 @@
 							</div>	
 							<div class="clear"></div>
 						</div>
+						<input type="hidden" name="t_uid" value="<%=postPage.getPost(0).getAuthorUid() %>"/>
+						<input type="hidden" name="subject" value="<%=postPage.getPost(0).getSubject() %>"/>
 						<div id="submit">
 							<input type="button" class="post_reply_submit  btn btn-primary" value="发表" id="post_submit" onclick="postPublic()"/>
 						</div>
@@ -199,9 +201,10 @@
 							</div>	
 							<div class="clear"></div>
 						</div>
+						<input type="hidden" name="t_uid" value="<%=postPage.getPost(0).getAuthorUid() %>"/>
 						<input type="text" name="postauthor_uid" id="postauthor_uid" style="display: none; " value="0"/>
-						<input type="text" name="postauthor_account" id="postauthor_account" style="display: none; " value="0"/>
-						<input type="text" name="posi" id="posi" style="display: none; " value="0"/>
+						<!--input type="text" name="postauthor_account" id="postauthor_account" style="display: none; " value="0"/-->
+						<!--input type="text" name="posi" id="posi" style="display: none; " value="0"/-->
 						<input type="text" name="replyhead" id="replyhead" style="display: none; " value="0" />
 						<input type="hidden" name="replypid" id="replypid" value="0"/> 
 						<input type="text" name="subject" id="subject" style="display: none; " value="<%=postPage.getPost(0).getSubject()%>"/>

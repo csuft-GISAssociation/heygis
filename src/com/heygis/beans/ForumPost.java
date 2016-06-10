@@ -16,7 +16,27 @@ public class ForumPost {
 	private String userip;
 	private int attchment;
 	private int position;
+	private String icon;
 	
+	public ForumPost(int pid, int fid, int tid, int first, String author,
+			int authorUid, String authorAccount, String subject, Date dateline,
+			String message, String userip, int attchment, int position, String icon) {
+		super();
+		this.pid = pid;
+		this.fid = fid;
+		this.tid = tid;
+		this.first = first;
+		this.author = author;
+		this.authorUid = authorUid;
+		this.authorAccount = authorAccount;
+		this.subject = subject;
+		this.dateline = dateline;
+		this.message = message;
+		this.userip = userip;
+		this.attchment = attchment;
+		this.position = position;
+		this.icon = icon;
+	}
 	public ForumPost(int pid, int fid, int tid, int first, String author,
 			int authorUid, String authorAccount, String subject, Date dateline,
 			String message, String userip, int attchment, int position) {
@@ -115,7 +135,7 @@ public class ForumPost {
 	public void setPosition(int position) {
 		this.position = position;
 	}
-	
-	
-	
+	public String getIcon() {
+		return icon;
+	}
 }
