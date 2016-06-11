@@ -18,7 +18,7 @@ public class AddPostService {
        return AddPostServiceHolder.INSTANCE;    
     }
     
-    public int addPost(ForumPost post, int t_uid, String subject){
+    public int addPostWithMsg(ForumPost post, int t_uid, String subject){
     	int posi = AddPostServiceHolder.INSTANCE.getFpdi().addPost(post);
     	if(posi != 0){
     		ForumMessage fmsg = new ForumMessage(post.getAuthor(), t_uid, subject, post.getDateline().getTime(), 1, post.getFid(), post.getTid());
@@ -28,5 +28,13 @@ public class AddPostService {
     		}
     	}
     	return 0;
+    }
+    public int addPost(ForumPost post, int t_uid, String subject){
+    	int posi = AddPostServiceHolder.INSTANCE.getFpdi().addPost(post);
+    	if(posi != 0){
+    		return posi;
+    	}else{
+    		return 0;
+    	}
     }
 }

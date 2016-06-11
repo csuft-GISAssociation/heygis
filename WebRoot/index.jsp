@@ -30,8 +30,7 @@
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button style="padding:8px;border:0px;margin-left:-18px;z-index:99" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						
+					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="badge">4</span>
 					</button>
 					<button style="margin-right:4px" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -40,26 +39,26 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
+					<a class="navbar-brand" href="###"><span class="heygis">HeyGIS</span></a>
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active">
-							<a href="index.jsp">首页</a>
+							<a href="###">首页</a>
 						</li>
 						<li>
-							<a href="index.jsp#bbs">论坛区</a>
+							<a href="#bbs">论坛区</a>
 						</li>
 						<li>
-							<a href="index.jsp#sourceDownLoad">资源区</a>
+							<a href="#sourceDownLoad">资源区</a>
 						</li>
 						<li>
-							<a href="index.jsp#lkdVR">林科大全景</a>
+							<a href="#lkdVR">林科大全景</a>
 						</li>
 					<%if(session.getAttribute("loged") != null){ %>
 						<%if(session.getAttribute("loged").equals(true)){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心</a>
+							<a href="selfCenterServlet">个人中心<span class="badge">4</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -243,10 +242,10 @@
 							<h4 id="loginMessage">你必须先登录！</h4>
 						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="" size="20" placeholder="Your Email"/>
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="" placeholder="password" size="20" />
+							<input class="ipt" type="password" name="password" value="" placeholder="密码" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录    " />
@@ -261,6 +260,10 @@
 		</div>
 		<div class="theme-popover-mask"></div>
 	</body>
-
+	<script type="text/javascript" src="js/newMsg.js"></script>
+	<script>
+		var loged = <%=request.getAttribute("loged") %>;
+		var uid = <%=request.getAttribute("uid")%>
+	</script>
 </html>
 <script type="text/javascript" src="js/LBSJS.js"></script>

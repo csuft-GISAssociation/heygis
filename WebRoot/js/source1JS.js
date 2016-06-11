@@ -170,9 +170,9 @@ function search(e){
 	if(e==2){sortWay2 = 5;currPageNo=vaildPage2()}
 	if(e==3){sortWay3 = 5;currPageNo=vaildPage3()}
 	if(e==4){sortWay4 = 5;currPageNo=vaildPage4()}
-	$(".choose").html("按搜索条件 <span class='caret'></span>");
 	var _text = "#searchCtx"+e;
 	var _url = "searchServlet";
+	$(".choose").html("按条件'"+$(_text).val()+"'<span class='caret'></span>");
 	var _data = "sourceType="+e+"&searchCtx="+$(_text).val()+"&currPageNo="+currPageNo;
 	var _div = "#section_"+e;
 	$.ajax({

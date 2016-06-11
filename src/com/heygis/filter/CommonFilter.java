@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.heygis.beans.User;
+
 public class CommonFilter implements Filter {
 
     public CommonFilter() {
@@ -29,6 +31,13 @@ public class CommonFilter implements Filter {
 			}
 		}
 		request.setAttribute("loged", loged);
+		//设置uid
+		if(session.getAttribute("user") != null){ 
+			User user = (User)session.getAttribute("user");
+			request.setAttribute("uid", user.getUid());
+		}else{
+			request.setAttribute("uid", -1);
+		}
 		
 		chain.doFilter(request, response);
 	}

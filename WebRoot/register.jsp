@@ -27,6 +27,9 @@
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
+					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="badge">0</span>
+					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -49,20 +52,18 @@
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
-					<%if(session.getAttribute("loged") != null){ %>
-						<%if(session.getAttribute("loged").equals(true)){ %>
+				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心</a>
+							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
 						</li>
-						<%} %>
 				<%}else{ %>
 						<li>
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
-						<li class="active">
+						<li>
 							<a class="btn " href="javascript:;">注册</a>
 						</li>
 					<%} %>
@@ -85,7 +86,7 @@
 					<form class="form-horizontal" role="form" id="registerForm" action="registerServlet" method="post">
 							<div class="form-group">
 								<div class="col-xs-offset-1 col-xs-10">
-									<input type="email" name="account" class="form-control" id="inputEmail3" placeholder="邮箱   将作为您登陆的账号" onblur="testEmail()" onclick="clear()">
+									<input type="email" name="account1" class="form-control" id="inputEmail3" placeholder="邮箱   将作为您登陆的账号" onblur="testEmail()" onclick="clear()">
 								</div>
 								<div class="col-xs-1 judge">
 									<label class="control-label" id="mark1"></label>
@@ -169,10 +170,10 @@
 							<h4 id="loginMessage">你必须先登录！</h4>
 						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="" size="20" placeholder="Your Email"/>
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="" placeholder="password" size="20" />
+							<input class="ipt" type="password" name="password" value="" placeholder="密码" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录    " />
@@ -187,4 +188,9 @@
 		</div>
 		<div class="theme-popover-mask"></div>
 	</body>
+	<script type="text/javascript" src="js/newMsg.js"></script>
+	<script>
+		var loged = <%=request.getAttribute("loged") %>;
+		var uid = <%=request.getAttribute("uid")%>
+	</script>
 </html>

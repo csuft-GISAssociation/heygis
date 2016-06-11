@@ -52,7 +52,7 @@ public class ReplyPostServlet extends HttpServlet {
 		ForumPost post = new ForumPost(-1, fid, tid, 0, user.getNickName(), user.getUid(), user.getAccount(), "",
 				new Date(),replyedmessage+message, request.getRemoteAddr(), attchment, -1);
 		ForumMessage fmsg = new ForumMessage(user.getNickName(), rd_uid, subject, new Date().getTime(), 2, fid, tid);
-		if(replyPostService.addReplyPost(post,fmsg,t_uid)){
+		if(replyPostService.addReplyPost(post,fmsg,t_uid,user.getUid())){
 			
 			response.sendRedirect(request.getHeader("referer"));
 		}else{

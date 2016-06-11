@@ -19,7 +19,11 @@ public class TopicsServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int fPage = Integer.parseInt(request.getParameter("fPage"));
+		int fPage = 1;
+		if(request.getParameter("fPage") != null){
+			fPage = Integer.parseInt(request.getParameter("fPage"));
+		}
+		fPage = 1;
 		int page = Integer.parseInt(request.getParameter("page"));
 		int tid = Integer.parseInt(request.getParameter("tid"));
 //		System.out.println(tid);

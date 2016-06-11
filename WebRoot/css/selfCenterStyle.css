@@ -80,4 +80,43 @@
 .iconbtn{
 	padding: 3px;
 }
+.shadow{
+	margin-top:4px;
+	margin-bottom:5px;
+	box-shadow: 2px 2px 3px white;
 
+}
+.message-cotent{
+	background-color:whitesmoke;
+	height: auto;
+	overflow:auto;
+	margin-bottom:5px;
+	margin-top:5px;
+	box-shadow: 4px 6px 10px #B1B0B0;
+}
+.message-detail{
+	font-size :15px;
+	min-height:60px;
+	margin:0px; 
+	text-align:left;
+	word-break: break-all;
+	word-wrap: break-word;
+	font-size :18px;
+}
+.message-detail a{
+	position: absolute;
+	bottom: 0px;
+	font-size :20px;
+	padding-left:0px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.message-date{
+	min-height:60px;
+	margin:0px;
+}
+.message-date p{
+	position: absolute;
+	bottom: 0px;
+	margin:0px;
+}

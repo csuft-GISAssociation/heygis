@@ -11,7 +11,19 @@ public class ForumMessageDAOImpl extends DAOSupport implements ForumMessageDAO {
 
 	@Override
 	public int howManyMsg(int uid) {
-		return 0;
+		String sql = "select count(*) from forum_msg where rd_uid=?;";
+		int num = 0;
+		this.openConn();
+		ResultSet rs = this.execQuery(sql, uid);
+		try {
+			while(rs.next()){
+				num = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		this.close();
+		return num;
 	}
 
 	@Override

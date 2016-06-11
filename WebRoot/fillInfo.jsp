@@ -3,6 +3,10 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+if(!(Boolean)request.getAttribute("loged")){
+	response.sendRedirect("index.jsp");
+	return;
+}
 User user = (User)request.getSession().getAttribute("user");
 %>
 <!DOCTYPE html>
@@ -31,6 +35,9 @@ User user = (User)request.getSession().getAttribute("user");
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
+					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="badge">0</span>
+					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -53,12 +60,21 @@ User user = (User)request.getSession().getAttribute("user");
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
-						<li class="active">
-							<a href="###">个人中心</a>
+				<%if((Boolean)request.getAttribute("loged")){ %>
+						<li>
+							<a class="active" href="selfCenterServlet">个人中心<span class="badge">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
 						</li>
+				<%}else{ %>
+						<li>
+							<a class="btn theme-login" href="javascript:;">登录</a>
+						</li>
+						<li>
+							<a class="btn " href="javascript:;">注册</a>
+						</li>
+					<%} %>
 					</ul>
 				</div>
 			</div>
@@ -72,7 +88,7 @@ User user = (User)request.getSession().getAttribute("user");
 			<div class="container">
 				<br /><br /><br />
 				<h1 class="text-primary">完善信息</h1>
-				<div class="row">
+				<div class="row" style="color:white">
 					<div class="col-md-12">
 						<form class="form-horizontal" role="form" id="fillInfoForm" action="fillInfoServlet" method="post">
 							<div class="form-group">
@@ -188,25 +204,34 @@ User user = (User)request.getSession().getAttribute("user");
 				<h3>登录 是一种态度</h3>
 			</div>
 			<div class="theme-popbod dform">
-				<form class="theme-signin" name="loginform" action="" method="post">
+				<form id="loginForm" class="theme-signin" name="loginform"  method="post" onsubmit="return login()">
 					<ol>
 						<li>
-							<h4>你必须先登录！</h4></li>
+							<h4 id="loginMessage">你必须先登录！</h4>
+						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="log" value="account" size="20" />
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="pwd" value="" size="20" />
+							<input class="ipt" type="password" name="password" value="" size="20" placeholder="密码"/>
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />
 						</li>
 					</ol>
 				</form>
+				<form id="logout" method="post" action="logoutServlet">
+					<INPUT TYPE="submit" name="test" value = "go" style="display:none"> 
+				</form>
 			</div>
 		</div>
 		<div class="theme-popover-mask"></div>
 	</body>
+	<script type="text/javascript" src="js/newMsg.js"></script>
+	<script>
+		var loged = <%=request.getAttribute("loged") %>;
+		var uid = <%=request.getAttribute("uid")%>
+	</script>
 </html>
 <script type="text/javascript">
    	var gender = "<%=user.getGender()%>";

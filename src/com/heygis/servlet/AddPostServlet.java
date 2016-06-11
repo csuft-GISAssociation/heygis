@@ -42,7 +42,13 @@ public class AddPostServlet extends HttpServlet {
 		ForumPost post = new ForumPost(-1, fid, tid, 0, author, authorUid, authorAccount, "",
 				new Date(), message, request.getRemoteAddr(), attchment, -1);
 		AddPostService addPostService = AddPostService.getInstance();
-		if(addPostService.addPost(post,t_uid,subject) != 0){
+		int posi = 0;
+		if(user.getUid() != t_uid){
+			posi = addPostService.addPostWithMsg(post,t_uid,subject);
+		}else{
+			posi = addPostService.addPost(post,t_uid,subject);
+		}
+		if(posi != 0){
 			response.sendRedirect(request.getHeader("referer"));
 		}else{
 			request.setAttribute("message", "发帖失败");

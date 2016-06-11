@@ -46,3 +46,12 @@ img{
 	margin-right: auto;
 	margin-left: auto;
 }
+.newMsgMark{
+	padding:8px;
+	border:0px;
+	margin-left:-18px;
+	z-index:99;
+}
+.badge{
+	background-color:red !important;
+}

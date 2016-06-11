@@ -33,6 +33,9 @@
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
+					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="badge">0</span>
+					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -43,11 +46,11 @@
 				</div>
 				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active">
+						<li>
 							<a href="index.jsp">首页</a>
 						</li>
-						<li>
-							<a href="index.jsp#bbs">论坛区</a>
+						<li class="active">
+							<a href="###">论坛区</a>
 						</li>
 						<li>
 							<a href="sourceServlet">资源区</a>
@@ -57,7 +60,7 @@
 						</li>
 				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心</a>
+							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -86,10 +89,10 @@
 							<h4 id="loginMessage">你必须先登录！</h4>
 						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="1234" size="20" />
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="1234" size="20" />
+							<input class="ipt" type="password" name="password" value="" size="20" placeholder="密码"/>
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />
@@ -216,7 +219,9 @@
 				</form>
 		</div>
 	</body>
+	<script type="text/javascript" src="js/newMsg.js"></script>
 	<script>
 		var loged = <%=request.getAttribute("loged") %>;
+		var uid = <%=request.getAttribute("uid")%>
 	</script>
 </html>

@@ -42,52 +42,53 @@ String loged = request.getAttribute("loged").toString();
 
   
   <body>
-     <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="index.jsp">首页</a>
-					</li>
-					<li>
-						<a href="index.jsp#bbs">论坛区</a>
-					</li>
-					<li class="active">
-						<a href="###">资源区</a>
-					</li>
-					<li>
-						<a href="index.jsp#lkdVR">林科大全景</a>
-					</li>
-				<%if(session.getAttribute("loged") != null){ %>
-					<%if(session.getAttribute("loged").equals(true)){ %>
-					<li>
-						<a href="selfCenterServlet">个人中心</a>
-					</li>
-					<li>
-						<a class="btn" href="javascript:document:logout.submit()" >退出</a>
-					</li>
+    <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="badge">0</span>
+					</button>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="index.jsp">首页</a>
+						</li>
+						<li>
+							<a href="index.jsp#bbs">论坛区</a>
+						</li>
+						<li class="active">
+							<a href="###">资源区</a>
+						</li>
+						<li>
+							<a href="index.jsp#lkdVR">林科大全景</a>
+						</li>
+				<%if((Boolean)request.getAttribute("loged")){ %>
+						<li>
+							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
+						</li>
+						<li>
+							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
+						</li>
+				<%}else{ %>
+						<li>
+							<a class="btn theme-login" href="javascript:;">登录</a>
+						</li>
+						<li>
+							<a class="btn " href="javascript:;">注册</a>
+						</li>
 					<%} %>
-			<%}else{ %>
-					<li>
-						<a class="btn theme-login" href="javascript:;">登录</a>
-					</li>
-					<li>
-						<a class="btn " href="register.jsp">注册</a>
-					</li>
-				<%} %>
-				</ul>
+					</ul>
+				</div>
 			</div>
 		</div>
-	  </div>
 		<div class="container tabs">
 			<div class="row">
 				<div class="col-lg-12">
@@ -431,10 +432,10 @@ String loged = request.getAttribute("loged").toString();
 							<h4 id="loginMessage">你必须先登录！</h4>
 						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="" size="20" placeholder="Your Email"/>
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="" placeholder="password" size="20" />
+							<input class="ipt" type="password" name="password" value="" placeholder="密码" size="20" />
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录    " />
@@ -449,6 +450,11 @@ String loged = request.getAttribute("loged").toString();
 		</div>
 		<div class="theme-popover-mask"></div>
   </body>
+  <script type="text/javascript" src="js/newMsg.js"></script>
+	<script>
+		var loged = <%=request.getAttribute("loged") %>;
+		var uid = <%=request.getAttribute("uid")%>
+	</script>
 </html>
 <script type="text/javascript">
 	var currPageNo1 = 1;

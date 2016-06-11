@@ -11,11 +11,15 @@ function controlMap(){
 		map.disableScrollWheelZoom(true);
 		map.disableDragging(); 
 		$("#controlMap").text("点击打开鼠标移动与滚轮缩放");
+		$("#controlMap").removeClass("btn-danger");
+		$("#controlMap").addClass("btn-primary");
 		bool = false;
 	}else{
 		map.enableScrollWheelZoom(true);
 		map.enableDragging(); 
 		$("#controlMap").text("点击关闭鼠标移动与滚轮缩放");
+		$("#controlMap").removeClass("btn-primary");
+		$("#controlMap").addClass("btn-danger");
 		bool = true;
 	}
 }

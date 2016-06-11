@@ -65,25 +65,33 @@ function testRePwd(){
 	}
 }
 function testNickName(){
+	var regex =/[\u4e00-\u9fa5_a-zA-Z0-9_]/;
 	var nickName = $("#inputnickName").val();
-	var _url = "registerJudgeServlet";
-	var _data ="judgeIndex=2&nickName="+nickName;
-	$.ajax({
-		type:"post",
-		data:_data,
-		url:_url,
-		success:function(result){
-			if(result==nickName){
-				$("#mark4").html("<span class='glyphicon glyphicon-ok' style='color: green;' aria-hidden='true'></span> ");
-  				b4 = true;
-			}else{
-				$("#inputnickName").val("");
-				$("#inputnickName").attr("placeholder",result);
-				$("#mark4").html("<span class='glyphicon glyphicon-remove' style='color: red;' aria-hidden='true'></span> ");
-				b4 = false;
+	if(regex.test(nickName)&&nickName.length<16){
+		var _url = "registerJudgeServlet";
+		var _data ="judgeIndex=2&nickName="+nickName;
+		$.ajax({
+			type:"post",
+			data:_data,
+			url:_url,
+			success:function(result){
+				if(result==nickName){
+					$("#mark4").html("<span class='glyphicon glyphicon-ok' style='color: green;' aria-hidden='true'></span> ");
+	  				b4 = true;
+				}else{
+					$("#inputnickName").val("");
+					$("#inputnickName").attr("placeholder",result);
+					$("#mark4").html("<span class='glyphicon glyphicon-remove' style='color: red;' aria-hidden='true'></span> ");
+					b4 = false;
+				}
 			}
-		}
-	});
+		});
+	}
+	else{
+		$("#mark4").html("<span class='glyphicon glyphicon-remove' style='color: red;' aria-hidden='true'></span> ");
+		b4 = false;
+	}
+	
 }
 function testGrade(){
 	var regex = /^[0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3}%/;

@@ -154,7 +154,7 @@
     <servlet-name>SelfCenterServlet</servlet-name>
     <url-pattern>/selfCenterServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>FillInfoServlet</display-name>
     <servlet-name>FillInfoServlet</servlet-name>
@@ -176,7 +176,6 @@
     <servlet-name>UserIconServlet</servlet-name>
     <servlet-class>com.heygis.servlet.UserIconServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>VtourServlet</servlet-name>
     <url-pattern>/vtourServlet</url-pattern>
@@ -185,14 +184,12 @@
     <servlet-name>UserIconServlet</servlet-name>
     <url-pattern>/userIconServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>SearchServlet</servlet-name>
     <servlet-class>com.heygis.servlet.SearchServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/searchServlet</url-pattern>
@@ -206,4 +203,14 @@
     <filter-name>CommonFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewMsgServlet</display-name>
+    <servlet-name>NewMsgServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.NewMsgServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewMsgServlet</servlet-name>
+    <url-pattern>/newMsgServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

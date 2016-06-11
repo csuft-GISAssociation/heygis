@@ -10,6 +10,7 @@ public class ForumMessage {
 	int fid;
 	int tid;
 	int position;
+	int page;
 	
 	public ForumMessage(String author, int rd_uid, String subject,
 			long dateline, int type, int fid, int tid) {
@@ -34,6 +35,11 @@ public class ForumMessage {
 		this.fid = fid;
 		this.tid = tid;
 		this.position = position;
+		if(position%30==0){
+			page = position/30;
+		}else{
+			page = position/30 + 1;
+		}
 	}
 	public String getAuthor() {
 		return author;
@@ -61,6 +67,9 @@ public class ForumMessage {
 	}
 	public void setPosition(int position) {
 		this.position = position;
+	}
+	public int getPage() {
+		return page;
 	}
 	
 }

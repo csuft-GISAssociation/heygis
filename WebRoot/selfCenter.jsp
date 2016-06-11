@@ -1,9 +1,13 @@
-<%@page import="com.heygis.beans.User"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="com.heygis.beans.ForumMsgPage"%>
+<%@ page import="com.heygis.beans.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 User user = (User)request.getSession().getAttribute("user");
+ForumMsgPage fMsgPage = (ForumMsgPage)request.getAttribute("fMsgPage");
+SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,10 +34,13 @@ User user = (User)request.getSession().getAttribute("user");
 		<link href="css/loginStyle.css" rel="stylesheet" type="text/css" />
 		<link href="css/selfCenterStyle.css" rel="stylesheet" type="text/css" />
   </head>
-  	<body>
+  <body>
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
+					<button type="button" class="navbar-toggle hidden-xs hidden-md newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="badge">0</span>
+					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -56,12 +63,21 @@ User user = (User)request.getSession().getAttribute("user");
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
-						<li class="active">
-							<a href="###">个人中心</a>
+				<%if((Boolean)request.getAttribute("loged")){ %>
+						<li>
+							<a class="active" href="selfCenterServlet">个人中心<span class="badge">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
 						</li>
+				<%}else{ %>
+						<li>
+							<a class="btn theme-login" href="javascript:;">登录</a>
+						</li>
+						<li>
+							<a class="btn " href="javascript:;">注册</a>
+						</li>
+					<%} %>
 					</ul>
 				</div>
 			</div>
@@ -117,18 +133,36 @@ User user = (User)request.getSession().getAttribute("user");
 							<div class="tabbable" id="tabs">
 								<ul class="nav nav-tabs">
 									<li class="active">
-										<a href="#panel-1" data-toggle="tab">发帖详情</a>
+										<a href="#panel-1" data-toggle="tab">未读信息</a>
 									</li>
 									<li class="">
-										<a href="#panel-2" data-toggle="tab">我的发帖</a>
+										<a href="#panel-2" data-toggle="tab">已读信息</a>
 									</li>
 									<li class="">
-										<a href="#panel-3" data-toggle="tab">我的回复</a>
+										<a href="#panel-3" data-toggle="tab">我的发帖</a>
 									</li>
 								</ul>
-								<div class="tab-content">
+							</div>
+							<div class="tab-content">
 									<div class="tab-pane active" id="panel-1">
-										123
+									<%for(int i=0; i< fMsgPage.getSize();i++){ %>
+										<div class="message-cotent">
+											<div class="col-md-9 message-detail">
+											<%if(fMsgPage.getMsg(i).getType() == 1){ %>
+												<a href="topicsServlet?fPage=1&tid=<%=fMsgPage.getMsg(i).getTid() %>&page=<%=fMsgPage.getMsg(i).getPage()%>#position<%=fMsgPage.getMsg(i).getPosition()-1%>">
+													<%=fMsgPage.getMsg(i).getAuthor() %><br/>在主题”<%=fMsgPage.getMsg(i).getSubject() %>“中回复了你
+												</a>
+											<%}else if(fMsgPage.getMsg(i).getType() == 2){ %>
+												<a href="topicsServlet?fPage=1&tid=<%=fMsgPage.getMsg(i).getTid() %>&page=<%=fMsgPage.getMsg(i).getPage()%>#position<%=fMsgPage.getMsg(i).getPosition()-1%>">
+													<%=fMsgPage.getMsg(i).getAuthor() %><br/>回复了你在”<%=fMsgPage.getMsg(i).getSubject() %>“中的回复
+												</a>
+											<%} %>
+											</div>
+											<div class="col-md-3 message-date">
+												<p ><%=formatter.format(new Date(fMsgPage.getMsg(i).getDateline())) %></p>
+											</div>
+										</div>
+									<%} %>
 									</div>
 									<div class="tab-pane" id="panel-2">
 										234
@@ -137,8 +171,6 @@ User user = (User)request.getSession().getAttribute("user");
 										43
 									</div>
 								</div>
-							</div>
-							
 						</div>
 					</div>
 	          	</div>
@@ -180,10 +212,10 @@ User user = (User)request.getSession().getAttribute("user");
 							<h4 id="loginMessage">你必须先登录！</h4>
 						</li>
 						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="1234" size="20" />
+							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
 						</li>
 						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="1234" size="20" />
+							<input class="ipt" type="password" name="password" value="" size="20" placeholder="密码"/>
 						</li>
 						<li>
 							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />
@@ -228,4 +260,9 @@ User user = (User)request.getSession().getAttribute("user");
 		</div>
 		<div class="theme-popover-mask"></div>
 	</body>
+	<script type="text/javascript" src="js/newMsg.js"></script>
+	<script>
+		var loged = <%=request.getAttribute("loged") %>;
+		var uid = <%=request.getAttribute("uid")%>
+	</script>
 </html>
