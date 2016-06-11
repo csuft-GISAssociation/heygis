@@ -38,8 +38,8 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle hidden-xs hidden-md newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="badge">0</span>
+					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
+						<span class="badge  hidden">0</span>
 					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="sr-only">Toggle navigation</span>
@@ -65,7 +65,7 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 						</li>
 				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a class="active" href="selfCenterServlet">个人中心<span class="badge">0</span></a>
+							<a class="active" href="selfCenterServlet">个人中心<span class="badge hidden">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -83,10 +83,10 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 			</div>
 		</div>
 		<br /><br /><br /><br />
-		<div class="section Top">
+		<div class="section Top mainbody" id="mainbody">
 	      <div class="container">
 	      	<h1 class="text-primary"><span class="glyphicon glyphicon-user"></span>个人中心</h1><br />
-	        <div class="row">
+	        <div class="row ">
 	          	<div class="col-sm-12 col-md-5">
 		          	<div class="col-sm-5">
 	          			<img src="<%=user.getIconImg() %>" class="img-responsive iconImg" /><br />
@@ -127,9 +127,9 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 						</table>
 		          	</div>
 	         	</div>
-	          	<div class="col-sm-12 col-md-7">
+	          	<div class="col-sm-12 col-md-7"">
 	          		<div class="tabs">
-						<div class="row">
+						<div class="">
 							<div class="tabbable" id="tabs">
 								<ul class="nav nav-tabs">
 									<li class="active">
@@ -143,11 +143,11 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 									</li>
 								</ul>
 							</div>
-							<div class="tab-content">
+							<div class="tab-content row">
 									<div class="tab-pane active" id="panel-1">
 									<%for(int i=0; i< fMsgPage.getSize();i++){ %>
 										<div class="message-cotent">
-											<div class="col-md-9 message-detail">
+											<div class="col-md-9 col-xs-9 message-detail">
 											<%if(fMsgPage.getMsg(i).getType() == 1){ %>
 												<a href="topicsServlet?fPage=1&tid=<%=fMsgPage.getMsg(i).getTid() %>&page=<%=fMsgPage.getMsg(i).getPage()%>#position<%=fMsgPage.getMsg(i).getPosition()-1%>">
 													<%=fMsgPage.getMsg(i).getAuthor() %><br/>在主题”<%=fMsgPage.getMsg(i).getSubject() %>“中回复了你
@@ -158,7 +158,7 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 												</a>
 											<%} %>
 											</div>
-											<div class="col-md-3 message-date">
+											<div class="col-md-3 col-xs-3 message-date">
 												<p ><%=formatter.format(new Date(fMsgPage.getMsg(i).getDateline())) %></p>
 											</div>
 										</div>

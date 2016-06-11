@@ -1,6 +1,7 @@
 package com.heygis.beans;
 
 public class Source {
+	protected int type;
 	private String name;
 	private String introduction;
 	private String file_size;

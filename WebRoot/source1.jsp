@@ -45,7 +45,7 @@ String loged = request.getAttribute("loged").toString();
     <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="badge">0</span>
 					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -72,7 +72,7 @@ String loged = request.getAttribute("loged").toString();
 						</li>
 				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
+							<a href="selfCenterServlet">个人中心<span class="badge hidden">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -82,14 +82,14 @@ String loged = request.getAttribute("loged").toString();
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
 						<li>
-							<a class="btn " href="javascript:;">注册</a>
+							<a class="btn " href="register.jsp">注册</a>
 						</li>
 					<%} %>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="container tabs">
+		<div class="container tabs mianbody">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="tabbable" id="tabs">
@@ -165,7 +165,7 @@ String loged = request.getAttribute("loged").toString();
 													<h5>上传时间:<%=sourceOne.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceOne.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg change" href="<%=sourceOne.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceOne.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceOne.getName()%>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -238,7 +238,7 @@ String loged = request.getAttribute("loged").toString();
 													<h5>上传时间:<%=sourceTwo.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceTwo.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg change" href="<%=sourceTwo.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceTwo.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceTwo.getName()%>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -310,7 +310,7 @@ String loged = request.getAttribute("loged").toString();
 													<div class="content">
 														<p><%=sourceThree.getIntroduction() %></p>
 														<a class="btn btn-primary btn-md" href="<%=sourceThree.getDownload_link_offical()%>" target="_blank">官方下载地址</a> 
-														<a class="btn btn-primary btn-md change" href="<%=sourceThree.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
+														<a class="btn btn-primary btn-md change" href="<%=sourceThree.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceThree.getName() %>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -376,7 +376,7 @@ String loged = request.getAttribute("loged").toString();
 													<h5>上传时间:<%=sourceFour.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceFour.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg change" href="<%=sourceFour.getDownload_link()%>" onclick="return checkLog(<%=loged%>)">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceFour.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceFour.getName()%>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>

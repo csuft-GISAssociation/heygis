@@ -122,5 +122,32 @@ public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 		this.close();
 		return sourceFourList;
 	}
+	@Override
+	public boolean addCount(String sourceName) {
+		String sql1 = "update sourceone set download_times = download_times+1 where name=?";
+		String sql2 = "update sourcetwo set download_times = download_times+1 where name=?";
+		String sql3 = "update sourcethree set download_times = download_times+1 where name=?";
+		String sql4 = "update sourcefour set download_times = download_times+1 where name=?";
+		this.openConn();
+		if(this.execUpdate(sql1,sourceName)==1){
+			this.close();
+			return true;
+		}
+		if(this.execUpdate(sql2,sourceName)==1){
+			this.close();
+			return true;
+		}
+		if(this.execUpdate(sql3,sourceName)==1){
+			this.close();
+			return true;
+		}
+		if(this.execUpdate(sql4,sourceName)==1){
+			this.close();
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	
 }

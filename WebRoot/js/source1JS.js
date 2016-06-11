@@ -1,3 +1,8 @@
+$(document).ready(function(){ 
+	var needHeight = window.screen.height-150;
+	//document.getElementById("mainbody").style.minHeight=needHeight;
+	$(".mainbody").css("minHeight",needHeight);
+} );
 $(function(){
 	$("#tabs a:first").tab("show");
 	$("#tabs a").click(function(){
@@ -96,8 +101,19 @@ function defaultcho(e,s){
 		}
 	});
 }
-function checkLog(loged){
+function checkLog(loged,name){
 	if(loged == true){
+		var _url = "addCountServlet";
+		var _data ="sourceName="+name;
+		$.ajax({
+			type:"post",
+			data:_data,
+			url:_url,
+			success:function(data){
+				alert(data);
+				return true;
+			}
+		});
 		return true;
 	}else{
 		$('.change').removeClass("btn-primary");

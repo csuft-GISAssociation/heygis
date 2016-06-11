@@ -11,6 +11,9 @@ public class SourceThree extends Source{
 	private boolean cracking;
 	private String upload_time;
 	private long download_times;
+	public SourceThree(){
+		this.type = 3;
+	}
 	public String getName() {
 		return name;
 	}

@@ -8,13 +8,13 @@ $(document).ready(function(){
 //				alert(data);
 //				$('.badge').css("background-color","red");
 				$('.badge').text(data);
-				$('.newMsgMark').removeClass("hidden-xs");
-				$('.newMsgMark').removeClass("hidden-md");
+				$('.badge').removeClass("hidden");
+				$('.newMsgMark').removeClass("hidden");
 			}else{
-				$('.badge').css("display",'none');
+//				$('.badge').css("display",'none');
 			}
 		});
 	}else{
-		$('.badge').css("display",'none');
+//		$('.badge').css("display",'none');
 	}
 });

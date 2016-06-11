@@ -12,4 +12,5 @@ public interface SourceDAO {
 	public List<SourceTwo> getSourceTwo();
 	public List<SourceThree> getSourceThree();
 	public List<SourceFour> getSourceFour();
+	public boolean addCount(String sourceName);
 }

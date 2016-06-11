@@ -10,6 +10,9 @@ public class SourceOne extends Source{
 	private long download_times;
 	private String level;
 	private String uploader;
+	public SourceOne(){
+		this.type = 1;
+	}
 	public String getName() {
 		return name;
 	}

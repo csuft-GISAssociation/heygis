@@ -10,6 +10,9 @@ public class SourceFour extends Source{
 	private long download_times;
 	private String filetype;
 	private String uploader;
+	public SourceFour(){
+		this.type = 4;
+	}
 	public String getName() {
 		return name;
 	}

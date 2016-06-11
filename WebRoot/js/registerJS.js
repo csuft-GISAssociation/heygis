@@ -1,9 +1,7 @@
 $(document).ready(function(){ 
-    var trueHeight = $(".Top").height(); 
-    var needHeight = window.screen.height;
-    if(trueHeight<needHeight){
-    	$(".Top").height(needHeight-200);
-    }
+	var needHeight = window.screen.height-150;
+	//document.getElementById("mainbody").style.minHeight=needHeight;
+	$(".mainbody").css("minHeight",needHeight);
 } );
 var b1 = false;
 var b2 = false;

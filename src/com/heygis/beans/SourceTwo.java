@@ -9,6 +9,9 @@ public class SourceTwo extends Source{
 	private String upload_time;
 	private long download_times;
 	private String uploader;
+	public SourceTwo(){
+		this.type = 2;
+	}
 	public String getName() {
 		return name;
 	}

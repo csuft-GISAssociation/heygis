@@ -199,5 +199,10 @@ public class SourceServie {
 		}
 		return null;
 	}
-	
+	public boolean addCount(String sourceName){
+		if(sdi.addCount(sourceName)){
+			return true;
+		}
+		return false;
+	}
 }

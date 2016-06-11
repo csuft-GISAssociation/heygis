@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="badge">0</span>
 					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -58,14 +58,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a href="index.jsp#bbs">论坛区</a>
 						</li>
 						<li>
-							<a href="sourceServlet">资源区</a>
+							<a href="sourceServlet?index=panel-1">资源区</a>
 						</li>
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
 				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
+							<a href="selfCenterServlet">个人中心<span class="badge hidden">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
 						<li>
-							<a class="btn " href="javascript:;">注册</a>
+							<a class="btn " href="register.jsp">注册</a>
 						</li>
 					<%} %>
 					</ul>

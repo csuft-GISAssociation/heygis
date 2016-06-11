@@ -1,3 +1,4 @@
+
 .iconImg{
 }
 .table{
@@ -5,7 +6,7 @@
 	color: white;
 }
 .userInfo{
-	padding-left:0px;
+	padding-left:15px;
 }
 
 
@@ -86,6 +87,8 @@
 	box-shadow: 2px 2px 3px white;
 
 }
+.tab-content{
+}
 .message-cotent{
 	background-color:whitesmoke;
 	height: auto;
@@ -95,23 +98,22 @@
 	box-shadow: 4px 6px 10px #B1B0B0;
 }
 .message-detail{
-	font-size :15px;
+	font-size :18px;
 	min-height:60px;
-	margin:0px; 
 	text-align:left;
 	word-break: break-all;
 	word-wrap: break-word;
-	font-size :18px;
 }
 .message-detail a{
 	position: absolute;
 	bottom: 0px;
-	font-size :20px;
+	font-size :18px;
 	padding-left:0px;
 	word-break: break-all;
 	word-wrap: break-word;
 }
 .message-date{
+	padding :0px;
 	min-height:60px;
 	margin:0px;
 }
@@ -119,4 +121,27 @@
 	position: absolute;
 	bottom: 0px;
 	margin:0px;
+}
+@media only screen and (min-width: 40px) and (max-width: 400px) {
+	.message-detail{
+		font-size :12px;
+		min-height:40px;
+		text-align:left;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	.message-detail a{
+		position: absolute;
+		bottom: 0px;
+		font-size :12px;
+		padding-left:0px;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	.message-date{
+	padding :0px;
+	min-height:40px;
+	margin:0px;
+	font-size :12px;
+	}
 }

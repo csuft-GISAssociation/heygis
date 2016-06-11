@@ -30,7 +30,7 @@
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="badge">4</span>
 					</button>
 					<button style="margin-right:4px" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -58,13 +58,13 @@
 					<%if(session.getAttribute("loged") != null){ %>
 						<%if(session.getAttribute("loged").equals(true)){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心<span class="badge">4</span></a>
+							<a href="selfCenterServlet">个人中心<span class="badge hidden">4</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
 						</li>
 						<%} %>
-				<%}else{ %>
+					<%}else{ %>
 						<li>
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
