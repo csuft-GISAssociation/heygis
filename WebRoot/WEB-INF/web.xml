@@ -223,4 +223,24 @@
     <servlet-name>NewMsgServlet</servlet-name>
     <url-pattern>/newMsgServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReadMsgServlet</display-name>
+    <servlet-name>ReadMsgServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.ReadMsgServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReadMsgServlet</servlet-name>
+    <url-pattern>/readMsgServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelfCenMsgList</display-name>
+    <servlet-name>SelfCenMsgList</servlet-name>
+    <servlet-class>com.heygis.servlet.SelfCenMsgList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelfCenMsgList</servlet-name>
+    <url-pattern>/selfCenMsgList</url-pattern>
+  </servlet-mapping>
 </web-app>

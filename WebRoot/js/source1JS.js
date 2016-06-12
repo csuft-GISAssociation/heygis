@@ -110,7 +110,7 @@ function checkLog(loged,name){
 			data:_data,
 			url:_url,
 			success:function(data){
-				alert(data);
+//				alert(data);
 				return true;
 			}
 		});

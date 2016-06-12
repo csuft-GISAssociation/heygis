@@ -20,6 +20,7 @@
 		<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>-->
 		<script type="text/javascript" src="js/jquery.form.js"></script>
 		<script type="text/javascript" src="js/topics.js"></script>
+		<script type="text/javascript" src="js/jquery.color.js"></script>
 		<script type="text/javascript" src="forums/google-code-prettify/prettify.js"></script>
 		<link href="forums/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -33,7 +34,7 @@
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="badge">0</span>
 					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -53,14 +54,14 @@
 							<a href="###">论坛区</a>
 						</li>
 						<li>
-							<a href="sourceServlet">资源区</a>
+							<a href="sourceServlet?index=panel-1">资源区</a>
 						</li>
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
 				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
+							<a href="selfCenterServlet">个人中心<span class="badge hidden">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -70,7 +71,7 @@
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
 						<li>
-							<a class="btn " href="javascript:;">注册</a>
+							<a class="btn " href="register.jsp">注册</a>
 						</li>
 					<%} %>
 					</ul>
@@ -126,7 +127,7 @@
 						post = postPage.getPost(i);
 				%>
 					<div id="position<%=post.getPosition() %>"></div>
-					<div class="post">
+					<div class="post" id="posi<%=post.getPosition() %>">
 						<div class="p_author col-md-2 col-sm-2 col-xs-2 ">
 							<div class="p_author_icon  col-md-8 col-sm-9 col-xs-12 col-center-block">
 								<img class="img-responsive" src="<%=post.getIcon() %>" />
@@ -160,7 +161,7 @@
 					<div class="post_reply_content col-center-block col-md-10 col-sm-12">
 						<!--<div style="height: auto;">
 							<div class="post_reoly_head col-md-8 col-sm-12">
-								发表回复
+								鍙戣〃鍥炲
 							</div>
 							<div class="clear"></div>
 						</div>-->

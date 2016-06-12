@@ -14,6 +14,9 @@ public class ForumMsgPage {
 		this.msg_number = 0;
 		this.msgArray = new ForumMessage[20];
 	}
+	public int getPage() {
+		return page;
+	}
 	public void addMsg(ForumMessage m){
 		msgArray[size] = m;
 		size++;

@@ -110,3 +110,45 @@ success: function(data) {
 });
 return false; // 阻止表单自动提交事件
 }
+
+//
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r != null) return unescape(r[2]); return null; 
+} 
+
+jQuery(document).ready(function($) {
+	if(getQueryString("seeposi") != null){
+//		$("#posi"+getQueryString("seeposi")).css('backgroundColor','#FFFF77');
+//		setTimeout(function(){
+//	        $("#posi"+getQueryString("seeposi")).css('backgroundColor','');
+//	    },1300);
+//		$("#posi"+getQueryString("seeposi")).css('backgroundColor','');
+//		$("#posi"+getQueryString("seeposi")).animate({
+//			opacity:'0.3'
+//		},"slow");
+//		$("#posi"+getQueryString("seeposi")).animate({
+//			opacity:'1'
+//		},"slow");
+		$("#posi"+getQueryString("seeposi")).animate({
+			backgroundColor:'#FFFF77'
+		},300);
+		$("#posi"+getQueryString("seeposi")).animate({
+			backgroundColor:''
+		},3000);
+	}
+})
+function openCode(){
+	$("#codeDiv").css("visibility","visible");
+}
+function closeCode(){
+	$("#codeDiv").css("visibility","hidden");
+}
+function openImg(){
+	$("#imgDiv").css("visibility","visible");
+}
+function closeImg(){
+	$("#imgDiv").css("visibility","hidden");
+}
+

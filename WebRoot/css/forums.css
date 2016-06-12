@@ -137,3 +137,41 @@ legend{
 }
 .thread_public_button{
 }
+#codeDiv{
+	margin-left:20px;
+	margin-top:25px;
+	visibility:hidden;
+	position:absolute;
+	box-shadow: 3px 3px 10px #aaaaaa;
+	background:white;
+}
+#imgDiv{
+	margin-left:200px;
+	margin-top:25px;
+	position:absolute;
+	visibility:hidden;
+	box-shadow: 3px 3px 10px #aaaaaa;
+	background:white;
+}
+.codetext{
+	margin-right:10px !important;
+	 min-width:300px !important;
+	 margin-left:0px !important;
+}
+.codebtn{
+	margin-left:10px !important;
+	margin-bottom:10px !important;
+	margin-right:0px !important;
+}
+.codeA{
+	margin-left:10px !important;
+}
+.imgbtn{
+	margin-top:5px !important;
+	margin-right:5px !important;
+	margin-bottom:5px;
+	margin-left:0px!important;
+}
+.myfile{
+	margin:5px
+}

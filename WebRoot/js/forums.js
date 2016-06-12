@@ -96,3 +96,15 @@ success: function(data) {
 });
 return false; // 阻止表单自动提交事件
 }
+function openCode(){
+	$("#codeDiv").css("visibility","visible");
+}
+function closeCode(){
+	$("#codeDiv").css("visibility","hidden");
+}
+function openImg(){
+	$("#imgDiv").css("visibility","visible");
+}
+function closeImg(){
+	$("#imgDiv").css("visibility","hidden");
+}

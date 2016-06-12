@@ -31,7 +31,7 @@
 		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
+					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
 						<span class="badge">0</span>
 					</button>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -51,14 +51,14 @@
 							<a href="###">论坛区</a>
 						</li>
 						<li>
-							<a href="sourceServlet">资源区</a>
+							<a href="sourceServlet?index=panel-1">资源区</a>
 						</li>
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
 				<%if((Boolean)request.getAttribute("loged")){ %>
 						<li>
-							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
+							<a href="selfCenterServlet">个人中心<span class="badge hidden">0</span></a>
 						</li>
 						<li>
 							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
@@ -68,7 +68,7 @@
 							<a class="btn theme-login" href="javascript:;">登录</a>
 						</li>
 						<li>
-							<a class="btn " href="javascript:;">注册</a>
+							<a class="btn " href="register.jsp">注册</a>
 						</li>
 					<%} %>
 					</ul>
@@ -200,9 +200,23 @@
 							<div class="post_reply_textarea col-md-9 col-sm-12">
 								<a herf="#">添加表情</a>
 								<p>|</p>
-								<a herf="#">添加代码</a>
+								<a onclick="openCode()" class="codeA">添加代码
+									<div id="codeDiv">
+										<textarea class="codetext">celkjlahjsoil</textarea>
+										<div>
+											<a class="btn btn-xs btn-primary codebtn">确定</a>
+											<a class="btn btn-xs btn-danger codebtn" onclick="closeCode()">取消</a>
+										</div>
+									</div>
+								</a>
 								<p>|</p>
-								<a herf="#">添加图片</a>
+								<a onclick="openImg()" class="codeA">添加图片
+									<div id="imgDiv">
+										<input type="file" id="file" value="选择图片" class="btn-sm btn-primary myfile"/>
+										<a  class="btn btn-sm btn-primary imgbtn" >确定</a>
+										<a  onclick="closeImg()" class="btn btn-sm btn-danger imgbtn" >取消</a>
+									</div>
+								</a>
 								<textarea id="post_textarea" name='message'>发表新帖：内容</textarea>
 							</div>	
 							<div class="clear"></div>

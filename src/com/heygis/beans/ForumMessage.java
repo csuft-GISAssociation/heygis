@@ -71,5 +71,8 @@ public class ForumMessage {
 	public int getPage() {
 		return page;
 	}
+	public int getMid() {
+		return mid;
+	}
 	
 }

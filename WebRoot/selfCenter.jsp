@@ -136,7 +136,7 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 										<a href="#panel-1" data-toggle="tab">未读信息</a>
 									</li>
 									<li class="">
-										<a href="#panel-2" data-toggle="tab">已读信息</a>
+										<a href="#panel-2" data-toggle="tab" onclick="showOldMsg()">已读信息</a>
 									</li>
 									<li class="">
 										<a href="#panel-3" data-toggle="tab">我的发帖</a>
@@ -148,15 +148,13 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 									<%for(int i=0; i< fMsgPage.getSize();i++){ %>
 										<div class="message-cotent">
 											<div class="col-md-9 col-xs-9 message-detail">
+												<a onclick="return readMsg(<%=fMsgPage.getMsg(i).getMid() %>)" href="topicsServlet?fPage=1&tid=<%=fMsgPage.getMsg(i).getTid() %>&page=<%=fMsgPage.getMsg(i).getPage()%>&seeposi=<%=fMsgPage.getMsg(i).getPosition()%>#position<%=fMsgPage.getMsg(i).getPosition()-1%>">
 											<%if(fMsgPage.getMsg(i).getType() == 1){ %>
-												<a href="topicsServlet?fPage=1&tid=<%=fMsgPage.getMsg(i).getTid() %>&page=<%=fMsgPage.getMsg(i).getPage()%>#position<%=fMsgPage.getMsg(i).getPosition()-1%>">
-													<%=fMsgPage.getMsg(i).getAuthor() %><br/>在主题”<%=fMsgPage.getMsg(i).getSubject() %>“中回复了你
-												</a>
+													<%=fMsgPage.getMsg(i).getAuthor() %><br/>在主题”<%=fMsgPage.getMsg(i).getSubject() %>“中回复了你!												
 											<%}else if(fMsgPage.getMsg(i).getType() == 2){ %>
-												<a href="topicsServlet?fPage=1&tid=<%=fMsgPage.getMsg(i).getTid() %>&page=<%=fMsgPage.getMsg(i).getPage()%>#position<%=fMsgPage.getMsg(i).getPosition()-1%>">
-													<%=fMsgPage.getMsg(i).getAuthor() %><br/>回复了你在”<%=fMsgPage.getMsg(i).getSubject() %>“中的回复
-												</a>
+													<%=fMsgPage.getMsg(i).getAuthor() %><br/>回复了你在”<%=fMsgPage.getMsg(i).getSubject() %>“中的回复!
 											<%} %>
+												</a>
 											</div>
 											<div class="col-md-3 col-xs-3 message-date">
 												<p ><%=formatter.format(new Date(fMsgPage.getMsg(i).getDateline())) %></p>
@@ -165,7 +163,6 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 									<%} %>
 									</div>
 									<div class="tab-pane" id="panel-2">
-										234
 									</div>
 									<div class="tab-pane" id="panel-3">
 										43
