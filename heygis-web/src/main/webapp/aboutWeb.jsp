@@ -20,53 +20,8 @@
 		<title>heygis-关于本网站</title>
 	</head>
 	<body>
-		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="badge">0</span>
-					</button>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="index.jsp">首页</a>
-						</li>
-						<li>
-							<a href="index.jsp#bbs">论坛区</a>
-						</li>
-						<li>
-							<a href="sourceServlet?index=panel-1">资源区</a>
-						</li>
-						<li>
-							<a href="index.jsp#lkdVR">林科大全景</a>
-						</li>
-				<%if((Boolean)request.getAttribute("loged")){ %>
-						<li>
-							<a href="selfCenterServlet">个人中心<span class="badge">0</span></a>
-						</li>
-						<li>
-							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
-						</li>
-				<%}else{ %>
-						<li>
-							<a class="btn theme-login" href="javascript:;">登录</a>
-						</li>
-						<li>
-							<a class="btn " href="register.jsp">注册</a>
-						</li>
-					<%} %>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<jsp:include page="commonPage/navBar.jsp"></jsp:include>
+
 		<br/><br/><br/>
 		<div class="container">
 			<div class="row">
@@ -262,7 +217,7 @@
 					</ol>
 				</form>
 				<form id="logout" method="post" action="logoutServlet">
-					<INPUT TYPE="submit" name="test" value = "go" style="display:none"> 
+					<INPUT TYPE="submit" name="test" value = "go" style="display:none">
 				</form>
 			</div>
 		</div>

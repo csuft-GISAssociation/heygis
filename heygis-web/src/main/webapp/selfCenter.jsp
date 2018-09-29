@@ -36,53 +36,7 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 		<link href="css/selfCenterStyle.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-		<div class="navbar navbar-default navbar-fixed-top navbar-inverse nav">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle newMsgMark hidden" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="badge  hidden">0</span>
-					</button>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.jsp"><span class="heygis">HeyGIS</span></a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="index.jsp">首页</a>
-						</li>
-						<li>
-							<a href="index.jsp#bbs">论坛区</a>
-						</li>
-						<li>
-							<a href="sourceServlet">资源区</a>
-						</li>
-						<li>
-							<a href="index.jsp#lkdVR">林科大全景</a>
-						</li>
-				<%if((Boolean)request.getAttribute("loged")){ %>
-						<li>
-							<a class="active" href="selfCenterServlet">个人中心<span class="badge hidden">0</span></a>
-						</li>
-						<li>
-							<a class="btn" href="javascript:document:logout.submit()" >退出</a>
-						</li>
-				<%}else{ %>
-						<li>
-							<a class="btn theme-login" href="javascript:;">登录</a>
-						</li>
-						<li>
-							<a class="btn " href="javascript:;">注册</a>
-						</li>
-					<%} %>
-					</ul>
-				</div>
-			</div>
-		</div>
+  		<jsp:include page="commonPage/navBar.jsp"></jsp:include>
 		<br /><br /><br /><br />
 		<div class="section Top mainbody" id="mainbody">
 	      <div class="container">
@@ -189,56 +143,8 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 	        </div>
 	      </div>
 	    </div>
-		<div class="container-fluid footer">
-			<div class="container row-fluid foot">
-				<div class="col-md-4  col-sm-6 foot-left">
-					<h1 class="footh1">联系我们</h1> Email:heygis@163.com
-					<br /> QQ:12345678
-					<br /> Address:长沙市韶山南路498号中南林业科技大学
-					<br />
-				</div>
-				<div class="col-md-4  col-sm-6 foot-right">
-					<h1 class="footh1">相关链接</h1> 
-					<a href="feedbackServlet">意见反馈</a>
-					<br /> <a href="aboutWeb.jsp">关于本网站</a>
-					<br /> <a href="aboutMaker.jsp"> 关于制作者</a>
-					<br />
-				</div>
-				<div class="col-md-4  col-sm-12 shenming">
-					<span>注意：本站资源均来源于原创或网络,如有侵权请联系站长清除。</span>
-					<br />
-					<a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" target="_blank">湘ICP备16006264</a>
-
-				</div>
-			</div>
-		</div>
-		<div class="theme-popover col-md-12">
-			<div class="theme-poptit">
-				<a href="javascript:;" title="关闭" class="close">×</a>
-				<h3>登录 是一种态度</h3>
-			</div>
-			<div class="theme-popbod dform">
-				<form id="loginForm" class="theme-signin" name="loginform"  method="post" onsubmit="return login()">
-					<ol>
-						<li>
-							<h4 id="loginMessage">你必须先登录！</h4>
-						</li>
-						<li><strong>用户名：</strong>
-							<input class="ipt" type="text" name="account" value="" size="20" placeholder="账号（邮箱）"/>
-						</li>
-						<li><strong>密码：</strong>
-							<input class="ipt" type="password" name="password" value="" size="20" placeholder="密码"/>
-						</li>
-						<li>
-							<input class="btn btn-primary" type="submit" name="submit" value=" 登 录 " />
-						</li>
-					</ol>
-				</form>
-				<form id="logout" method="post" action="logoutServlet">
-					<INPUT TYPE="submit" name="test" value = "go" style="display:none"> 
-				</form>
-			</div>
-		</div>
+		<jsp:include page="commonPage/footer.jsp"></jsp:include>
+		<jsp:include page="commonPage/login.jsp"></jsp:include>
 		<div id="changeIcon" class="col-md-12">
 			<div class="theme-poptit" id="theme">
 				<a href="javascript:;" title="关闭" id="close" class="close">×</a>

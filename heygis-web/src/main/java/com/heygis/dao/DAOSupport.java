@@ -41,7 +41,7 @@ public class DAOSupport {
 		return 0;
 	}
 	protected void openConn(){
-		System.out.println(++times + "open");
+//		System.out.println(++times + "open");
 		try {
 			dbconn = DBConnection.getInstance();
 			conn = dbconn.getConnection();
@@ -50,7 +50,7 @@ public class DAOSupport {
 		}
 	}
 	public void close() {
-		System.out.println(times + "close");
+//		System.out.println(times + "close");
 		dbconn.close(conn, stmt, rs);
 	}
 	protected int LAST_INSERT_ID() {
