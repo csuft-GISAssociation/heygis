@@ -1,0 +1,5 @@
+﻿/heygis-web/src/main/resources/db.properties
+/heygis-web/src/test/resources/db.properties
+/heygis-web/target/*
+/out/*
+/lib/*
