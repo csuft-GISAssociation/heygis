@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
+import com.heygis.dao.interfaces.ForumPostDAO;
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.ForumPostPage;
 import com.heygis.dto.ForumsThreadPage;
@@ -14,7 +15,7 @@ import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
 import com.heygis.dao.ForumPostDAOImpl;
 import com.heygis.dao.ForumThreadDAOImpl;
-import com.heygis.service.AddPostService;
+import com.heygis.service.ForumsPostService;
 import com.heygis.service.SourceServie;
 
 /**
@@ -28,6 +29,7 @@ public class Test {
 //		System.out.println(s.indexOf("pre class='prettyprint'"));
 		
 		//System.out.println(new UserDAOImpl().EncoderByMd5("123456"));
+		addpost2();
 }
 	/**
 	 * getThreasPage测试
@@ -58,16 +60,18 @@ public class Test {
 //		addpost测试
 //		ForumPost post = new ForumPost(0, 1, 3, 0, "sm", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0);
 //		addPost(post);
-		Thread mt = new myThread(new ForumPost(0, 1, 3, 0, "sm1", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-		Thread mt2 = new myThread(new ForumPost(0, 1, 3, 0, "sz2", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-		Thread mt3 = new myThread(new ForumPost(0, 1, 3, 0, "sm3", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-		Thread mt4 = new myThread(new ForumPost(0, 1, 3, 0, "sz4", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
-		mt.start();
-		mt2.start();
-		mt3.start();
-		mt4.start();
-		for(int i=0;i<10;i++){
-			new myThread(new ForumPost(0, 1, 3, 0, "sz-"+i, 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0)).start();
+
+//		多线程并发测试
+//		Thread mt = new myThread(new ForumPost(0, 1, 3, 0, "sm1", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+//		Thread mt2 = new myThread(new ForumPost(0, 1, 3, 0, "sm2", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+//		Thread mt3 = new myThread(new ForumPost(0, 1, 3, 0, "sm3", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+//		Thread mt4 = new myThread(new ForumPost(0, 1, 3, 0, "sm4", 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0));
+//		mt.start();
+//		mt2.start();
+//		mt3.start();
+//		mt4.start();
+		for(int i=0;i<40;i++){
+			new myThread(new ForumPost(0, 1, 103, 0, "sz-"+i, 0, "1018@qq.com", "ceshi1", new Date(), "ceshi1", "127.0.0.1", 2, 0)).start();
 		}
 	}
 	/**
@@ -122,8 +126,10 @@ class myThread extends Thread{
 	}
 	@Override
 	public void run() {
-		AddPostService aps = AddPostService.getInstance();
-		aps.getFpdi().addPost(post);
+//		AddPostService aps = AddPostService.getInstance();
+//		aps.getFpdi().addPost(post);
+		ForumPostDAO postDAO = new ForumPostDAOImpl();
+		postDAO.addPost(post);
 	}
 	
 }

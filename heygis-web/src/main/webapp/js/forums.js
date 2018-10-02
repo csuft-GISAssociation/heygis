@@ -64,7 +64,8 @@ function public() {
 }
 
 function threadpublic() {
-    if (loged == false) {
+    var userState = eval('(' + isLogin() + ')');
+    if (userState.loged == false) {
         wherelog = 1;
         $('.theme-popover-mask').fadeIn(100);
         $('.theme-popover').slideDown(200);
@@ -85,9 +86,7 @@ function finalsubmit() {
     }
 }
 
-/*
- * 定制版loginJS
- */
+/** 定制版loginJS */
 jQuery(document).ready(function ($) {
     $('.theme-login').click(function () {
         wherelog = 0;
@@ -124,8 +123,21 @@ function login() {
     });
     return false; // 阻止表单自动提交事件
 }
+//获取用户状态，判断是否登陆
+function isLogin() {
+    var result;
+    $.ajax({
+        type: 'post',
+        url: 'isLoginServlet',
+        async: false,
+        success: function (data) {
+            result = data;
+        }
+    });
+    return result;
+}
+/**loginJSj结束*/
 
-//loginJSj结束
 function openCode() {
     closeImg();
     $("#codeDiv").css("visibility", "visible");

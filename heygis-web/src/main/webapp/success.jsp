@@ -57,8 +57,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<li>
 							<a href="index.jsp#lkdVR">林科大全景</a>
 						</li>
-					<%if(session.getAttribute("loged") != null){ %>
-						<%if(session.getAttribute("loged").equals(true)){ %>
+						<%if(request.getAttribute("loged") != null){ %>
+							<%if(request.getAttribute("loged").equals(true)){ %>
 						<li>
 							<a href="selfCenterServlet">个人中心<span class="badge">4</span></a>
 						</li>
@@ -87,10 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<jsp:include page="commonPage/login.jsp"></jsp:include>
 		<div class="theme-popover-mask"></div>
 	</body>
-	<script type="text/javascript" src="js/newMsg.js"></script>
 	<script>
-		var loged = <%=request.getAttribute("loged") %>;
-		var uid = <%=request.getAttribute("uid")%>
 		$(document).ready(function(){ 
 			var needHeight = window.screen.height;
 			$(".mianbody").css("min-height",needHeight-300);

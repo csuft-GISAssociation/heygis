@@ -16,6 +16,8 @@ import com.heygis.service.NewMsgService;
  */
 public class SelfCenterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	NewMsgService newMsgService = new NewMsgService();
        
     public SelfCenterServlet() {
         super();
@@ -27,7 +29,7 @@ public class SelfCenterServlet extends HttpServlet {
 			return;
 		}
 		int uid = Integer.parseInt(request.getAttribute("uid").toString());
-		ForumMsgPage fMsgPage = new NewMsgService().getMsgPage(uid, 1, 1);
+		ForumMsgPage fMsgPage = newMsgService.getMsgPage(uid, 1, 1);
 		request.setAttribute("fMsgPage", fMsgPage);
 		RequestDispatcher dis =  request.getRequestDispatcher("selfCenter.jsp");
 		dis.forward(request, response);

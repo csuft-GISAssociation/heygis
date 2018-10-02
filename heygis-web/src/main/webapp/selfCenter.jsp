@@ -5,7 +5,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-User user = (User)request.getSession().getAttribute("user");
+User user = (User)request.getAttribute("user");
 ForumMsgPage fMsgPage = (ForumMsgPage)request.getAttribute("fMsgPage");
 SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 %>
@@ -178,9 +178,4 @@ SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm:ss");
 		</div>
 		<div class="theme-popover-mask"></div>
 	</body>
-	<!--<script type="text/javascript" src="js/newMsg.js"></script>-->
-	<script>
-		var loged = <%=request.getAttribute("loged") %>;
-		var uid = <%=request.getAttribute("uid")%>
-	</script>
 </html>

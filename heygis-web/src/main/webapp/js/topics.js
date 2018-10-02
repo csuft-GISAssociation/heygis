@@ -1,5 +1,11 @@
 var page = getQueryString("page");
 
+//用于判断是一般登陆，还是发帖时未登录要求登陆
+var whichsubmit = 0;
+
+//被回复的用户数据
+var userBeReplyed = new Object();
+
 function next() {
     if (page == totalPage) {
         alert("没有下一页了！");
@@ -34,16 +40,16 @@ function getQueryString(name) {
 //		$("#test").html($("#textarea_post").val());
 //	});
 //});
+//
+//废弃可删除
+// var posi;
+// var uid;
+// var nickname;
+// var account;
+// var redpid;
+// var redmes;
 
-//用于判断是一般登陆，还是发帖时未登录要求登陆
-var whichsubmit = 0;
 
-var posi;
-var uid;
-var nickname;
-var account;
-var redpid;
-var redmes;
 jQuery(document).ready(function ($) {
     $('.reply .close').click(function () {
         $('.reply').slideUp(200);
@@ -51,7 +57,8 @@ jQuery(document).ready(function ($) {
 })
 
 function postPublic() {
-    if (loged == false) {
+    var userState = eval('(' + isLogin() + ')');
+    if (userState.loged == false) {
         whichsubmit = 1;
         $('.theme-popover-mask').fadeIn(100);
         $('.theme-popover').slideDown(200);
@@ -74,22 +81,23 @@ function finalpostPublic() {
 function reply(_posi, _uid, _account, _nickname, _redpid) {
 //	$("#posi_subButton").click(posiReplyPublic(posi,uid,account,nickname,redmes));
 //	document.getElementById('posi_subButton').onclick = posiReplyPublic(posi,uid,account,nickname,redmes);
-    posi = _posi;
-    uid = _uid;
-    account = _account;
-    nickname = _nickname;
-    redpid = _redpid;
+    userBeReplyed.posi = _posi;
+    userBeReplyed.uid = _uid;
+    userBeReplyed.account = _account;
+    userBeReplyed.nickname = _nickname;
+    userBeReplyed.redpid = _redpid;
     $('.reply').slideDown(200);
     $('#posi_reply_textarea').focus();
 }
 
 function posiReplyPublic() {
-//	document.getElementById('posi').value = posi;
-    document.getElementById('postauthor_uid').value = uid;
-//	document.getElementById('postauthor_account').value = account;
-    document.getElementById('replypid').value = redpid;
-    document.getElementById('replyhead').value = "<fieldset id=''><legend>回复:" + posi + "楼" + nickname + "</legend><blockquote>";
-    if (loged == false) {
+//	document.getElementById('postauthor_account').value = userBeReplyed.account;
+    document.getElementById('replyposi').value = userBeReplyed.posi;
+    document.getElementById('postauthor_uid').value = userBeReplyed.uid;
+    document.getElementById('replypid').value = userBeReplyed.redpid;
+    document.getElementById('replyhead').value = "<fieldset id=''><legend>回复:" + userBeReplyed.posi + "楼" + userBeReplyed.nickname + "</legend><blockquote>";
+    var userState = eval('(' + isLogin() + ')');
+    if (userState.loged == false) {
         whichsubmit = 2;
         $('.reply').slideUp(200);
         $('.theme-popover-mask').fadeIn(100);
@@ -148,6 +156,19 @@ function login() {
     return false; // 阻止表单自动提交事件
 }
 
+//获取用户状态，判断是否登陆
+function isLogin() {
+    var result;
+    $.ajax({
+        type: 'post',
+        url: 'isLoginServlet',
+        async: false,
+        success: function (data) {
+            result = data;
+        }
+    });
+    return result;
+}
 /** 定制版loginJS結束 */
 
 

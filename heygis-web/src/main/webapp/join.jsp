@@ -45,8 +45,8 @@
 						<li>
 							<a href="#lkdVR">林科大全景</a>
 						</li>
-					<%if(session.getAttribute("loged") != null){ %>
-						<%if(session.getAttribute("loged").equals(true)){ %>
+						<%if(request.getAttribute("loged") != null){ %>
+							<%if(request.getAttribute("loged").equals(true)){ %>
 						<li>
 							<a href="selfCenterServlet">个人中心<span class="badge hidden">4</span></a>
 						</li>
@@ -66,6 +66,5 @@
 				</div>
 			</div>
 		</div>
-
 </body>
 </html>

@@ -34,7 +34,7 @@
 	</head>
 
 	<body>
-	<jsp:include page="commonPage/navBar.jsp"></jsp:include>
+	<jsp:include page="commonPage/indexNavBar.jsp"></jsp:include>
 	<div class="site-wrapper area">
 			<div class="site-wrapper-inner area">
 				<div class="cover-container">

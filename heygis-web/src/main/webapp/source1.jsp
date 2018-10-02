@@ -6,7 +6,6 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-String loged = request.getAttribute("loged").toString();
 //String currPageNo1 = request.getAttribute("currPageNo1").toString();
 //String currPageNo2 = request.getAttribute("currPageNo2").toString();
 //String currPageNo3 = request.getAttribute("currPageNo3").toString();
@@ -120,7 +119,7 @@ String loged = request.getAttribute("loged").toString();
 													<h5>上传时间:<%=sourceOne.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceOne.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg change" href="<%=sourceOne.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceOne.getName()%>')">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceOne.getDownload_link()%>" onclick="return checkLog('<%=sourceOne.getName()%>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -193,7 +192,7 @@ String loged = request.getAttribute("loged").toString();
 													<h5>上传时间:<%=sourceTwo.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceTwo.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg change" href="<%=sourceTwo.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceTwo.getName()%>')">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceTwo.getDownload_link()%>" onclick="return checkLog('<%=sourceTwo.getName()%>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -265,7 +264,7 @@ String loged = request.getAttribute("loged").toString();
 													<div class="content">
 														<p><%=sourceThree.getIntroduction() %></p>
 														<a class="btn btn-primary btn-md" href="<%=sourceThree.getDownload_link_offical()%>" target="_blank">官方下载地址</a> 
-														<a class="btn btn-primary btn-md change" href="<%=sourceThree.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceThree.getName() %>')">本站下载地址</a>
+														<a class="btn btn-primary btn-md change" href="<%=sourceThree.getDownload_link()%>" onclick="return checkLog('<%=sourceThree.getName() %>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -331,7 +330,7 @@ String loged = request.getAttribute("loged").toString();
 													<h5>上传时间:<%=sourceFour.getUpload_time() %></h5>
 													<div class="content">
 														<p><%=sourceFour.getIntroduction() %></p>
-														<a class="btn btn-primary btn-lg change" href="<%=sourceFour.getDownload_link()%>" onclick="return checkLog(<%=loged%>,'<%=sourceFour.getName()%>')">本站下载地址</a>
+														<a class="btn btn-primary btn-lg change" href="<%=sourceFour.getDownload_link()%>" onclick="return checkLog('<%=sourceFour.getName()%>')">本站下载地址</a>
 													</div>
 												</div>
 											</article>
@@ -356,11 +355,6 @@ String loged = request.getAttribute("loged").toString();
 		<jsp:include page="commonPage/login.jsp"></jsp:include>
 		<div class="theme-popover-mask"></div>
   </body>
-  <script type="text/javascript" src="js/newMsg.js"></script>
-	<script>
-		var loged = <%=request.getAttribute("loged") %>;
-		var uid = <%=request.getAttribute("uid")%>
-	</script>
 </html>
 <script type="text/javascript">
 	var currPageNo1 = 1;

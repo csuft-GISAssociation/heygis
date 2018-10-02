@@ -223,10 +223,5 @@
 		</div>
 		<div class="theme-popover-mask"></div>			
 	</body>
-	<script type="text/javascript" src="js/newMsg.js"></script>
-	<script>
-		var loged = <%=request.getAttribute("loged") %>;
-		var uid = <%=request.getAttribute("uid")%>
-	</script>
 </html>
     

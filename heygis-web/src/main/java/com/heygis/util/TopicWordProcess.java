@@ -19,8 +19,8 @@ public class TopicWordProcess {
 		for(i = 0;(i= min((i1=word.indexOf("<pre cl",i+1)),(i2=word.indexOf("</pre>",i+1))))>0 ;){
 			if(i1<i2&&i1!=-1){
 				if(!b.empty()){
-					System.out.println("b.peek().i"+b.peek().i);
-					System.out.println("b.peek().posi"+b.peek().posi);
+					//System.out.println("b.peek().i"+b.peek().i);
+					//System.out.println("b.peek().posi"+b.peek().posi);
 					if(b.peek().i==2 && b.peek().posi<i1){
 						pb = b.peek();
 						int oldlength = word.length();
@@ -36,7 +36,7 @@ public class TopicWordProcess {
 				b.push(new pre(2,i2+6));
 			}
 			ifinally = i;
-			System.out.println(i);
+			//System.out.println(i);
 		}
 //		if(i1>i2)i=i1;
 //		else i=i2;

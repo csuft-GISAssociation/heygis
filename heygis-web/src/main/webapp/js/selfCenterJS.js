@@ -159,7 +159,8 @@ function appendmyThreadist(res){
 }
 
 function havaNewMsg(){
-	if(loged == true){
+    var userState = eval('(' + isLogin() + ')');
+    if(userState.loged == true){
 		$.post("newMsgServlet",{
 			'nw' : 1,
 			'uid': uid
