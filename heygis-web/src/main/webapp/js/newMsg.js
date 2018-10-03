@@ -1,8 +1,9 @@
 $(document).ready(function(){
-	if(loged == true){
+    var userState = eval('(' + isLogin() + ')');
+    if(userState.loged == true){
 		$.post("newMsgServlet",{
 			'nw' : 1,
-			'uid': uid
+			'uid': userState.uid
 		},function(data){
 			if(data > 0){
 //				alert(data);

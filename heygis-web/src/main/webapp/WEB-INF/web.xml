@@ -275,12 +275,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ConsoleServlet</display-name>
-    <servlet-name>ConsoleServlet</servlet-name>
-    <servlet-class>com.heygis.servlet.ConsoleServlet</servlet-class>
+    <display-name>IsLoginServlet</display-name>
+    <servlet-name>IsLoginServlet</servlet-name>
+    <servlet-class>com.heygis.servlet.IsLoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ConsoleServlet</servlet-name>
-    <url-pattern>/ConsoleServlet</url-pattern>
+    <servlet-name>IsLoginServlet</servlet-name>
+    <url-pattern>/isLoginServlet</url-pattern>
   </servlet-mapping>
 </web-app>

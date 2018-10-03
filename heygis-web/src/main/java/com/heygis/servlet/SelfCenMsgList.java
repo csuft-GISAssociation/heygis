@@ -7,11 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.heygis.service.ForumsService;
+import com.heygis.service.ForumsThreadService;
 import com.heygis.service.NewMsgService;
 
 public class SelfCenMsgList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	ForumsThreadService threadService = new ForumsThreadService();
+	NewMsgService newMsgService = new NewMsgService();
 
     public SelfCenMsgList() {
         super();
@@ -23,9 +26,9 @@ public class SelfCenMsgList extends HttpServlet {
 		int n = Integer.parseInt(request.getParameter("n"));
 		String msgList;
 		if(n == 3){
-			msgList = new ForumsService().getMyThread(uid, page);
+			msgList = threadService.getMyThread(uid, page);
 		}else{
-			msgList = new NewMsgService().getMsgList(uid, page, n);
+			msgList = newMsgService.getMsgList(uid, page, n);
 		}
 //		String msgList = new NewMsgService().getMsgList(uid, page, n);
 		response.setCharacterEncoding("utf-8");

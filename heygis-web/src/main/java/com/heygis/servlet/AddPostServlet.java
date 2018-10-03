@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.User;
-import com.heygis.service.AddPostService;
+import com.heygis.service.ForumsPostService;
 
 public class AddPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	ForumsPostService postService = new ForumsPostService();
 
     public AddPostServlet() {
         super();
@@ -39,15 +41,9 @@ public class AddPostServlet extends HttpServlet {
 		int authorUid = user.getUid();
 		String authorAccount = user.getAccount();
 		ForumPost post = new ForumPost(-1, fid, tid, 0, author, authorUid, authorAccount, "",
-				new Date(), message, request.getRemoteAddr(), attchment, -1);
-		AddPostService addPostService = AddPostService.getInstance();
-		int posi = 0;
-		if(user.getUid() != t_uid){
-			posi = addPostService.addPostWithMsg(post,t_uid,subject);
-		}else{
-			posi = addPostService.addPost(post,t_uid,subject);
-		}
-		if(posi != 0){
+				new Date(), message, request.getRemoteAddr(), attchment,0);
+
+		if(postService.addPost(post,t_uid) != -1){
 			response.sendRedirect(request.getHeader("referer"));
 		}else{
 			request.setAttribute("message", "发帖失败");

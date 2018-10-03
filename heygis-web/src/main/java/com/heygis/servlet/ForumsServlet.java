@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.ForumsThreadPage;
-import com.heygis.service.ForumsService;
+import com.heygis.service.ForumsThreadService;
 
 /**
  * Servlet implementation class ForumsServlet
  */
 public class ForumsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+	ForumsThreadService threadService = new ForumsThreadService();
+
     public ForumsServlet() {
         super();
     }
@@ -30,8 +32,7 @@ public class ForumsServlet extends HttpServlet {
 			error("版块访问失败",request,response);
 			return;
 		}
-		ForumsService fs = new ForumsService();
-		ForumsThreadPage threadPage = fs.getThreadPage(fid, page);
+		ForumsThreadPage threadPage = threadService.getThreadPage(fid, page);
 		if(threadPage.getFid() < 4){
 			request.setAttribute("threadPage", threadPage);
 			RequestDispatcher dis = request.getRequestDispatcher("/forums/forums.jsp");

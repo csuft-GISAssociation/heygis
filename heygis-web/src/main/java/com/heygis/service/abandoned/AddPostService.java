@@ -1,22 +1,23 @@
-package com.heygis.service;
+package com.heygis.service.abandoned;
 
+import com.heygis.dao.interfaces.ForumPostDAO;
 import com.heygis.dto.ForumMessage;
 import com.heygis.dto.ForumPost;
 import com.heygis.dao.ForumMessageDAOImpl;
 import com.heygis.dao.ForumPostDAOImpl;
 
+/**
+ * 废弃，迁移到ForumPostService
+ */
 public class AddPostService {
-    private static ForumPostDAOImpl fpdi = new ForumPostDAOImpl();
+    private static ForumPostDAO fpdi = new ForumPostDAOImpl();
 
-    public ForumPostDAOImpl getFpdi() {
+    public ForumPostDAO getFpdi() {
         return fpdi;
     }
 
     private static class AddPostServiceHolder {
         private static final AddPostService INSTANCE = new AddPostService();
-    }
-
-    private AddPostService() {
     }
 
     public static final AddPostService getInstance() {
@@ -26,7 +27,7 @@ public class AddPostService {
     public int addPostWithMsg(ForumPost post, int t_uid, String subject) {
         int posi = AddPostServiceHolder.INSTANCE.getFpdi().addPost(post);
         if (posi != 0) {
-            ForumMessage fmsg = new ForumMessage(post.getAuthor(), t_uid, subject, post.getDateline().getTime(), 1, post.getFid(), post.getTid());
+            ForumMessage fmsg = new ForumMessage(post.getAuthor(), post.getAuthorUid(), t_uid, subject, post.getDateline().getTime(), 1, post.getFid(), post.getTid());
             fmsg.setPosition(posi);
             if (new ForumMessageDAOImpl().addMsg(1, fmsg)) {
                 return posi;

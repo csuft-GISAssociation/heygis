@@ -101,8 +101,9 @@ function defaultcho(e,s){
 		}
 	});
 }
-function checkLog(loged,name){
-	if(loged == true){
+function checkLog(name){
+    var userState = eval('(' + isLogin() + ')');
+	if(userState.loged == true){
 		//alert("其实已经可以下载了，但是现在是测试阶段，所以不跳转了。嘿嘿！！");
 		var _url = "addCountServlet";
 		var _data ="sourceName="+name;

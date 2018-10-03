@@ -9,7 +9,8 @@ function submitt(){
 		$("#check").val("1");
 		$("#publish").submit();
 	}else{
-		if(loged==true){
+        var userState = eval('(' + isLogin() + ')');
+		if(userState.loged==true){
 			$("#check").val("2");
 			$("#publish").submit();
 		}else{
