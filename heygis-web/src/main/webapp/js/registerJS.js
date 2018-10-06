@@ -3,6 +3,7 @@ $(document).ready(function () {
     //document.getElementById("mainbody").style.minHeight=needHeight;
     $(".mainbody").css("minHeight", needHeight);
 });
+
 var b1 = false;
 var b2 = false;
 var b3 = false;
@@ -116,6 +117,7 @@ function register() {
     alert(b4);
     alert(b5);
     if (b1 && b2 && b3 && b4 && b5) {
+        $('#inputPassword1').value = md5($('#inputPassword1').value);
         $("#registerForm").submit();
     } else {
         $("#submitt").html("<button class='btn btn-danger btn-block' type='button' onclick='register()'>请将所有内容填写正确后再试</button>");

@@ -2,30 +2,47 @@ package com.heygis.service;
 
 import java.text.SimpleDateFormat;
 
-import com.heygis.dao.ForumPostDAOImpl;
+import com.heygis.constants.ForumConstant;
 import com.heygis.dao.interfaces.ForumPostDAO;
+import com.heygis.service.interfaces.ForumsThreadService;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.ForumThread;
 import com.heygis.dto.ForumsThreadPage;
-import com.heygis.dao.ForumThreadDAOImpl;
 import com.heygis.dao.interfaces.ForumThreadDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ForumsThreadService {
-    private ForumThreadDAO forumThreadDAO = null;
+@Component
+public class ForumsThreadServiceImpl implements ForumsThreadService {
 
-    public ForumsThreadService() {
-        forumThreadDAO = new ForumThreadDAOImpl();
-    }
+    @Autowired
+    private ForumThreadDAO forumThreadDAO;
+    @Autowired
+    private ForumPostDAO forumPostDAO;
 
     public ForumsThreadPage getThreadPage(int fid, int page) {
-        return forumThreadDAO.getThreadPage(fid, page);
+        ForumsThreadPage threadPage = forumThreadDAO.getThreadPageByFid(fid, page);
+        int threadCountThisFid = forumThreadDAO.getThreadCountByFid(fid);
+        threadPage.setTotalThreadNum(threadCountThisFid);
+        return threadPage;
     }
 
     public boolean addthread(ForumThread thread, ForumPost post) {
-        return forumThreadDAO.addThread(thread, post);
+        //先插入thread 成功再插入post
+        int tid = forumThreadDAO.addThread(thread, post);
+        if (tid != ForumConstant.WRONG_TID) {
+            post.setTid(tid);
+            int pid = forumPostDAO.addPost(post);
+            if (pid != ForumConstant.WRONG_PID)
+                return true;
+            else
+                return false;
+        } else {
+            return false;
+        }
     }
 
     public String getMyThread(int uid, int page) {

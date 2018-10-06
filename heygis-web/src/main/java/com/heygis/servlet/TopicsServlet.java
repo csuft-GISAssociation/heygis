@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.ForumPostPage;
-import com.heygis.service.ForumsPostService;
+import com.heygis.service.interfaces.ForumsPostService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class TopicsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    ForumsPostService postService = new ForumsPostService();
+    @Autowired
+    private ForumsPostService postService;
 
     public TopicsServlet() {
         super();

@@ -3,20 +3,21 @@ package com.heygis.service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.heygis.service.interfaces.NewMsgService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.heygis.dto.ForumMsgPage;
-import com.heygis.dao.ForumMessageDAOImpl;
 import com.heygis.dao.interfaces.ForumMessageDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class NewMsgService {
+@Component
+public class NewMsgServiceImpl implements NewMsgService {
+
+    @Autowired
     ForumMessageDAO fMsgDAO;
-
-    public NewMsgService() {
-        fMsgDAO = new ForumMessageDAOImpl();
-    }
 
     public int howManyNewMsg(int uid) {
         return fMsgDAO.howManyNewMsg(uid);

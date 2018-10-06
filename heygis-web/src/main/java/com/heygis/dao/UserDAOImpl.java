@@ -1,26 +1,24 @@
 package com.heygis.dao;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import sun.misc.BASE64Encoder;
-//import Decoder.BASE64Encoder;
+import org.springframework.stereotype.Component;
 
 import com.heygis.dto.User;
 import com.heygis.dao.interfaces.UserDAO;
 
+@Component
 public class UserDAOImpl extends DAOSupport implements UserDAO {
 
     public boolean validateUser(String account, String password) {
         try {
-            String sql = "select password from users where account=?";
             this.openConn();
+            String sql = "select password from users where account=?";
             ResultSet rs = this.execQuery(sql, account);
             if (rs.next()) {
-                String pw = EncoderByMd5(password);
+//                String pw = EncoderByMd5(password);
+                String pw = password;
                 if (rs.getString("password").equals(pw)) {
                     System.out.println("heygis-log: login " + account + " login ok");
                     return true;
@@ -35,12 +33,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (!this.conn.isClosed())
-                    this.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            this.openConn();
         }
         return false;
     }
@@ -48,8 +41,8 @@ public class UserDAOImpl extends DAOSupport implements UserDAO {
     public int addUser(User user) {//添加默认的性别，头像，个人介绍
         try {
             String account = user.getAccount();
-            String password = EncoderByMd5(user.getPassWord());
-            //System.out.println(password);
+//            String password = EncoderByMd5(user.getPassWord());
+            String password = user.getPassWord();
             String nickName = user.getNickName();
             String grade = user.getGrade();
             String sql1 = "insert into users (account,password) values (?,?)";
@@ -61,23 +54,23 @@ public class UserDAOImpl extends DAOSupport implements UserDAO {
                 System.out.println("heygis-log: login " + account + " register scuessfully");
                 int uid = this.LAST_INSERT_ID();
                 this.execUpdate(sql2, uid, account, nickName, grade);
-                this.close();
                 return result1;
             } else {
-                this.close();
                 System.out.println("heygis-log: login " + account + " register failed");
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            this.close();
         }
         return 0;
     }
 
     public User getUser(String account) {
         try {
+            this.openConn();
             User user = null;
             String sql = "select uid,account,nickname,gender,grade,QQ,tel,selfintroduction,identity_id,icon_img from users_info where account=?";
-            this.openConn();
             ResultSet rs = this.execQuery(sql, account);
             if (rs.next()) {
 //				System.out.println("user已经填充");
@@ -85,33 +78,28 @@ public class UserDAOImpl extends DAOSupport implements UserDAO {
                         rs.getString("gender"), rs.getString("QQ"), rs.getString("tel"),
                         rs.getString("selfIntroduction"), rs.getString("icon_Img"));
             }
-            this.close();
             return user;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (!this.conn.isClosed())
-                    this.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            this.close();
         }
         return null;
     }
 
     public boolean judgeEmail(String account) {
-        boolean bool = false;
-        String sql = "select * from users where account=?";
-        this.openConn();
-        ResultSet rs = this.execQuery(sql, account);
         try {
+            this.openConn();
+            boolean bool = false;
+            String sql = "select * from users where account=?";
+            ResultSet rs = this.execQuery(sql, account);
             bool = !rs.next();
-            this.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            this.close();
         }
-        return bool;
+        return false;
     }
 
     public boolean judgeNickName(String nickName) {
@@ -153,15 +141,6 @@ public class UserDAOImpl extends DAOSupport implements UserDAO {
             return true;
         }
         return false;
-    }
-
-    public String EncoderByMd5(String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-        //确定计算方法
-        MessageDigest md5 = MessageDigest.getInstance("MD5");
-        BASE64Encoder base64en = new BASE64Encoder();
-        //加密后的字符串
-        String newstr = base64en.encode(md5.digest(str.getBytes("utf-8")));
-        return newstr;
     }
 
 }

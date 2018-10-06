@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import com.heygis.dao.DB.DBConnection;
 
 public class DAOSupport {
+
     static int times = 0;
     protected ResultSet rs = null;
     protected PreparedStatement stmt = null;
@@ -59,8 +60,7 @@ public class DAOSupport {
 
     /**
      * 获取刚插入的记录的主键id；和connection相关，不用担心并发
-     *
-     * @return
+     * @return 刚插入的记录的主键id
      */
     protected int LAST_INSERT_ID() {
         try {

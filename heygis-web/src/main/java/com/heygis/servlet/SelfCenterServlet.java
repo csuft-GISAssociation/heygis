@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.ForumMsgPage;
-import com.heygis.service.NewMsgService;
+import com.heygis.service.interfaces.NewMsgService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Servlet implementation class SelfCenterServlet
@@ -17,7 +18,8 @@ import com.heygis.service.NewMsgService;
 public class SelfCenterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	NewMsgService newMsgService = new NewMsgService();
+	@Autowired
+	private NewMsgService newMsgService;
        
     public SelfCenterServlet() {
         super();

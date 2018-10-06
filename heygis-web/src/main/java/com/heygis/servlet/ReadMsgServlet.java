@@ -7,18 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.heygis.service.NewMsgService;
+import com.heygis.service.interfaces.NewMsgService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ReadMsgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public ReadMsgServlet() {
-        super();
-    }
+	@Autowired
+	private NewMsgService newMsgService;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int mid = Integer.parseInt(request.getParameter("mid"));
-		if(new NewMsgService().makeMsgOld(mid)){
+		if(newMsgService.makeMsgOld(mid)){
 			response.getWriter().println(1);
 			return;
 		}else{

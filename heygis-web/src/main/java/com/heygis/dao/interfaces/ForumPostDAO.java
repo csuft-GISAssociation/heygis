@@ -4,6 +4,7 @@ import com.heygis.dto.ForumPost;
 import com.heygis.dto.ForumPostPage;
 
 public interface ForumPostDAO {
+
     public int addPost(ForumPost post);
 
     public boolean delPost(int pid);

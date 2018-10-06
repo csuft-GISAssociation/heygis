@@ -14,12 +14,15 @@ import com.heygis.dto.SourceFour;
 import com.heygis.dto.SourceOne;
 import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
-import com.heygis.dao.SourceDAOImpl;
 import com.heygis.service.CreateHTMLService;
-import com.heygis.service.SourceServie;
+import com.heygis.service.interfaces.SourceService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class SortServlet extends HttpServlet {
+	
+	@Autowired
+	private SourceService sourceService;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -28,13 +31,12 @@ public class SortServlet extends HttpServlet {
 		String sourceType = request.getParameter("sourceType");
 		int currPageNo = Integer.parseInt(request.getParameter("currPageNo"));
 		Boolean loged = (Boolean)request.getAttribute("loged");
-		SourceServie sourceService = new SourceServie();
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;chatset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if(sourceType.equals("1")){
 			if(sortWay.equals("0")){
-				List<SourceOne> sourceOneList = new SourceDAOImpl().getSourceOne();
+				List<SourceOne> sourceOneList = sourceService.getSourceOneList();
 				String html = new CreateHTMLService(loged).createHTML(sourceOneList,sourceType,currPageNo);
 				out.print(html);
 			}
@@ -61,7 +63,7 @@ public class SortServlet extends HttpServlet {
 		}
 		if(sourceType.equals("2")){
 			if(sortWay.equals("0")){
-				List<SourceTwo> sourceTwoList = new SourceDAOImpl().getSourceTwo();
+				List<SourceTwo> sourceTwoList = sourceService.getSourceTwoList();
 				String html = new CreateHTMLService(loged).createHTML(sourceTwoList,sourceType,currPageNo);
 				out.print(html);
 			}
@@ -88,7 +90,7 @@ public class SortServlet extends HttpServlet {
 		}
 		if(sourceType.equals("3")){
 			if(sortWay.equals("0")){
-				List<SourceThree> sourceThreeList = new SourceDAOImpl().getSourceThree();
+				List<SourceThree> sourceThreeList = sourceService.getSourceThreeList();
 				String html = new CreateHTMLService(loged).createHTML(sourceThreeList,sourceType,currPageNo);
 				out.print(html);
 			}
@@ -117,7 +119,7 @@ public class SortServlet extends HttpServlet {
 		}
 		if(sourceType.equals("4")){
 			if(sortWay.equals("0")){
-				List<SourceFour> sourceFourList = new SourceDAOImpl().getSourceFour();
+				List<SourceFour> sourceFourList = sourceService.getSourceFourList();
 				String html = new CreateHTMLService(loged).createHTML(sourceFourList,sourceType,currPageNo);
 				out.print(html);
 			}

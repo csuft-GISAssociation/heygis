@@ -12,7 +12,7 @@ public interface ForumThreadDAO {
      * @param post
      * @return
      */
-    public boolean addThread(ForumThread thread, ForumPost post);
+    public int addThread(ForumThread thread, ForumPost post);
 
     /**
      * 删帖
@@ -28,8 +28,27 @@ public interface ForumThreadDAO {
      */
     public boolean updateThreadLastPost(ForumPost psot);
 
-    public ForumsThreadPage getThreadPage(int fid, int page);
+    /**
+     * 根据fid，page获取一页的Thread
+     * @param fid
+     * @param page
+     * @return
+     */
+    public ForumsThreadPage getThreadPageByFid(int fid, int page);
 
+    /**
+     * uid，page获取一页的Thread
+     * @param uid
+     * @param page
+     * @return
+     */
     public ForumsThreadPage getThreadPageByUid(int uid, int page);
+
+    /**
+     * 获取一个fid的thread总数
+     * @param fid
+     * @return
+     */
+    public int getThreadCountByFid(int fid);
 
 }

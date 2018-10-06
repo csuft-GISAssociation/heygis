@@ -30,10 +30,13 @@ function login() {
         $("#loginMessage").css("font-size", "15px");
         return false;
     }
-    $('#loginForm').ajaxSubmit({
+    $.ajax({
         type: 'post',
         url: 'loginServlet',
-        data: $('#loginForm').serialize(),
+        data: {
+            "account" : $("input[name='account']").prop("value"),
+            "password" : md5($("input[name='password']").prop("value"))
+        },
         success: function (data) {
             if (data == 0) {
                 $('#loginMessage').html("账号或密码错误！");

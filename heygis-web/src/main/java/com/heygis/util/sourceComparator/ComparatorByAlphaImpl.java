@@ -1,4 +1,4 @@
-package com.heygis.util;
+package com.heygis.util.sourceComparator;
 
 import java.util.Comparator;
 
@@ -6,7 +6,6 @@ import com.heygis.dto.Source;
 
 public class ComparatorByAlphaImpl implements Comparator<Source>{
 
-	@Override
 	public int compare(Source s1, Source s2) {
 		char str1 = s1.getName().toLowerCase().charAt(0);
 		char str2 = s2.getName().toLowerCase().charAt(0);

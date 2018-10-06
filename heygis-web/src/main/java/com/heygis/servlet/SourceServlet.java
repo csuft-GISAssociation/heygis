@@ -13,15 +13,18 @@ import com.heygis.dto.SourceFour;
 import com.heygis.dto.SourceOne;
 import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
-import com.heygis.service.SourceServie;
+import com.heygis.service.interfaces.SourceService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SourceServlet extends HttpServlet {
+
+	@Autowired
+	SourceService sourceService;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String index = request.getParameter("index");
-		SourceServie sourceService = new SourceServie();
 		List<SourceOne> sourceOneList = sourceService.getSourceOneList();
 		List<SourceTwo> sourceTwoList = sourceService.getSourceTwoList();
 		List<SourceThree> sourceThreeList = sourceService.getSourceThreeList();
