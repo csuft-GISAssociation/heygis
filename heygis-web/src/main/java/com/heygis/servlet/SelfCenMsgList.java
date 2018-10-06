@@ -7,14 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.heygis.service.ForumsThreadService;
-import com.heygis.service.NewMsgService;
+import com.heygis.service.interfaces.ForumsThreadService;
+import com.heygis.service.interfaces.NewMsgService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class SelfCenMsgList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ForumsThreadService threadService = new ForumsThreadService();
-	NewMsgService newMsgService = new NewMsgService();
+	@Autowired
+	private ForumsThreadService threadService;
+
+	@Autowired
+	private NewMsgService newMsgService;
 
     public SelfCenMsgList() {
         super();

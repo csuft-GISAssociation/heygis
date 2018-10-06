@@ -1,6 +1,7 @@
 <!--设置pageEncoding，通过jsp include导入时防止中文乱码-->
 <%@page pageEncoding="UTF-8"%>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.js"></script>
 <%--登陆窗口--%>
 <div class="theme-popover col-md-12">
     <div class="theme-poptit">

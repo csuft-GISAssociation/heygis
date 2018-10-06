@@ -11,7 +11,9 @@ import com.heygis.dto.SourceFour;
 import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
 import com.heygis.dao.interfaces.SourceDAO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SourceDAOImpl extends DAOSupport implements SourceDAO{
 	@Override
 	public List<SourceOne> getSourceOne() {

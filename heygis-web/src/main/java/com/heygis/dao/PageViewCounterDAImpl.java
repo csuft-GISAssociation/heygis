@@ -1,12 +1,13 @@
 package com.heygis.dao;
 
-import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.List;
 
 import com.heygis.dao.interfaces.PageViewCounterDAO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PageViewCounterDAImpl extends DAOSupport implements PageViewCounterDAO {
 
 	@Override

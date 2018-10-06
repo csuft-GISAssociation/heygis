@@ -9,14 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.NewMember;
-import com.heygis.service.JoinUSService;
+import com.heygis.service.interfaces.JoinUsService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class JoinUSServlet extends HttpServlet {
+
+	@Autowired
+	private JoinUsService joinUsService;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("in");
+//		System.out.println("in");
 		NewMember member = new NewMember();
 		member.setName(request.getParameter("name"));
 		member.setProfession(request.getParameter("profession"));
@@ -25,7 +29,9 @@ public class JoinUSServlet extends HttpServlet {
 		member.setOther(request.getParameter("other"));
 		member.setSelfIntro(request.getParameter("selfIntro"));
 		member.setGoal(request.getParameter("goal"));
-		boolean result = new JoinUSService().addMember(member);
+
+		boolean result = joinUsService.addMember(member);
+
 		if(result){
 			request.getRequestDispatcher("success.jsp").forward(request, response);
 		}else{

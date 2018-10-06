@@ -1,24 +1,27 @@
-package com.heygis.service;
+package com.heygis.service.abandoned;
 
+import com.heygis.dao.interfaces.UserDAO;
 import com.heygis.dto.User;
-import com.heygis.dao.UserDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * 用户注册相关，预备迁移到UserService
+ */
 public class RegisterService {
-    UserDAOImpl udi = null;
+
+    @Autowired
+    UserDAO udi;
 
     public int addUser(String account, String passWord, String nickName, String grade) {
-        udi = new UserDAOImpl();
         User user = new User(account, passWord, nickName, grade);
         return udi.addUser(user);
     }
 
     public boolean judgeEmail(String account) {
-        udi = new UserDAOImpl();
         return udi.judgeEmail(account);
     }
 
     public boolean judgeNickName(String nickName) {
-        udi = new UserDAOImpl();
         return udi.judgeNickName(nickName);
     }
 }

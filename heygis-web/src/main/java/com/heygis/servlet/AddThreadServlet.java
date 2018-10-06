@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.ForumThread;
 import com.heygis.dto.User;
-import com.heygis.service.ForumsThreadService;
+import com.heygis.service.interfaces.ForumsThreadService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Servlet implementation class AddThreadServlet
@@ -20,7 +21,8 @@ import com.heygis.service.ForumsThreadService;
 public class AddThreadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ForumsThreadService threadService = new ForumsThreadService();
+	@Autowired
+	private ForumsThreadService threadService;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("loged") == null){

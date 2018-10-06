@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.User;
-import com.heygis.service.ForumsPostService;
+import com.heygis.service.interfaces.ForumsPostService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class AddPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ForumsPostService postService = new ForumsPostService();
+	@Autowired
+	private ForumsPostService postService;
 
     public AddPostServlet() {
         super();

@@ -1,6 +1,7 @@
-package com.heygis.test;
+package com.heygis;
 
 import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
@@ -15,8 +16,8 @@ import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
 import com.heygis.dao.ForumPostDAOImpl;
 import com.heygis.dao.ForumThreadDAOImpl;
-import com.heygis.service.ForumsPostService;
 import com.heygis.service.SourceServie;
+import sun.misc.BASE64Encoder;
 
 /**
  * @author RC
@@ -29,13 +30,14 @@ public class Test {
 //		System.out.println(s.indexOf("pre class='prettyprint'"));
 		
 		//System.out.println(new UserDAOImpl().EncoderByMd5("123456"));
-		addpost2();
+//		addpost2();
+
 }
 	/**
 	 * getThreasPage测试
 	 */
 	public static void threadPageTest(){
-		ForumsThreadPage ftp = new ForumThreadDAOImpl().getThreadPage(1, 1);
+		ForumsThreadPage ftp = new ForumThreadDAOImpl().getThreadPageByFid(1, 1);
 		for(int i=0;i<5;i++){
 			if(ftp.getThread(i) == null){
 				System.out.println("break");
@@ -118,6 +120,15 @@ public class Test {
 		System.out.println(l.size());
 	}
 
+	public String EncoderByMd5(String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		//确定计算方法
+		MessageDigest md5 = MessageDigest.getInstance("MD5");
+		BASE64Encoder base64en = new BASE64Encoder();
+		//加密后的字符串
+		String newstr = base64en.encode(md5.digest(str.getBytes("utf-8")));
+//		String newstr = HexAndBytesUtils.bytesToHex(md5.digest(str.getBytes("utf-8")));
+		return newstr;
+	}
 }
 class myThread extends Thread{
 	ForumPost post = null;

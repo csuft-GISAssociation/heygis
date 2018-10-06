@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.ForumsThreadPage;
-import com.heygis.service.ForumsThreadService;
+import com.heygis.service.interfaces.ForumsThreadService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Servlet implementation class ForumsServlet
@@ -17,7 +18,8 @@ import com.heygis.service.ForumsThreadService;
 public class ForumsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	ForumsThreadService threadService = new ForumsThreadService();
+	@Autowired
+	private ForumsThreadService threadService;
 
     public ForumsServlet() {
         super();

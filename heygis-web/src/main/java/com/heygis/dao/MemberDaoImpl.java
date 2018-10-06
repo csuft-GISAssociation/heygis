@@ -2,10 +2,12 @@ package com.heygis.dao;
 
 import com.heygis.dto.NewMember;
 import com.heygis.dao.interfaces.MemberDao;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberDaoImpl extends DAOSupport implements MemberDao{
 
-	@Override
+	//JoinUs，加入我们的DAO
 	public boolean addMember(NewMember m) {
 		String sql = "INSERT INTO newmember (name,profession,tel,QQ,other,selfintro,goal) VALUES (?,?,?,?,?,?,?)";
 		this.openConn();

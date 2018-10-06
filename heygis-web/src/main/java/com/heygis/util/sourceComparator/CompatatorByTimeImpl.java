@@ -1,4 +1,4 @@
-package com.heygis.util;
+package com.heygis.util.sourceComparator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,7 +9,6 @@ import com.heygis.dto.Source;
 
 public class CompatatorByTimeImpl implements Comparator<Source>{
 
-	@Override
 	public int compare(Source s1, Source s2) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
 		try {

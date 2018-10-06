@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.heygis.service.NewMsgService;
+import com.heygis.service.interfaces.NewMsgService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class NewMsgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public NewMsgServlet() {
-        super();
-    }
+	@Autowired
+	private NewMsgService newMsgService;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int nw = 0,uid = 0;
@@ -25,7 +25,7 @@ public class NewMsgServlet extends HttpServlet {
 			return;
 		}
 		if(nw == 1){
-			int num = new NewMsgService().howManyNewMsg(uid);
+			int num = newMsgService.howManyNewMsg(uid);
 			response.getWriter().println(num);
 			return;
 		}

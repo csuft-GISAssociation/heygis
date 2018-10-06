@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.heygis.dto.ForumMessage;
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.User;
-import com.heygis.service.ForumsPostService;
+import com.heygis.service.interfaces.ForumsPostService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Servlet implementation class AddReplyPostServlet
@@ -20,7 +21,8 @@ import com.heygis.service.ForumsPostService;
 public class ReplyPostServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    ForumsPostService postService = new ForumsPostService();
+    @Autowired
+    private ForumsPostService postService;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

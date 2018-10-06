@@ -1,4 +1,4 @@
-package com.heygis.util;
+package com.heygis.util.sourceComparator;
 
 import java.util.Comparator;
 
@@ -6,7 +6,6 @@ import com.heygis.dto.Source;
 
 public class ComparatorImpl implements Comparator<Source>{
 
-	@Override
 	public int compare(Source s1, Source s2) {
 		String str1 = s1.getFile_size();
 		String str2 = s2.getFile_size();

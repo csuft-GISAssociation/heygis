@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.FeedbackMsg;
 import com.heygis.dto.User;
-import com.heygis.service.FeedbackService;
+import com.heygis.service.interfaces.FeedbackService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class AddFeedbackServlet extends HttpServlet {
+
+	@Autowired
+	private FeedbackService feedbackService;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +42,6 @@ public class AddFeedbackServlet extends HttpServlet {
 		String feedbackContent = request.getParameter("content");
 		String accountImg = "img/bbs-1.JPG";
 		FeedbackMsg feedbackMsg = new FeedbackMsg(account, nickname, time, feedbackContent, accountImg);
-		FeedbackService feedbackService = new FeedbackService();
 		if(feedbackService.addMsg(feedbackMsg)){
 			response.sendRedirect("feedbackServlet");
 			//request.getRequestDispatcher("/feedbackServlet").forward(request, response);

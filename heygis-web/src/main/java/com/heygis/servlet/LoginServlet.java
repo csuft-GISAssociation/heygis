@@ -7,25 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.heygis.service.LoginService;
+import com.heygis.service.interfaces.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class LoginServlet extends HttpServlet {
 
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    @Autowired
+	private UserService userService;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
-		LoginService loginService = new LoginService();
-		if(loginService.login(account,password)){
+		if(userService.login(account,password)){
 			request.getSession().setAttribute("loged",true);
-			request.getSession().setAttribute("user",loginService.getUser(account) );
+			request.getSession().setAttribute("user",userService.getUser(account) );
 //			System.out.println(request.getHeader("referer"));
 //			response.sendRedirect(request.getHeader("referer"));
 			response.getWriter().println(1);//这儿是干什么？//这儿是登陆成功

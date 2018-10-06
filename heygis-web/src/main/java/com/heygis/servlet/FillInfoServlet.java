@@ -9,9 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.heygis.dto.User;
-import com.heygis.service.FillInfoService;
+import com.heygis.service.interfaces.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class FillInfoServlet extends HttpServlet {
+
+	@Autowired
+	private UserService userService;
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -26,7 +30,7 @@ public class FillInfoServlet extends HttpServlet {
 				request.getParameter("tel"),
 				request.getParameter("selfintroduction"),
 				((User)request.getSession().getAttribute("user")).getIconImg());
-		if(new FillInfoService().fillInfo(user)){
+		if(userService.fillInfo(user)){
 			request.getSession().setAttribute("user", user);
 			response.sendRedirect("selfCenterServlet");
 		}else{
