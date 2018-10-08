@@ -38,7 +38,7 @@
 				<h1 class="text-primary">注册</h1>
 				<br /> 
 				<div class="col-sm-offset-3 col-sm-6">
-					<form class="form-horizontal" role="form" id="registerForm" action="registerServlet" method="post">
+					<form class="form-horizontal" role="form" id="registerForm" action="registerServlet" method="get">
 							<div class="form-group">
 								<div class="col-xs-offset-1 col-xs-10">
 									<input type="email" name="account1" class="form-control" id="inputEmail3" placeholder="邮箱   将作为您登陆的账号" onblur="testEmail()" onclick="clear()">
@@ -49,7 +49,8 @@
 							</div>
 							<div class="form-group">
 								<div class="col-xs-offset-1 col-xs-10">
-									<input type="password" name="passWord" class="form-control" id="inputPassword1" placeholder="密码(已使用md5加密) 6~22位数字字符或者特殊符号" onblur="testPwd()">
+									<input type="password" class="form-control" id="inputPassword1" placeholder="密码(已使用md5加密) 6~22位数字字符或者特殊符号" onblur="testPwd()">
+									<input type="hidden" name="passWord" >
 								</div>
 								<div class="col-xs-1 judge">
 									<label class="control-label" id="mark2"></label>

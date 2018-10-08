@@ -16,7 +16,8 @@ import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
 import com.heygis.dao.ForumPostDAOImpl;
 import com.heygis.dao.ForumThreadDAOImpl;
-import com.heygis.service.SourceServie;
+import com.heygis.service.SourceServiceImpl;
+import com.heygis.service.interfaces.SourceService;
 import sun.misc.BASE64Encoder;
 
 /**
@@ -106,7 +107,7 @@ public class Test {
 	 * source模块测试
 	 */
 	public static void souceTest(){
-		SourceServie ss = new SourceServie();
+		SourceService ss = new SourceServiceImpl();
 		System.out.println("1");
 		List<SourceOne> li = ss.getSourceOneList();
 		System.out.println("11");

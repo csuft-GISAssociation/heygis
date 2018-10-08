@@ -3,6 +3,7 @@ package com.heygis.servlet;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.heygis.dto.ForumPostPage;
 import com.heygis.service.interfaces.ForumsPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 public class TopicsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -18,8 +20,9 @@ public class TopicsServlet extends HttpServlet {
     @Autowired
     private ForumsPostService postService;
 
-    public TopicsServlet() {
-        super();
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

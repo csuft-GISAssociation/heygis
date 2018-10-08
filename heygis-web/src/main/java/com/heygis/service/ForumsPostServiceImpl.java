@@ -9,9 +9,9 @@ import com.heygis.dao.interfaces.ForumPostDAO;
 import com.heygis.dto.ForumPostPage;
 import com.heygis.service.interfaces.ForumsPostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class ForumsPostServiceImpl implements ForumsPostService {
 
     @Autowired

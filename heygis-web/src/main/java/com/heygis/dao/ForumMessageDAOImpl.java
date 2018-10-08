@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import com.heygis.dto.ForumMessage;
 import com.heygis.dto.ForumMsgPage;
 import com.heygis.dao.interfaces.ForumMessageDAO;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class ForumMessageDAOImpl extends DAOSupport implements ForumMessageDAO {
 
     public int howManyMsg(int uid) {
@@ -37,6 +37,7 @@ public class ForumMessageDAOImpl extends DAOSupport implements ForumMessageDAO {
             while (rs.next()) {
                 num = rs.getInt(1);
             }
+            return num;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

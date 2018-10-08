@@ -2,6 +2,7 @@ package com.heygis.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.heygis.service.interfaces.ForumsThreadService;
 import com.heygis.service.interfaces.NewMsgService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+@Component
 public class SelfCenMsgList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -19,6 +23,11 @@ public class SelfCenMsgList extends HttpServlet {
 
 	@Autowired
 	private NewMsgService newMsgService;
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+	}
 
     public SelfCenMsgList() {
         super();

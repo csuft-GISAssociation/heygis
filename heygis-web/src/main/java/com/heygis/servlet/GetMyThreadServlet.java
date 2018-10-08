@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 未完成，未使用,可删除
+ */
 public class GetMyThreadServlet extends HttpServlet {
 
     public GetMyThreadServlet() {

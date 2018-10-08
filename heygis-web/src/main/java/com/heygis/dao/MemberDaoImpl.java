@@ -2,9 +2,9 @@ package com.heygis.dao;
 
 import com.heygis.dto.NewMember;
 import com.heygis.dao.interfaces.MemberDao;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class MemberDaoImpl extends DAOSupport implements MemberDao{
 
 	//JoinUs，加入我们的DAO

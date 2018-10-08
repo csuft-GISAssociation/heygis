@@ -17,13 +17,11 @@
 		<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 		<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>
-		
+
+		<%--<script type="text/javascript" src="js/jquery.form.js"></script>--%>
 		<script type="text/javascript" src="js/forums.js"></script>
-		<!--script type="text/javascript" src="js/loginJS.js"></script>
-		<script type="text/javascript" src="js/jquery.form.js"></script-->
 		<script type="text/javascript" src="forums/google-code-prettify/prettify.js"></script>
 		<link href="forums/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
-		<!--link rel="stylesheet" type="text/css" href="css/css.css"-->
 		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
 		<link rel="stylesheet" type="text/css" href="css/forums.css" />
 		<link rel="stylesheet" type="text/css" href="css/navCSS.css" />

@@ -26,7 +26,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 
 /**
- * Servlet implementation class ForumImgServlet
+ * 論壇上傳圖片接口，功能未完成
  */
 public class ForumImgServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

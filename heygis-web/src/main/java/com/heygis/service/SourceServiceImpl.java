@@ -16,9 +16,9 @@ import com.heygis.util.sourceComparator.ComparatorByDownImpl;
 import com.heygis.util.sourceComparator.ComparatorImpl;
 import com.heygis.util.sourceComparator.CompatatorByTimeImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class SourceServiceImpl implements SourceService {
 
     @Autowired

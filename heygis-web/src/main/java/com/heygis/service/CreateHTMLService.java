@@ -7,8 +7,13 @@ import com.heygis.dto.SourceFour;
 import com.heygis.dto.SourceOne;
 import com.heygis.dto.SourceThree;
 import com.heygis.dto.SourceTwo;
+import org.springframework.stereotype.Service;
 
+/**
+ * 这个是不是放到util里比较好，谁有空改一下吧
+ */
 public class CreateHTMLService {
+
     private boolean loged;
 
     public CreateHTMLService(boolean loged) {

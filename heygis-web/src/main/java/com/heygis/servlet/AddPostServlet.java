@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import com.heygis.dto.ForumPost;
 import com.heygis.dto.User;
 import com.heygis.service.interfaces.ForumsPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 public class AddPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,9 +22,10 @@ public class AddPostServlet extends HttpServlet {
 	@Autowired
 	private ForumsPostService postService;
 
-    public AddPostServlet() {
-        super();
-    }
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("loged") == null){
