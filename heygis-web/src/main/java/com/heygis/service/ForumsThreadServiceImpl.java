@@ -13,9 +13,9 @@ import com.heygis.dto.ForumThread;
 import com.heygis.dto.ForumsThreadPage;
 import com.heygis.dao.interfaces.ForumThreadDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class ForumsThreadServiceImpl implements ForumsThreadService {
 
     @Autowired

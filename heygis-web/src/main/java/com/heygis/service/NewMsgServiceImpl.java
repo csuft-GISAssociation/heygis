@@ -11,9 +11,9 @@ import org.json.JSONObject;
 import com.heygis.dto.ForumMsgPage;
 import com.heygis.dao.interfaces.ForumMessageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class NewMsgServiceImpl implements NewMsgService {
 
     @Autowired

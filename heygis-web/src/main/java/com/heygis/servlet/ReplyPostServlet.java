@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import com.heygis.dto.ForumPost;
 import com.heygis.dto.User;
 import com.heygis.service.interfaces.ForumsPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 /**
  * Servlet implementation class AddReplyPostServlet
@@ -23,6 +25,11 @@ public class ReplyPostServlet extends HttpServlet {
 
     @Autowired
     private ForumsPostService postService;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");

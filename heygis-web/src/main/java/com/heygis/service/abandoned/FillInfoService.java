@@ -13,6 +13,6 @@ public class FillInfoService {
     UserDAO udi;
 
     public boolean fillInfo(User user) {
-        return udi.fillInfo(user);
+        return udi.fillUserInfo(user);
     }
 }

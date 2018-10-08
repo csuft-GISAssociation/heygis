@@ -5,14 +5,13 @@ import java.sql.SQLException;
 import java.util.Date;
 
 import com.heygis.constants.ForumConstant;
-import com.heygis.dao.interfaces.ForumPostDAO;
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.ForumThread;
 import com.heygis.dto.ForumsThreadPage;
 import com.heygis.dao.interfaces.ForumThreadDAO;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
 
     public int addThread(ForumThread thread, ForumPost post) {

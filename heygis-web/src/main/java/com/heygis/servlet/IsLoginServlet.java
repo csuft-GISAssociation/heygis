@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class IsLoginServlet extends HttpServlet {
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Boolean loged = (Boolean) request.getAttribute("loged");
         Integer uid = (Integer) request.getAttribute("uid");

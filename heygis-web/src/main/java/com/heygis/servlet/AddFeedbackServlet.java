@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +15,17 @@ import com.heygis.dto.FeedbackMsg;
 import com.heygis.dto.User;
 import com.heygis.service.interfaces.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 public class AddFeedbackServlet extends HttpServlet {
 
 	@Autowired
 	private FeedbackService feedbackService;
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+	}
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)

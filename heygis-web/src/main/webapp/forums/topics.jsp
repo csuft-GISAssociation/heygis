@@ -140,7 +140,7 @@
 						<input type="hidden" name="t_uid" value="<%=postPage.getPost(0).getAuthorUid() %>"/>
 						<input type="hidden" name="subject" value="<%=postPage.getPost(0).getSubject() %>"/>
 						<div id="submit">
-							<input type="button" class="post_reply_submit  btn btn-primary" value="发表" id="post_submit" onclick="postPublic()"/>
+							<input type="button" class="post_reply_submit  btn btn-primary" value="发表" id="reply_post_submit" onclick="postPublic()"/>
 						</div>
 						<div class="clear"></div>
 					</div>

@@ -8,14 +8,13 @@ import com.heygis.constants.ForumConstant;
 import com.heygis.dto.ForumPost;
 import com.heygis.dto.ForumPostPage;
 import com.heygis.dao.interfaces.ForumPostDAO;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
 
     /**
      * 老版本实现，废弃
-     *
      * @param post
      * @return
      */
@@ -59,6 +58,7 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
     public int addPost(ForumPost post) {
         try {
             this.openConn();
+            //如果迁移到orm框架，ibatis之类，建议这里sql写成动态识别的（yrc）
             String addPostSql = "insert into forum_post (pid,fid,tid,first,author,author_uid,author_account,subject,dateline,message,userip,attachment,is_reply_post,be_reply_uid,be_reply_posi)  "
                     + "select max(pid+1),?,?,?,?,?,?,?,?,?,?,?,?,?,? from forum_post;";
             //测试表 pid为自增字段 的sql

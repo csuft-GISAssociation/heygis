@@ -3,14 +3,17 @@ package com.heygis.service;
 import com.heygis.common.util.EncodeUtil;
 import com.heygis.common.util.HexAndBytesUtil;
 import com.heygis.constants.PathConstant;
+import com.heygis.constants.UserConstant;
 import com.heygis.dao.interfaces.UserDAO;
 import com.heygis.dto.User;
 import com.heygis.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -49,7 +52,7 @@ public class UserServiceImpl implements UserService {
                 }
             }
             // 生成jpeg图片
-            String path = PathConstant.TOMCAT_HOME + "webapps/heygis_img/icon/" + user.getAccount() + "_img.jpg";
+            String path = PathConstant.TOMCAT_HOME + PathConstant.ICON_IMG_PATH + user.getAccount() + "_img.jpg";
             OutputStream out = new FileOutputStream(path);
             out.write(bytes);
             out.flush();
@@ -59,19 +62,38 @@ public class UserServiceImpl implements UserService {
             }
             return false;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
 
     @Override
     public boolean fillInfo(User user) {
-        return userDAO.fillInfo(user);
+        return userDAO.fillUserInfo(user);
     }
 
     @Override
     public int addUser(String account, String passWord, String nickName, String grade) {
+        //密码在前端做MD5，得到16进制字符串，在此转回为字节
+        byte[] pwBytes = HexAndBytesUtil.HEXtoBytes(passWord);
+        //将字节使用Base64编码
+        passWord = EncodeUtil.encoderByBase64(pwBytes);
         User user = new User(account, passWord, nickName, grade);
-        return userDAO.addUser(user);
+        //插入users表
+        int uid = userDAO.addUser(user);
+        if (uid != UserConstant.WRONG_UID) {
+            user.setUid(uid);
+            //插入users_info表
+            int infoUid = userDAO.addUserInfo(user);
+            if (infoUid != UserConstant.WRONG_UID) {
+                System.out.println("heygis-log: register " + account + " register scuessfully");
+            }else{
+                System.out.println("heygis-log: register " + account + " register failed");
+            }
+        } else {
+            System.out.println("heygis-log: register " + account + " register failed");
+        }
+        return uid;
     }
 
     @Override

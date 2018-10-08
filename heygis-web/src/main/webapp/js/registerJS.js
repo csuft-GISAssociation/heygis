@@ -111,13 +111,8 @@ function testGrade() {
 }
 
 function register() {
-    alert(b1);
-    alert(b2);
-    alert(b3);
-    alert(b4);
-    alert(b5);
     if (b1 && b2 && b3 && b4 && b5) {
-        $('#inputPassword1').value = md5($('#inputPassword1').value);
+        $("input[name='passWord']").attr("value",md5($('#inputPassword1').prop("value")));
         $("#registerForm").submit();
     } else {
         $("#submitt").html("<button class='btn btn-danger btn-block' type='button' onclick='register()'>请将所有内容填写正确后再试</button>");

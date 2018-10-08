@@ -6,7 +6,9 @@ import com.heygis.dao.interfaces.FeedbackDAO;
 import com.heygis.dto.FeedbackMsg;
 import com.heygis.service.interfaces.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("feedbackService")
 public class FeedbackServiceImpl implements FeedbackService {
 
     @Autowired
