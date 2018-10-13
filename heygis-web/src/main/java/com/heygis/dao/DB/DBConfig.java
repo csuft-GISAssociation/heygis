@@ -51,7 +51,6 @@ public class DBConfig {
 
 	@Value("#{setting[db_url]}")
 	public void setUrl(String url) {
-		System.out.println();
 		DBConfig.url = url;
 	}
 

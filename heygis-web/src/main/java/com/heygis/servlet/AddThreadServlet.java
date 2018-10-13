@@ -75,7 +75,7 @@ public class AddThreadServlet extends HttpServlet {
         String authorAccount = user.getAccount();
 
         ForumThread thread = new ForumThread(0, fid, 0, 0, author, authorUid, authorAccount, subject,
-                new Date(), new Date(), "", 0, 0, 0, 0, 0, 1);
+                new Date(), new Date(), author,authorUid, 0, 0, 0, 0, 0, 1);
         ForumPost post = new ForumPost(0, fid, 0, 1, author, authorUid, authorAccount, subject,
                 new Date(), message, request.getRemoteAddr(), attchment, 0);
 
