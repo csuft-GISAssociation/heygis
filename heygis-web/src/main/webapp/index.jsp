@@ -159,7 +159,8 @@
                         <button id="controlMap" class="btn btn-danger col-md-3" onclick="controlMap()">点击打开鼠标移动与滚轮缩放
                         </button>
                     </div>
-                    <div class="col-md-9" id="allmap"></div>
+                    <div class="col-md-9" id="allmap">
+					</div>
                     <div class="col-md-3" id="tableLBS">
                         <table class="table table-striped" id="vtour">
                         </table>

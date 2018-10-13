@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="heygis">
+    <output-path>$PROJECT_DIR$/out/artifacts/heygis</output-path>
+    <root id="archive" name="heygis.war">
+      <element id="artifact" artifact-name="heygis-web:war exploded2" />
+    </root>
+  </artifact>
+</component>

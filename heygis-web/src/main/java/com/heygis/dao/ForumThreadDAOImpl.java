@@ -18,10 +18,10 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
         try {
             this.openConn();
             String sql = "insert into forum_thread (fid,typeid,sortid,author,author_uid,"
-                    + "author_account,subject,dateline,lastpost,attachment)values(?,?,?,?,?,?,?,?,?,?);";
+                    + "author_account,subject,dateline,lastpost,attachment,lastpost,lastpost_uid)values(?,?,?,?,?,?,?,?,?,?,?,?);";
             int exeNum = this.execUpdate(sql, thread.getFid(), thread.getTypeid(), thread.getSortid(), thread.getAuthor(),
                     thread.getAuthorUid(), thread.getAuthorAuthor(), thread.getSubject(), new Date().getTime(),
-                    new Date().getTime(), thread.getAttachment());
+                    new Date().getTime(), thread.getAttachment(),thread.getAuthor(),thread.getAuthorUid());
             if (exeNum == 1) {
                 int tid = this.LAST_INSERT_ID();
                 //post.setTid(tid);
@@ -141,23 +141,24 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
         int i = 0;
         while (rs.next()) {
             threadPage.setThread(i, new ForumThread(
-                    rs.getInt(1),
-                    rs.getInt(2),
-                    rs.getInt(3),
-                    rs.getInt(4),
-                    rs.getString(18),
-                    rs.getInt(6),
-                    rs.getString(7),
-                    rs.getString(8),
-                    new Date(rs.getLong(9)),
-                    new Date(rs.getLong(10)),
-                    rs.getString(11),
-                    rs.getInt(12),
-                    rs.getInt(13),
-                    rs.getInt(14),
-                    rs.getInt(15),
-                    rs.getInt(16),
-                    rs.getInt(17)));
+                    rs.getInt("tid"),
+                    rs.getInt("fid"),
+                    rs.getInt("typeid"),
+                    rs.getInt("sortid"),
+                    rs.getString("author"),
+                    rs.getInt("author_uid"),
+                    rs.getString("author_account"),
+                    rs.getString("subject"),
+                    new Date(rs.getLong("dateline")),
+                    new Date(rs.getLong("lastpost")),
+                    rs.getString("lastposter"),
+                    rs.getInt("lastposter_uid"),
+                    rs.getInt("views"),
+                    rs.getInt("replies"),
+                    rs.getInt("attachment"),
+                    rs.getInt("closed"),
+                    rs.getInt("status"),
+                    rs.getInt("display")));
             i++;
         }
     }
