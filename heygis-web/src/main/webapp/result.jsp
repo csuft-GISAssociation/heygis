@@ -5,10 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>
+<jsp:include page="commonPage/cdnJS_cdnCSS.html"></jsp:include>
+
 </head>
 <body>
 	<div class="container">

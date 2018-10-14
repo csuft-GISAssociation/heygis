@@ -20,13 +20,10 @@ String htmlURL = request.getAttribute("htmlURL").toString();
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta http-equiv="x-ua-compatible" content="IE=edge" />
-		
-		<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
-		<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>
 
-		<script type="text/javascript" src="js/loginJS.js"></script>
+	    <jsp:include page="commonPage/cdnJS_cdnCSS.html"></jsp:include>
+
+	    <script type="text/javascript" src="js/loginJS.js"></script>
 		<script type="text/javascript" src="js/vrScanJS.js"></script>
 		<link href="css/navCSS.css" rel="stylesheet" type="text/css">
 		<link href="css/footStyle.css" rel="stylesheet" type="text/css">

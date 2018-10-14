@@ -34,7 +34,7 @@ public class UserDAOImpl extends DAOSupport implements UserDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            this.openConn();
+            this.close();
         }
         return false;
     }
