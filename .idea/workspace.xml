@@ -7,22 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af44169a-258f-4183-bfcf-0c73eca055b4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/commonPage/cdnJS_cdnCSS.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/dao/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/dao/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/JoinUS.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/JoinUS.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/aboutMaker.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/aboutMaker.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/aboutWeb.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/aboutWeb.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/feedback.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/feedback.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/fillInfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/fillInfo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/join.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/join.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/result.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/selfCenter.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/selfCenter.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/source1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/source1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/success.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/vtourScan.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/vtourScan.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/forums.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/forums.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/topics.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/topics.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/heygis-web/target/" />
@@ -52,50 +39,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="db.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="db.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/heygis-web/src/main/resources/db.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="312">
+              <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelfCenterServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/SelfCenterServlet.java">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="33" column="48" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="48" />
+            <state relative-caret-position="208">
+              <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommonFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/filter/CommonFilter.java">
+      <file leaf-file-name="forums.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/forums/forums.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="40" column="43" selection-start-line="38" selection-start-column="8" selection-end-line="40" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/LoginServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="32" column="78" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
+            <state relative-caret-position="208">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDAOImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/dao/UserDAOImpl.java">
+      <file leaf-file-name="topics.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/forums/topics.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+            <state relative-caret-position="367">
+              <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cdnJS_cdnCSS.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/commonPage/cdnJS_cdnCSS.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
             </state>
           </provider>
         </entry>
@@ -112,7 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>-1</find>
       <find>try</find>
       <find>EncoderByMd5</find>
       <find>passWord</find>
@@ -142,6 +128,7 @@
       <find>ni</find>
       <find>upda</find>
       <find>ForumsThreadServiceImpl</find>
+      <find>color.js</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -176,10 +163,8 @@
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/TestServlet.java" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/TopicsServlet.java" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/VtourServlet.java" />
-        <option value="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/topics.jsp" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/dao/ForumMessageDAOImpl.java" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/UserIconServlet.java" />
-        <option value="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/forums.jsp" />
         <option value="$PROJECT_DIR$/out/artifacts/heygis_web_war_exploded2/js/registerJS.js" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/LoginServlet.java" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/webapp/js/registerJS.js" />
@@ -212,6 +197,8 @@
         <option value="$PROJECT_DIR$/heygis-web/src/main/webapp/vtourScan.jsp" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/dao/UserDAOImpl.java" />
         <option value="$PROJECT_DIR$/heygis-web/src/main/resources/db.properties" />
+        <option value="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/forums.jsp" />
+        <option value="$PROJECT_DIR$/heygis-web/src/main/webapp/forums/topics.jsp" />
       </list>
     </option>
   </component>
@@ -270,7 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -303,7 +289,7 @@
               <item name="heygis-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="heygis_repeaterYu" type="b2602c69:ProjectViewProjectNode" />
@@ -311,12 +297,14 @@
               <item name="heygis-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="forums" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -332,7 +320,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/heygis-web/src/test/java/com/heygis" />
-    <property name="last_opened_file_path" value="F:/代码仓库/git/epay-d" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -695,6 +683,9 @@
       <workItem from="1539431824084" duration="13478000" />
       <workItem from="1539451974048" duration="983000" />
       <workItem from="1539453210012" duration="888000" />
+      <workItem from="1539516537370" duration="243000" />
+      <workItem from="1539603998190" duration="36000" />
+      <workItem from="1539801837336" duration="286000" />
     </task>
     <task id="LOCAL-00001" summary="代码整理">
       <created>1538228207091</created>
@@ -731,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539450312544</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cdn地址修改">
+      <created>1539516719270</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539516719270</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -767,10 +765,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139873000" />
+    <option name="totallyTimeSpent" value="140438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50064266" side_tool="true" weight="0.39691445" />
@@ -785,7 +784,6 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.4993573" weight="0.36325386" />
       <window_info anchor="bottom" id="TODO" order="14" />
-      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49807197" weight="0.3941094" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" weight="0.32959327" />
@@ -794,16 +792,17 @@
       <window_info anchor="bottom" id="Run" order="10" sideWeight="0.4993573" weight="0.2286115" />
       <window_info anchor="bottom" id="Spring" order="0" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32959327" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49780703" visible="true" weight="0.24678664" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.49780703" visible="true" weight="0.25642672" />
       <window_info id="Web" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.18513323" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info id="Favorites" order="3" sideWeight="0.502193" side_tool="true" weight="0.2159383" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.49807197" weight="0.3941094" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="8" weight="0.18513323" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Application Servers" order="1" sideWeight="0.4993573" weight="0.32678822" />
@@ -878,7 +877,8 @@
     <MESSAGE value="集成spring框架，2018/10/06" />
     <MESSAGE value="集成spring框架完善" />
     <MESSAGE value="forum_thread表结修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="forum_thread表结修改" />
+    <MESSAGE value="cdn地址修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="cdn地址修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -906,20 +906,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/js/loginJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="36" column="64" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/js/registerJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="114" column="90" selection-start-line="114" selection-start-column="90" selection-end-line="114" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/apache-tomcat-7.0.70/lib/servlet-api.jar!/javax/servlet/ServletRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1078,11 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
           <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding>
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1525#1526#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1117,13 +1098,6 @@
           <folding>
             <element signature="method#resultSet2ForumsThreadPage#0;class#ForumThreadDAOImpl#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/commonPage/cdnJS_cdnCSS.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
         </state>
       </provider>
     </entry>
@@ -1218,13 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/service/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1234,21 +1201,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/SelfCenterServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="520">
           <caret line="33" column="48" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/filter/CommonFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
+        <state relative-caret-position="728">
           <caret line="40" column="43" selection-start-line="38" selection-start-column="8" selection-end-line="40" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/servlet/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
+        <state relative-caret-position="572">
           <caret line="32" column="78" selection-start-line="32" selection-start-column="78" selection-end-line="32" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1258,15 +1225,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/heygis-web/src/main/java/com/heygis/dao/UserDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
+        <state relative-caret-position="780">
           <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heygis-web/src/main/resources/db.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="312">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/commonPage/cdnJS_cdnCSS.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="98" selection-start-line="3" selection-start-column="98" selection-end-line="3" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/forums/forums.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heygis-web/src/main/webapp/forums/topics.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
         </state>
       </provider>
     </entry>
