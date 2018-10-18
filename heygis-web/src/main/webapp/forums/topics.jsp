@@ -18,13 +18,15 @@
 		
 		<%--<script type="text/javascript" src="js/loginJS.js"></script>--%>
 		<%--<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>--%>
-		<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
-		<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>
-		
-		<script type="text/javascript" src="js/topics.js"></script>
+		<%--<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>--%>
+		<%--<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--%>
+		<%--<link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--%>
+		<%--<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>--%>
+		<jsp:include page="../commonPage/cdnJS_cdnCSS.html"></jsp:include>
+		<%--查看回复是帖子闪烁效果--%>
 		<script type="text/javascript" src="js/jquery.color.js"></script>
+
+		<script type="text/javascript" src="js/topics.js"></script>
 		<script type="text/javascript" src="forums/google-code-prettify/prettify.js"></script>
 		<link href="forums/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
