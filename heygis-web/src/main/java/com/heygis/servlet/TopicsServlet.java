@@ -39,7 +39,7 @@ public class TopicsServlet extends HttpServlet {
         }
 
         ForumPostPage postPage = postService.getPostPage(tid, page);
-        postPage.setfPage(fPage);
+        postPage.setfPageNum(fPage);
 
         if (postPage.getSize() != 0) {
             request.setAttribute("postPage", postPage);

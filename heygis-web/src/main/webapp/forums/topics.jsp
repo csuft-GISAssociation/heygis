@@ -47,7 +47,7 @@
 					</h1>
 				</div>
 				<div  class="col-md-10 col-sm-12 col-center-block thread_path">
-						<a href="forumsServlet?fid=<%=postPage.getPost(0).getFid() %>&page=<%=postPage.getfPage() %>">> 返回帖子列表 </a>
+						<a href="forumsServlet?fid=<%=postPage.getPost(0).getFid() %>&page=<%=postPage.getfPageNum() %>">> 返回帖子列表 </a>
 						<div class="clear"></div>
 				</div>
 				<div class="postlist col-md-10 col-sm-12 col-center-block">
@@ -69,7 +69,7 @@
 							</a>
 						</div>
 						<div class="p_content col-md-10 col-sm-10 col-xs-10">
-							<div class="p_detail" id="message<%=post.getPosition() %>" ">
+							<div class="p_detail" id="message<%=post.getPosition() %>">
 								<%int begin;
 								  if((begin=post.getMessage().indexOf("<pre class")) >= 0){ %>  
 									<%=TopicWordProcess.process(post.getMessage(),begin) %>
@@ -106,7 +106,7 @@
 		
 		<div class="post_reply_wraper container">
 			<div class="row">
-				<form action='addPostServlet?fid=<%=post.getFid() %>&tid=<%=postPage.getTid() %>' method="post" id="postpubllic">
+				<form action='addPostServlet?fid=<%=postPage.getFid() %>&tid=<%=postPage.getTid() %>' method="post" id="postpubllic">
 					<div class="post_reply_content col-center-block col-md-10 col-sm-12">
 						<!--<div style="height: auto;">
 							<div class="post_reoly_head col-md-8 col-sm-12">
@@ -155,7 +155,7 @@
 				<p>回复:</p>
 				<div class="clear"></div>
 			</div>
-				<form id="posi_reply_form" action="replyPostServlet?fid=<%=post.getFid() %>&tid=<%=postPage.getTid() %>" method="post">
+				<form id="posi_reply_form" action="replyPostServlet?fid=<%=postPage.getFid() %>&tid=<%=postPage.getTid() %>" method="post">
 					<div class="posi_reply_content col-center-block col-md-12 col-sm-12">
 						<div id="textarea" style="height: auto;">
 							<div class="posi_reply_textarea col-md-9 col-sm-12">

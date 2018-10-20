@@ -33,23 +33,6 @@ function getQueryString(name) {
     return null;
 }
 
-
-//$(document).ready(function(){
-//	$("#post_submit").click(function(){
-//		alert($("#textarea_post").val());
-//		$("#test").html($("#textarea_post").val());
-//	});
-//});
-//
-//废弃可删除
-// var posi;
-// var uid;
-// var nickname;
-// var account;
-// var redpid;
-// var redmes;
-
-
 jQuery(document).ready(function ($) {
     $('.reply .close').click(function () {
         $('.reply').slideUp(200);
@@ -91,7 +74,7 @@ function reply(_posi, _uid, _account, _nickname, _redpid) {
 }
 
 function posiReplyPublic() {
-//	document.getElementById('postauthor_account').value = userBeReplyed.account;
+	// document.getElementById('postauthor_account').value = userBeReplyed.account;
     document.getElementById('replyposi').value = userBeReplyed.posi;
     document.getElementById('postauthor_uid').value = userBeReplyed.uid;
     document.getElementById('replypid').value = userBeReplyed.redpid;
@@ -184,17 +167,6 @@ function getQueryString(name) {
 
 jQuery(document).ready(function ($) {
     if (getQueryString("seeposi") != null) {
-//		$("#posi"+getQueryString("seeposi")).css('backgroundColor','#FFFF77');
-//		setTimeout(function(){
-//	        $("#posi"+getQueryString("seeposi")).css('backgroundColor','');
-//	    },1300);
-//		$("#posi"+getQueryString("seeposi")).css('backgroundColor','');
-//		$("#posi"+getQueryString("seeposi")).animate({
-//			opacity:'0.3'
-//		},"slow");
-//		$("#posi"+getQueryString("seeposi")).animate({
-//			opacity:'1'
-//		},"slow");
         $("#posi" + getQueryString("seeposi")).animate({
             backgroundColor: '#FFFF77'
         }, 300);
@@ -216,6 +188,7 @@ function openCode(i) {
     }
 }
 
+//下面是回复窗口打开关闭控制
 function closeCode(i) {
     if (i == 1) {
         document.getElementById("code-text1").value = '';

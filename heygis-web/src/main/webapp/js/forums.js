@@ -1,6 +1,7 @@
 var wherelog = 0;
 var page = getQueryString("page");
 
+//下一页按钮
 function next() {
     if (page == totalPage) {
         alert("没有下一页了！");
@@ -11,6 +12,7 @@ function next() {
     window.location.href = path;
 }
 
+//上一页按钮
 function last() {
     if (page == 1) {
         alert("没有上一页了！");
@@ -29,32 +31,6 @@ function getQueryString(name) {
 }
 
 $(function () {
-//  $('#thread_subTextarea').focus(function(){
-//      if($(this).val() == '发表新帖：标题'){
-//      		$(this).css("color","#000000");
-//              $(this).val('');//清空
-//          }
-//  }).blur(function(){
-//      if($(this).val() == ''){
-//      		$(this).css("color","#ADADAD");
-//              $(this).val('发表新帖：标题');//填充提示文字
-//          }
-//  });
-
-//});
-//$(function(){
-//  $('#post_textarea').focus(function(){
-//      if($(this).val() == '发表新帖：内容'){
-//      		$(this).css("color","#000000");
-//              $(this).val('');//清空
-//          }
-//  }).blur(function(){
-//      if($(this).val() == ''){
-//      		$(this).css("color","#ADADAD");
-//              $(this).val('发表新帖：内容');//填充提示文字
-//          }
-//  });
-
 });
 
 function public() {
@@ -140,6 +116,7 @@ function isLogin() {
 }
 /**loginJSj结束*/
 
+//下面是回复窗口打开关闭控制
 function openCode() {
     closeImg();
     $("#codeDiv").css("visibility", "visible");

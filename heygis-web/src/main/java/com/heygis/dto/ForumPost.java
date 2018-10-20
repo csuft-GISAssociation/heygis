@@ -17,14 +17,17 @@ public class ForumPost {
     private int attchment;
     private int position;
     private String icon;
-    private int isReplyPost;//是否是回帖，0为否，1为是
+    //是否是回帖，0为否，1为是
+    private int isReplyPost;
     private int beReplyUid;
     private int beReplyPosi;
+    //true表示该post的msg已经被构造过回复引用了
+    private boolean replayStructured;
+    private int deleted;
 
-    public ForumPost(int pid, int fid, int tid, int first, String author,
-                     int authorUid, String authorAccount, String subject, Date dateline,
-                     String message, String userip, int attchment, int position, String icon) {
-        super();
+    public ForumPost(int pid, int fid, int tid, int first, String author, int authorUid, String authorAccount,
+                     String subject, Date dateline, String message, String userip, int attchment, int position,
+                     String icon, int isReplyPost, int beReplyUid, int beReplyPosi, int deleted) {
         this.pid = pid;
         this.fid = fid;
         this.tid = tid;
@@ -39,6 +42,10 @@ public class ForumPost {
         this.attchment = attchment;
         this.position = position;
         this.icon = icon;
+        this.isReplyPost = isReplyPost;
+        this.beReplyUid = beReplyUid;
+        this.beReplyPosi = beReplyPosi;
+        this.deleted = deleted;
     }
 
     public ForumPost(int pid, int fid, int tid, int first, String author,
@@ -81,6 +88,14 @@ public class ForumPost {
         this.isReplyPost = isReplyPost;
         this.beReplyUid = beReplyUid;
         this.beReplyPosi = beReplyPosi;
+    }
+
+    public ForumPost(String author, Date dateline, String message, int position, int isReplyPost) {
+        this.author = author;
+        this.dateline = dateline;
+        this.message = message;
+        this.position = position;
+        this.isReplyPost = isReplyPost;
     }
 
     public int getAuthorUid() {
@@ -195,6 +210,10 @@ public class ForumPost {
         return isReplyPost;
     }
 
+    public boolean isReplyPost() {
+        return isReplyPost == 1;
+    }
+
     public int getBeReplyUid() {
         return beReplyUid;
     }
@@ -202,4 +221,17 @@ public class ForumPost {
     public int getBeReplyPosi() {
         return beReplyPosi;
     }
+
+    public boolean isReplayStructured() {
+        return replayStructured;
+    }
+
+    public void setReplayStructured(boolean replayStructured) {
+        this.replayStructured = replayStructured;
+    }
+
+    public boolean isDeleted() {
+        return deleted == 1;
+    }
+
 }

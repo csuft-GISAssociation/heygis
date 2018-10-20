@@ -58,15 +58,26 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
     public int addPost(ForumPost post) {
         try {
             this.openConn();
-            //如果迁移到orm框架，ibatis之类，建议这里sql写成动态识别的（yrc）
-            String addPostSql = "insert into forum_post (pid,fid,tid,first,author,author_uid,author_account,subject,dateline,message,userip,attachment,is_reply_post,be_reply_uid,be_reply_posi)  "
-                    + "select max(pid+1),?,?,?,?,?,?,?,?,?,?,?,?,?,? from forum_post;";
-            //测试表 pid为自增字段 的sql
+            //如果迁移到orm框架，ibatis之类，建议这里sql写成动态识别的
+            int exeNum=0;
+            if( post.getIsReplyPost()==1){
+                //是回复
+                String addPostSql = "insert into forum_post (pid,fid,tid,first,author,author_uid,author_account,subject,dateline,message,userip,attachment,is_reply_post,be_reply_uid,be_reply_posi)  "
+                        + "select max(pid+1),?,?,?,?,?,?,?,?,?,?,?,?,?,? from forum_post;";
+                exeNum = this.execUpdate(addPostSql, post.getFid(), post.getTid(), post.getFirst(), post.getAuthor(),
+                        post.getAuthorUid(), post.getAuthorAccount(), post.getSubject(), new Date().getTime(), post.getMessage(),
+                        post.getUserip(), post.getAttchment(), post.getIsReplyPost(), post.getBeReplyUid(), post.getBeReplyPosi());
+            }else {
+                //不是回复
+                String addPostSql = "insert into forum_post (pid,fid,tid,first,author,author_uid,author_account,subject,dateline,message,userip,attachment)"
+                        + "select max(pid+1),?,?,?,?,?,?,?,?,?,?,? from forum_post;";
+                exeNum = this.execUpdate(addPostSql, post.getFid(), post.getTid(), post.getFirst(), post.getAuthor(),
+                        post.getAuthorUid(), post.getAuthorAccount(), post.getSubject(), new Date().getTime(), post.getMessage(),
+                        post.getUserip(), post.getAttchment());
+            }
+            //测试使用 pid为自增字段 的sql
             //String addPostSql = "insert into test_forum_post (fid,tid,first,author,author_uid,author_account,subject,dateline,message,userip,attachment,is_reply_post,be_reply_uid,be_reply_posi,position)  "
             //        + "select ?,?,?,?,?,?,?,?,?,?,?,?,?,?,count(position)+1 from test_forum_post where tid = ?;";
-            int exeNum = this.execUpdate(addPostSql, post.getFid(), post.getTid(), post.getFirst(), post.getAuthor(),
-                    post.getAuthorUid(), post.getAuthorAccount(), post.getSubject(), new Date().getTime(), post.getMessage(),
-                    post.getUserip(), post.getAttchment(), post.getIsReplyPost(), post.getBeReplyUid(), post.getBeReplyPosi());
             if (exeNum == 1) {
                 int posi = this.LAST_INSERT_ID();
                 return posi;
@@ -105,8 +116,8 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
                     + "from forum_post,users_info "
                     + "where forum_post.author_uid=users_info.uid and tid =? limit ?,?;";
 
-            ForumPostPage postPage = new ForumPostPage(tid, page);
             ResultSet rs = this.execQuery(selectPageSql, tid, begin, end);
+            ForumPostPage postPage = new ForumPostPage(tid, page);
             postPage.setTid(tid);
             int i = 0;
             while (rs.next()) {
@@ -124,7 +135,11 @@ public class ForumPostDAOImpl extends DAOSupport implements ForumPostDAO {
                         rs.getString("userip"),
                         rs.getInt("attachment"),
                         rs.getInt("position"),
-                        rs.getString("icon_img")));
+                        rs.getString("icon_img"),
+                        rs.getInt("is_reply_post"),
+                        rs.getInt("be_reply_uid"),
+                        rs.getInt("be_reply_posi"),
+                        rs.getInt("deleted") ));
                 i++;
             }
             //查询帖子总楼层数
