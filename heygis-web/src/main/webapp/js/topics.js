@@ -6,6 +6,10 @@ var whichsubmit = 0;
 //被回复的用户数据
 var userBeReplyed = new Object();
 
+//判断是否在发布中，避免多次点击重复发送
+var post_public_processing = false;
+var reply_public_processing = false;
+
 function next() {
     if (page == totalPage) {
         alert("没有下一页了！");
@@ -33,36 +37,22 @@ function getQueryString(name) {
     return null;
 }
 
-
-//$(document).ready(function(){
-//	$("#post_submit").click(function(){
-//		alert($("#textarea_post").val());
-//		$("#test").html($("#textarea_post").val());
-//	});
-//});
-//
-//废弃可删除
-// var posi;
-// var uid;
-// var nickname;
-// var account;
-// var redpid;
-// var redmes;
-
-
 jQuery(document).ready(function ($) {
     $('.reply .close').click(function () {
         $('.reply').slideUp(200);
     })
 })
 
+/** 普通post发布控制部分 开始*/
 function postPublic() {
     var userState = eval('(' + isLogin() + ')');
     if (userState.loged == false) {
         whichsubmit = 1;
-        $('.theme-popover-mask').fadeIn(100);
-        $('.theme-popover').slideDown(200);
+        log_window_open();
     } else {
+        //检查是否在发布中,保证不会因多次点击多次发送
+        if(post_public_processing == true)
+            return;
         finalpostPublic();
     }
 }
@@ -74,10 +64,13 @@ function finalpostPublic() {
             location.reload();
         }
     } else {
+        post_public_processing = true;
         document.getElementById('postpubllic').submit();
     }
 }
+/** 普通post发布控制部分 结束*/
 
+/** reply的post发布控制部分 开始*/
 function reply(_posi, _uid, _account, _nickname, _redpid) {
 //	$("#posi_subButton").click(posiReplyPublic(posi,uid,account,nickname,redmes));
 //	document.getElementById('posi_subButton').onclick = posiReplyPublic(posi,uid,account,nickname,redmes);
@@ -91,7 +84,7 @@ function reply(_posi, _uid, _account, _nickname, _redpid) {
 }
 
 function posiReplyPublic() {
-//	document.getElementById('postauthor_account').value = userBeReplyed.account;
+	// document.getElementById('postauthor_account').value = userBeReplyed.account;
     document.getElementById('replyposi').value = userBeReplyed.posi;
     document.getElementById('postauthor_uid').value = userBeReplyed.uid;
     document.getElementById('replypid').value = userBeReplyed.redpid;
@@ -100,9 +93,11 @@ function posiReplyPublic() {
     if (userState.loged == false) {
         whichsubmit = 2;
         $('.reply').slideUp(200);
-        $('.theme-popover-mask').fadeIn(100);
-        $('.theme-popover').slideDown(200);
+        log_window_open();
     } else {
+        //检查是否在发布中,保证不会因多次点击多次发送
+        if(reply_public_processing == true)
+            return;
         replyfinalsubmit();
     }
 }
@@ -114,20 +109,20 @@ function replyfinalsubmit() {
             location.reload();
         }
     } else {
+        reply_public_processing = true;
         document.getElementById('posi_reply_form').submit();
     }
 }
+/** reply的post发布控制部分 结束 */
 
 /** 定制版loginJS */
 jQuery(document).ready(function ($) {
     $('.theme-login').click(function () {
         whichsubmit == 0;
-        $('.theme-popover-mask').fadeIn(100);
-        $('.theme-popover').slideDown(200);
+        log_window_open();
     })
     $('.theme-poptit .close').click(function () {
-        $('.theme-popover-mask').fadeOut(100);
-        $('.theme-popover').slideUp(200);
+        log_window_close();
     })
 
 })
@@ -147,10 +142,15 @@ function login() {
                 $('#loginMessage').css("font-size", '16px');
             } else if (data == 1) {
                 if (whichsubmit == 0) {
+                    //普通登陆成功，刷新界面
                     location.reload();
                 } else if (whichsubmit == 1) {
+                    //登陆成功，发表post
+                    log_window_close();
                     finalpostPublic();
                 } else if (whichsubmit == 2) {
+                    //登陆成功，发表post回复
+                    log_window_close();
                     replyfinalsubmit();
                 }
             }
@@ -172,6 +172,18 @@ function isLogin() {
     });
     return result;
 }
+
+
+//显示登陆窗口
+function log_window_open() {
+    $('.theme-popover-mask').fadeIn(100);
+    $('.theme-popover').slideDown(200);
+}
+//关闭登陆窗口
+function log_window_close() {
+    $('.theme-popover-mask').fadeOut(100);
+    $('.theme-popover').slideUp(200);
+}
 /** 定制版loginJS結束 */
 
 
@@ -184,17 +196,6 @@ function getQueryString(name) {
 
 jQuery(document).ready(function ($) {
     if (getQueryString("seeposi") != null) {
-//		$("#posi"+getQueryString("seeposi")).css('backgroundColor','#FFFF77');
-//		setTimeout(function(){
-//	        $("#posi"+getQueryString("seeposi")).css('backgroundColor','');
-//	    },1300);
-//		$("#posi"+getQueryString("seeposi")).css('backgroundColor','');
-//		$("#posi"+getQueryString("seeposi")).animate({
-//			opacity:'0.3'
-//		},"slow");
-//		$("#posi"+getQueryString("seeposi")).animate({
-//			opacity:'1'
-//		},"slow");
         $("#posi" + getQueryString("seeposi")).animate({
             backgroundColor: '#FFFF77'
         }, 300);
@@ -204,6 +205,7 @@ jQuery(document).ready(function ($) {
     }
 })
 
+//下面是添加代码和添加图片窗口打开关闭控制 ，i用于表示是普通post(1) ,还是 reply的post(2)
 function openCode(i) {
     if (i == 1) {
         closeImg(1);
@@ -246,6 +248,7 @@ function closeImg(i) {
     }
 }
 
+//添加代码，i用于表示是普通post(1) ,还是 reply的post(2)
 function addCode(i) {
     if (i == 1) {
         var code = document.getElementById("code-text1").value;

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * 待修改，迁移到service里最好
+ */
 public class TopicWordProcess {
 //	public static void main(String []args){
 //		String word = "aaaaaa\nbbbbbb\nvvvvvvv\nccccccc\n<pre class='prettyprint'>\n</pre>\nsssssss\ndddddd\nccccccc\n<pre class='prettyprint'>\n</pre>\nsssssss\ndddddd";

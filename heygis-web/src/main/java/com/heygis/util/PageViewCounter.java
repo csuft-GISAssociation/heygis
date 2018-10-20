@@ -6,6 +6,9 @@ import java.util.List;
 
 import com.heygis.dao.PageViewCounterDAImpl;
 
+/**
+ * 待修改，这里的实现很蠢很不规范
+ */
 public class PageViewCounter {
     private static int num = new PageViewCounterDAImpl().getLastNum() + 137;
     private static int index = 0;

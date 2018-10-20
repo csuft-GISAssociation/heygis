@@ -40,9 +40,8 @@ public class ReplyPostServlet extends HttpServlet {
             return;
         }
         String message = request.getParameter("message");
-        String replyhread = request.getParameter("replyhead");
         String subject = request.getParameter("subject");
-        int pid = Integer.parseInt(request.getParameter("replypid"));
+        int replypid = Integer.parseInt(request.getParameter("replypid"));
         int tid = Integer.parseInt(request.getParameter("tid"));
         int fid = Integer.parseInt(request.getParameter("fid"));
 //		String replyedaccount = request.getParameter("postauthor_account");
@@ -50,12 +49,15 @@ public class ReplyPostServlet extends HttpServlet {
         int t_uid = Integer.parseInt(request.getParameter("t_uid"));
         int rd_uid = Integer.parseInt(request.getParameter("postauthor_uid"));
         int rp_posi = Integer.parseInt(request.getParameter("replyposi"));
-        String replyedmessage = replyhread + postService.getPostMessage(pid) + "</blockquote></fieldset>";
+        //原本是这里直接拼接html，现在改成通过 rp_posi 在展示的时候在再动态应用构造
+//      String replyhread = request.getParameter("replyhead");
+//      String replyedmessage = replyhread + postService.getPostMessage(replypid) + "</blockquote></fieldset>";
+
         int attchment = 0;
         User user = (User) request.getSession().getAttribute("user");
 
         ForumPost post = new ForumPost(-1, fid, tid, 0, user.getNickName(), user.getUid(), user.getAccount(), "",
-                new Date(), replyedmessage + message, request.getRemoteAddr(), attchment, 1, rd_uid, rp_posi);
+                new Date(),  message, request.getRemoteAddr(), attchment, 1, rd_uid, rp_posi);
         ForumMessage fmsg = new ForumMessage(user.getNickName(), user.getUid(), rd_uid, subject, new Date().getTime(), 2, fid, tid);
 
         if (postService.addReplyPost(post, fmsg, t_uid, user.getUid())) {

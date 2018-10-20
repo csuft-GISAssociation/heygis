@@ -14,12 +14,10 @@
 
 jQuery(document).ready(function ($) {
     $('.theme-login').click(function () {
-        $('.theme-popover-mask').fadeIn(100);
-        $('.theme-popover').slideDown(200);
+        log_window_open();
     });
     $('.theme-poptit .close').click(function () {
-        $('.theme-popover-mask').fadeOut(100);
-        $('.theme-popover').slideUp(200);
+        log_window_close();
     });
 });
 
@@ -50,7 +48,7 @@ function login() {
     return false; // 阻止表单自动提交事件
 }
 
-//获取用户状态，判断是否登陆
+//获取用户状态，判断是否登陆。是同步的，非异步
 function isLogin() {
     var result;
     $.ajax({
@@ -62,4 +60,15 @@ function isLogin() {
         }
     });
     return result;
+}
+
+//显示登陆窗口
+function log_window_open() {
+    $('.theme-popover-mask').fadeIn(100);
+    $('.theme-popover').slideDown(200);
+}
+//关闭登陆窗口
+function log_window_close() {
+    $('.theme-popover-mask').fadeOut(100);
+    $('.theme-popover').slideUp(200);
 }

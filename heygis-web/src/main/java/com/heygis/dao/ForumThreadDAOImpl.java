@@ -18,7 +18,7 @@ public class ForumThreadDAOImpl extends DAOSupport implements ForumThreadDAO {
         try {
             this.openConn();
             String sql = "insert into forum_thread (fid,typeid,sortid,author,author_uid,"
-                    + "author_account,subject,dateline,lastpost,attachment,lastpost,lastpost_uid)values(?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "author_account,subject,dateline,lastpost,attachment,lastposter,lastposter_uid)values(?,?,?,?,?,?,?,?,?,?,?,?);";
             int exeNum = this.execUpdate(sql, thread.getFid(), thread.getTypeid(), thread.getSortid(), thread.getAuthor(),
                     thread.getAuthorUid(), thread.getAuthorAuthor(), thread.getSubject(), new Date().getTime(),
                     new Date().getTime(), thread.getAttachment(),thread.getAuthor(),thread.getAuthorUid());
