@@ -1,5 +1,11 @@
+//用于判断是哪种登陆，0是普通登陆，1是发帖是不再登录状态，唤起登陆窗口登陆
 var wherelog = 0;
+
+//当前页码
 var page = getQueryString("page");
+
+//判断是否在发布中，避免多次点击重复发送
+var public_processing = false;
 
 //下一页按钮
 function next() {
@@ -30,26 +36,28 @@ function getQueryString(name) {
     return null;
 }
 
-$(function () {
-});
-
 function public() {
     var div = document.getElementById('thread_public');
     div.setAttribute("class", "thread_public_wraper container visible");
     document.getElementById("anchor_scroll").click();
 }
 
+//发布thread
 function threadpublic() {
+    //检查是否在发布中,保证不会因多次点击多次发送
+    if(public_processing == true)
+        return;
     var userState = eval('(' + isLogin() + ')');
+    //判断是否登陆，未登录的话拉起登陆窗口，让用户登陆，此处登陆成功提交表单
     if (userState.loged == false) {
         wherelog = 1;
-        $('.theme-popover-mask').fadeIn(100);
-        $('.theme-popover').slideDown(200);
+        log_window_open();
     } else {
         finalsubmit();
     }
 }
 
+//检查并最终提交thread
 function finalsubmit() {
     if (document.getElementById("thread_subTextarea").value == '') {
         alert("标题不能为空！");
@@ -57,6 +65,7 @@ function finalsubmit() {
         if (document.getElementById("post_textarea").value == '') {
             alert("内容不能为空！");
         } else {
+            public_processing = true;
             document.getElementById("threadpublic").submit();
         }
     }
@@ -66,14 +75,11 @@ function finalsubmit() {
 jQuery(document).ready(function ($) {
     $('.theme-login').click(function () {
         wherelog = 0;
-        $('.theme-popover-mask').fadeIn(100);
-        $('.theme-popover').slideDown(200);
+        log_window_open();
     })
     $('.theme-poptit .close').click(function () {
-        $('.theme-popover-mask').fadeOut(100);
-        $('.theme-popover').slideUp(200);
+        log_window_close()
     })
-
 })
 
 function login() {
@@ -90,10 +96,11 @@ function login() {
                 $('#loginMessage').css("font-size", '16px');
             } else if (data == 1) {
                 if (wherelog == 0) {
+                    //普通登陆
                     location.reload();
-                } else if (where = 1) {
-                    $('.theme-popover-mask').fadeOut(100);
-                    $('.theme-popover').slideUp(200);
+                } else if (wherelog == 1) {
+                    log_window_close();
+                    //登陆成功则提交发帖表单
                     finalsubmit();
                 }
             }
@@ -101,6 +108,7 @@ function login() {
     });
     return false; // 阻止表单自动提交事件
 }
+
 //获取用户状态，判断是否登陆
 function isLogin() {
     var result;
@@ -114,9 +122,20 @@ function isLogin() {
     });
     return result;
 }
+
+//显示登陆窗口
+function log_window_open() {
+    $('.theme-popover-mask').fadeIn(100);
+    $('.theme-popover').slideDown(200);
+}
+//关闭登陆窗口
+function log_window_close() {
+    $('.theme-popover-mask').fadeOut(100);
+    $('.theme-popover').slideUp(200);
+}
 /**loginJSj结束*/
 
-//下面是回复窗口打开关闭控制
+//下面是添加代码，添加图片窗口打开关闭控制
 function openCode() {
     closeImg();
     $("#codeDiv").css("visibility", "visible");

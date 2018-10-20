@@ -153,7 +153,7 @@
 										<a  onclick="closeImg()" class="btn btn-sm btn-danger imgbtn" >取消</a>
 									</div>
 								</a>
-								<textarea id="post_textarea" name='message' placeholder="发表新帖：标题" required></textarea>
+								<textarea id="post_textarea" name='message' placeholder="发表新帖：内容" required></textarea>
 							</div>	
 							<div class="clear"></div>
 						</div>
