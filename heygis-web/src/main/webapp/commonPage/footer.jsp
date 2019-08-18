@@ -5,7 +5,6 @@
     <div class="container row-fluid foot">
         <div class="col-md-4  col-sm-6 foot-left">
             <h1 class="footh1">联系我们</h1> Email:heygis@163.com
-            <br /> QQ:1018445130或835035738
             <br /> Address:长沙市韶山南路498号中南林业科技大学
             <br />
         </div>
